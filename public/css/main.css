@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&display=swap');
+
+#main-header {
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 3000;
+}
+
+#logo-img{
+    height: 10vh;
+    width: 10vh;
+}
+
+#about-us:hover,#service:hover,
+#company-profile:hover,
+#core:hover, #contact-us:hover,
+#inquire:hover, #login:hover {
+    color: #C2DB8F;
+}
+
+#contact-us {
+    position: absolute;
+    margin-left:230px;
+}
+
+#inquire {
+    position: absolute;
+    margin-left: 340px;
+}
+
+#login {
+    position: absolute;
+    margin-left: 480px;
+}
+
+.main-container {
+    background-color: #090909;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.core-container {
+    background-color: #FEFFFE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#core-title {
+    font-family: "Bevan", sans-serif;
+    font-size: 50px;
+    text-shadow:2px 2px 2px gray;
+    color: #215219;
+    margin-top: 60px;
+}
+
+.core-content-title {
+    padding: 40px;
+    color: #0B7649;
+}
+
+.service-container{
+    background-color: #C2DB8F;
+}
+
+.service-title-container {
+    display: flex;
+    justify-content: center;
+}
+
+#service-title {
+    font-family: "Bevan", sans-serif;
+    font-size: 50px;
+    text-shadow:2px 2px 2px gray;
+    color: #215219;
+    margin-top: 100px;
+}
+
+.service-title2-container {
+    display: flex;
+    justify-content: center;
+}
+
+#service-title2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 40px;
+    text-shadow:2px 2px 2px gray;
+    color: #215219;
+    margin-top: 50px;
+}
+
+.card {
+    min-width:  200px; 
+    max-width:  400px;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card-col-6 {
+    flex:  0  0  50%;
+    box-sizing: border-box;
+}
+
+#service-content1 {
+    margin-left: 250px;
+}
+
+#read-more-btn {
+    background-color: #8A5D3C;
+    border: #8A5D3C;
+}
