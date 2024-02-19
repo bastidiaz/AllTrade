@@ -1,0 +1,45 @@
+.fabrication-content1-container,
+.fabrication-content2-container,
+.fabrication-content3-container {
+    background-color: #F3F2F2;
+    display: flex;
+}
+
+.fabrication-content1 {
+    font-family: "Montserrat", sans-serif;
+    margin: 150px;
+    text-align: left;
+}
+
+#img-content1 {
+    height: 500px;
+    width: 600px;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.fabrication-content2 {
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin-top: 80px;
+    margin-right: 50px;
+    margin-left: 100px;
+}
+
+.fabrication-content2-title {
+    margin-bottom: 20px;
+}
+
+.fabrication-content2-info {
+    padding: 12px;
+    margin: 20px;
+    text-align: justify;
+}
+
+#img-content2 {
+    height: 500px;
+    width: 600px;
+    margin-left: 50px;
+    margin-top: 85px;
+    margin-bottom: 30px;
+}
