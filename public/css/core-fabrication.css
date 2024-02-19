@@ -1,14 +1,20 @@
-.fabrication-content1-container,
-.fabrication-content2-container,
-.fabrication-content3-container {
-    background-color: #F3F2F2;
+.fabrication-content1-container {
+    background-color: #BBC191;
     display: flex;
 }
 
 .fabrication-content1 {
-    font-family: "Montserrat", sans-serif;
     margin: 150px;
     text-align: left;
+}
+
+.fabrication-content1 h3 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.fabrication-content1 p {
+    font-family: "Open-sans", sans-serif;
+    margin-top: 20px;
 }
 
 #img-content1 {
@@ -16,6 +22,11 @@
     width: 600px;
     margin-right: 50px;
     margin-top: 30px;
+}
+
+.fabrication-content2-container {
+    background-color: #84A869;
+    display: flex;
 }
 
 .fabrication-content2 {
@@ -31,8 +42,10 @@
 }
 
 .fabrication-content2-info {
+    font-family: "Open-sans", sans-serif;
     padding: 12px;
     margin: 20px;
+    margin-left: -20px;
     text-align: justify;
 }
 

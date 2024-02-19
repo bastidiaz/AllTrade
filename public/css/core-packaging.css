@@ -11,6 +11,11 @@
     text-align: left;
 }
 
+.packaging-content1 p {
+    font-family: "Open-sans", sans-serif;
+    margin-top: 20px;
+}
+
 #img-content1 {
     height: 500px;
     width: 600px;
@@ -19,31 +24,31 @@
 }
 
 .packaging-content2 {
-    font-family: "Montserrat", sans-serif;
     text-align: left;
     margin-top: 80px;
     margin-right: 50px;
     margin-left: 100px;
 }
 
-.packaging-content2-title {
-    margin-bottom: 20px;
-}
-
-.packaging-content2-info {
-    padding: 12px;
-}
-
 #img-content2 {
     height: 500px;
     width: 600px;
-    margin-left: 50px;
-    margin-top: 85px;
-    margin-bottom: 30px;
+}
+
+.packaging-content2 h3{
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 20px;
+    margin-left: -50px;
+}
+
+.packaging-content2-info {
+    font-family: "Open-sans", sans-serif;
+    padding: 5px;
+    margin-left: -50px;
 }
 
 .packaging-content3 {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open-sans", sans-serif;
     text-align: left;
     margin-top: 100px;
     margin-right: 100px;
@@ -51,7 +56,8 @@
     margin-bottom: 50px;
 }
 
-.packaging-content3-title {
+.packaging-content3 h3 {
+    font-family: "Montserrat", sans-serif;
     margin-top: 30px;
 }
 

@@ -6,8 +6,8 @@ body::-webkit-scrollbar {
 }
 
 #main-header {
-    font-family: "Montserrat", sans-serif;
-    font-size: 15px;
+    font-family: "Open-sans", sans-serif;
+    font-size: 18px;
     font-weight: 500;
     position: sticky;
     top: 0;
