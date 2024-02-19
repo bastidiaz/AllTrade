@@ -6,7 +6,8 @@
 #about-us:hover,#service:hover,
 #company-profile:hover,
 #core:hover, #contact-us:hover,
-#inquire:hover, #login:hover {
+#inquire:hover, #login:hover,
+#dropdownMenuLink:hover {
     color: #C2DB8F;
 }
 
@@ -49,7 +50,18 @@
 
 .core-content-title {
     padding: 40px;
-    color: #0B7649;
+    color: white;
+    background-color: #677424;
+}
+
+#dropdownMenuLink {
+    background-color: #FEFFFE;
+    border-color: #FEFFFE;
+    color: black;
+}
+
+.carousel-img {
+    height: 800px;
 }
 
 .service-container{
@@ -101,6 +113,6 @@
 }
 
 #read-more-btn {
-    background-color: #8A5D3C;
-    border: #8A5D3C;
+    background-color: #846954;
+    border: #846954;
 }

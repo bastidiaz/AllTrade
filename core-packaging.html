@@ -11,7 +11,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="/public/css/general.css">
     <link rel="stylesheet" href="/public/css/main.css">
-    <link rel="stylesheet" href="/public/css/core.css">
+    <link rel="stylesheet" href="/public/css/core-packaging.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -20,14 +20,14 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
-        <a class="navbar-brand" href="#"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
+        <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" id="about-us" href="#"> ABOUT US </a>
+                    <a class="nav-link" id="about-us" href="main.html"> ABOUT US </a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" id="company-profile" href="#"> OUR COMPANY PROFILE </a>
@@ -35,9 +35,20 @@
                 <li class="nav-item active">
                     <a class="nav-link" id="service" href="#"> OUR SERVICES </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" id="core" href="core-capabilities.html"> CORE CAPABILITIES </a>
-                </li>
+                <div class="dropdown show">
+                    <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        CORE CAPABILITIES
+                    </a>
+                  
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="core-packaging.html"> Packaging Design & Development </a>
+                      <a class="dropdown-item" href="#"> Contract Manufacturing </a>
+                      <a class="dropdown-item" href="#"> Toll Manufacturing </a>
+                      <a class="dropdown-item" href="#"> Product Formulation & Development </a>
+                      <a class="dropdown-item" href="#"> Fabrication of Production Machineries </a>
+                    </div>
+                </div>
+                
                 <li class="nav-item">
                     <a class="nav-link active" id="contact-us" href="#"> CONTACT US </a>
                 </li>
@@ -51,9 +62,9 @@
         </div>
     </nav>
 
-    <div class="core-content1-container">
-        <div class="core-content1">
-            <h3 class="core-content1-title"> Packaging Design and Development </h3>
+    <div class="packaging-content1-container">
+        <div class="packaging-content1">
+            <h3 class="packaging-content1-title"> Packaging Design and Development </h3>
             <p>
                 Effective packaging for your product is what will make your
                 product stand out among the competition. It is important that
@@ -62,20 +73,20 @@
             </p>
         </div>
 
-        <div class="core-content-img1">
+        <div class="packaging-content-img1">
             <img id="img-content1" src="/public/img/img-content-sample1.jpg">
         </div>
     </div>
 
-    <div class="core-content2-container">
-        <div class="core-content-img2">
+    <div class="packaging-content2-container">
+        <div class="packaging-content-img2">
             <img id="img-content2" src="/public/img/img-content-sample1.jpg">
         </div>
 
-        <div class="core-content2">
-            <h3 class="core-content2-title"> Packaging Design's Function </h3>
+        <div class="packaging-content2">
+            <h3 class="packaging-content2-title"> Packaging Design's Function </h3>
            
-            <div class="core-content2-info">
+            <div class="packaging-content2-info">
                 <h6> HELPS CUSTOMERS MAKE INFORMED DECISIONS </h6>
                 <p>
                     Your packaging should include information being readily
@@ -84,7 +95,7 @@
                 </p>
             </div>
 
-            <div class="core-content2-info">
+            <div class="packaging-content2-info">
                 <h6> HELPS DIFFERENTIATE YOU FROM COMPETITION </h6>
                 <p>
                     There may be brands in your industry, but custom packaging can help 
@@ -94,12 +105,46 @@
                 </p>
             </div>
 
-            <div class="core-content2-info">
+            <div class="packaging-content2-info">
                 <h6> DELIVERS A MESSAGE TO CONSUMER </h6>
                 <p>
                     What does your packaging say about your company? Everything from
                     your logo placement down to the front should tell intended customers 
                     this is the product for them and why.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="packaging-content3-container">
+        <div class="packaging-content3">
+            <h3 class="packaging-content3-title"> Packaging Design's Function </h3>
+           
+            <div class="packaging-content3-info">
+                <h6> PROTECTS THE PRODUCT </h6>
+                <p>
+                    The primary function of product packaging is to protect items from 
+                    damage, specially during transit. The right retail packaging also protects 
+                    items while being stored in shelving.
+                </p>
+            </div>
+
+            <div class="packaging-content3-info">
+                <h6> ATTRACT CUSTOMERS </h6>
+                <p>
+                    It's not enough that product packaging protects the goods inside.
+                    Your packaging needs to be attractive and advertise your brand but also 
+                    embodies your brand. The top custom packaging services will conduct extensive
+                    research to decide which color schemes, designs, and type of product packaging will 
+                    be most attractive to your audience and potential customers. 
+                </p>
+            </div>
+
+            <div class="packaging-content3-info">
+                <h6> PROMOTES THE PRODUCT </h6>
+                <p>
+                    Having the right design scheme will do a lot of your product promotions for 
+                    your business.
                 </p>
             </div>
         </div>
