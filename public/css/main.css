@@ -11,12 +11,17 @@
     color: #C2DB8F;
 }
 
-#contact-us {
-    position: absolute;
-    margin-left:230px;
+li {
+    display: inline;
+}
+.nav-space{
+    margin-left: 350px;
 }
 
-#inquire {
+/* #contact-us, #inquire, #login { 
+} */
+
+/* #inquire {
     position: absolute;
     margin-left: 340px;
 }
@@ -24,7 +29,7 @@
 #login {
     position: absolute;
     margin-left: 480px;
-}
+} */
 
 .main-container {
     background-color: #090909;
@@ -58,6 +63,7 @@
     background-color: #FEFFFE;
     border-color: #FEFFFE;
     color: black;
+    margin-right: 30px;
 }
 
 .carousel-img {
