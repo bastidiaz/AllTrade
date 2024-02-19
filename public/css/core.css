@@ -1,0 +1,39 @@
+.core-content1-container {
+    background-color: #F3F2F2;
+    display: flex;
+}
+
+.core-content1 {
+    font-family: "Montserrat", sans-serif;
+    margin: 200px;
+    text-align: left;
+}
+
+#img-content1 {
+    height: 500px;
+    width: 600px;
+    margin-right: 50px;
+    margin-top: 30px;
+}
+
+.core-content2-container {
+    background-color: #F3F2F2;
+    display: flex;
+}
+
+.core-content2 {
+    font-family: "Montserrat", sans-serif;
+    text-align: right;
+    margin: 60px;
+}
+
+.core-content2-info {
+    padding: 12px;
+}
+
+#img-content2 {
+    height: 500px;
+    width: 600px;
+    margin-left: 50px;
+    margin-top: 60px;
+}
