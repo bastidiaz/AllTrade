@@ -1,5 +1,5 @@
 .fabrication-content1-container {
-    background-color: #BBC191;
+    background-color: #A8D489;
     display: flex;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .fabrication-content2-container {
-    background-color: #84A869;
+    background-color: #C5DEA4;
     display: flex;
 }
 
@@ -44,7 +44,7 @@
 .fabrication-content2-info {
     font-family: "Open-sans", sans-serif;
     padding: 12px;
-    margin: 20px;
+    margin-top: 30px;;
     margin-left: -20px;
     text-align: justify;
 }

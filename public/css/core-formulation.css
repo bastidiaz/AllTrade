@@ -1,50 +1,50 @@
 .formulation-content1-container {
     display: flex;
     background-color: #AAC2CE;
-    justify-content: center;
 }
 
-.formulation-content1-title {
-    display: flex;
-    justify-content: center;
-    margin-left: 30px;
-    margin-top: 40px;
+.formulation-content1 {
+    margin-left: 100px;
+    margin-top: 220px;
     margin-bottom: 40px;
 }
 
-.formulation-content1-title h2 {
+.formulation-content1 h2 {
     font-family: "Montserrat", sans-serif;
 }
 
-#img-content2 {
-    margin: 30px;
+.formulation-content1 p {
+    margin-top: 20px;
+    font-family: "Open-sans", sans-serif;
+    font-size: 20px;
 }
+
+#img-content1 {
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 500px;
+    width: 700px;
+}
+
 
 .formulation-content2-container {
     display: flex;
-    justify-content: center;
+    background-color: #C6D4D8;
 }
 
 .formulation-content3-container {
     display: flex;
-    justify-content: center;
-    background-color: #C6D4D8;
+    background-color: #E6ECEE;
 }
 
+.formulation-content2-info,
 .formulation-content3-info {
-    text-align: left;
-    padding: 40px;
+    margin-left: 50px;
+    padding: 20px;
 }
 
+.formulation-content2-info p,
 .formulation-content3-info p {
-    font-size: 20px;
-}
-
-.formulation-content4-info {
-    text-align: left;
-    padding: 40px;
-}
-
-.formulation-content4-info p {
     font-size: 20px;
 }

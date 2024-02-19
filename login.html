@@ -18,7 +18,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
-            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
+            <a class="navbar-brand" href="#"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -30,9 +30,18 @@
                     <li class="nav-item active">
                         <a class="nav-link" id="company-profile" href="#"> OUR COMPANY PROFILE </a>
                     </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" id="service" href="#"> OUR SERVICES </a>
-                    </li>
+    
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            OUR SERVICES
+                        </a>
+                      
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#"> Partnership with DOST </a>
+                            <a class="dropdown-item" href="#"> Partnership with UPLB </a>
+                        </div>
+                    </div>
+              
                     <div class="dropdown show">
                         <a class="btn btn-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             CORE CAPABILITIES
@@ -40,13 +49,13 @@
                       
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                           <a class="dropdown-item" href="core-packaging.html"> Packaging Design & Development </a>
-                          <a class="dropdown-item" href="#"> Contract Manufacturing </a>
-                          <a class="dropdown-item" href="#"> Toll Manufacturing </a>
-                          <a class="dropdown-item" href="#"> Product Formulation & Development </a>
-                          <a class="dropdown-item" href="#"> Fabrication of Production Machineries </a>
+                          <a class="dropdown-item" href="core-contract.html"> Contract Manufacturing </a>
+                          <a class="dropdown-item" href="core-toll.html"> Toll Manufacturing </a>
+                          <a class="dropdown-item" href="core-formulation.html"> Product Formulation & Development </a>
+                          <a class="dropdown-item" href="core-fabrication.html"> Fabrication of Production Machineries </a>
                         </div>
                     </div>
-                    
+                    <li class="nav-space"> </li>
                     <li class="nav-item">
                         <a class="nav-link active" id="contact-us" href="#"> CONTACT US </a>
                     </li>
@@ -54,11 +63,12 @@
                         <a class="nav-link active" id="inquire" href="#"> INQUIRE NOW </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" id="login" href="#"> CLIENT LOGIN </a>
+                        <a class="nav-link active" id="login" href="login.html"> CLIENT LOGIN </a>
                     </li>
                 </ul>
             </div>
         </nav>
+    
         <div class="main-container">
             <div class="picframe">
                 
