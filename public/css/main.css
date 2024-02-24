@@ -7,36 +7,20 @@
 #company-profile:hover,
 #core:hover, #contact-us:hover,
 #inquire:hover, #login:hover,
-#dropdownMenuLink:hover {
+#navbarDropdown:hover {
     color: #C2DB8F;
 }
-
-li {
-    display: inline;
-}
-
-.nav-space{
-    margin-left: 50px;
-}
-
-/* #contact-us, #inquire, #login { 
-} */
-
-/* #inquire {
-    position: absolute;
-    margin-left: 340px;
-}
-
-#login {
-    position: absolute;
-    margin-left: 480px;
-} */
 
 .main-container {
     background-color: #090909;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.img-content {
+    width: 100%;
+    height: auto;
 }
 
 .core-container {
@@ -58,13 +42,6 @@ li {
     padding: 40px;
     color: white;
     background-color: #677424;
-}
-
-#dropdownMenuLink {
-    background-color: #FEFFFE;
-    border-color: #FEFFFE;
-    color: black;
-    margin-right: 30px;
 }
 
 .carousel-img {
