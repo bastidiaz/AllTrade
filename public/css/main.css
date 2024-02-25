@@ -172,3 +172,7 @@ textarea {
     background-color: #f8f8f8;
     resize: none;
 }
+
+label {
+    font-family: "Open-sans", sans-serif;
+}

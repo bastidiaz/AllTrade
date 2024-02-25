@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html>
     <head>
+        <!-- Required meta tags -->
         <meta charset="utf-8">
-        <title>AllTrade - Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Favicon -->
@@ -15,85 +14,94 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <title> AllTrade Manufacturing </title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
             <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
-          
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                  <a class="nav-link" id="about-us" href="main.html"> About Us <span class="sr-only">(current)</span></a>
+                <a class="nav-link" id="about-us" href="main.html"> About Us <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" id="company-profile" href="main.html"> Profile</a>
+                <a class="nav-link" id="company-profile" href="main.html"> Profile</a>
                 </li>
                 <li class="nav-item dropdown active">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Our Services
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="#"> Partnership with DOST </a>
                     <a class="dropdown-item" href="#"> Partnership with UPLB </a>
-                  </div>
+                </div>
                 </li>
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Core Capabilities
+                    Core Capabilities
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="core-contract.html"> Contract Manufacturing </a>
-                      <a class="dropdown-item" href="core-toll.html"> Toll Manufacturing </a>
-                      <a class="dropdown-item" href="core-packaging.html"> Packaging Design and Development </a>
-                      <a class="dropdown-item" href="core-formulation.html"> Product Formulation and Development </a>
-                      <a class="dropdown-item" href="core-fabrication.html"> Fabrication of Production Machineries </a>
+                    <a class="dropdown-item" href="core-contract.html"> Contract Manufacturing </a>
+                    <a class="dropdown-item" href="core-toll.html"> Toll Manufacturing </a>
+                    <a class="dropdown-item" href="core-packaging.html"> Packaging Design and Development </a>
+                    <a class="dropdown-item" href="core-formulation.html"> Product Formulation and Development </a>
+                    <a class="dropdown-item" href="core-fabrication.html"> Fabrication of Production Machineries </a>
                     </div>
-                  </li>
-              </ul>
-    
-              <ul class="navbar-nav mr-auto">
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" id="contact-us" href="#"> Contact Us <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" id="contact-us" href="main.html"> Contact Us <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" id="inquire" href="#"> Inquire Now <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" id="inquire" href="main.html"> Inquire Now <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" id="login" href="login.html"> Client Login <span class="sr-only">(current)</span></a>
                 </li>
-              </ul>
+            </ul>
             </div>
         </nav>
-    
+        
         <div class="main-container">
-            <div class="picframe">
-                
-            </div>
-            <div class="login-page">
-                <div class="form">
-                  <div class="login">
+            <div class="img-container">
+                <img id="img-content" src="/public/img/img-login.jpg">
+            </div>    
+            
+            <div class="login-main-container">
+                <div class="login-sub-container">
                     <div class="login-header">
-                        <h3>Welcome Back!</h3>
+                        <div class="login-title">
+                            <h3> Welcome Back! </h3>
+                        </div>
                     </div>
-                  </div>
-                  <form class="login-form">
-                    <label for="username">username</label>
-                    <input type="text" name="username" id="username"/>
-                    <label for="password">password</label>
-                    <input type="password" name="password" id="password"/>
-                    <button>login</button>
-                  </form>
+                          
+                    <form class="login-form">
+                        <div class="form-group row">
+                            <label for="inputUsername" class="col-sm-2 col-form-label"> Username </label>
+                            <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                        </div>
+    
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label"> Password </label>
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        </div>
+                    </form>
+
+                    <button type="submit" class="btn btn-primary" id="login-btn"> LOGIN </button>
                 </div>
-              </div>
+            </div>
         </div>
-        
-        
+
         <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>

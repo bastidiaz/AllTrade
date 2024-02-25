@@ -1,112 +1,59 @@
-header .header{
-  background-color: #A9C86A;
-  height: 45px;
+.main-container {
+  display: flex;
+  background-color: #F3F2F2;
 }
 
-header a img{
-  width: 134px;
-    margin-top: 4px;
-}
-.login-page {
-  width: 100%;
-  padding: 8% 5% 5%;
-  margin: auto;
-  background-color: #2d322e;
+.img-container {
+  display: flex;
+  margin-top: 20px;
 }
 
-.picframe{
-    width: 30%;
-    padding: 0;
-    /* background-image: url(/public/img/alltrade-main.png); */
-    background-color: #2d322e;
+#img-content {
+  width:50vh;
+  height: 80vh;
 }
 
-
-label{
-    float: left;
+.login-main-container {
+  background-color: #C5C4C0;
+  width: 100vh;
+  height: 80vh;
+  margin-top: 20px;
 }
 
-.login-header{
-    background-color: #A9C86A;
-    color: #f2f2f2;
-    padding: 20px;
-    margin-top: 5%;
-    font-family: "Montserrat", sans-serif;;
-}
-.login-form{
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 60px;
-    margin: 0 auto 150px;
+.login-sub-container {
+  background-color: #F3F2F2;
+  margin: 100px;
+  width: 60vh;
+  height: 54vh;
+  border-radius: 20px;
 }
 
-.form {
-    border-radius: 2%;
-    position: relative;
-    z-index: 1;
-    background: #FFFFFF;
-    max-width: 360px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+.login-header {
+  background-color: #8FB885;
+  padding: 20px;
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
-
-
-.form input {
-  font-family: "Roboto", sans-serif;
-  outline: 0;
-  background: #f2f2f2;
-  width: 100%;
-  border: 0;
-  margin: 0 0 15px;
-  padding: 15px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-.form button {
-    border-radius: 3px;
-    align-self:flex-end;
-    float: right;
-    font-family: "Montserrat", sans-serif;
-    text-transform: uppercase;
-    outline: 0;
-    background-color: #328f8a;
-    background-image: linear-gradient(45deg,#328f8a,#08ac4b);
-    width: 35%;
-    border: 0;
-    padding: 10px;
-    color: #FFFFFF;
-    font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    cursor: pointer;
-}
-.form .message {
-  margin: 15px 0 0;
-  color: #b3b3b3;
-  font-size: 12px;
-}
-.form .message a {
-  color: #4CAF50;
-  text-decoration: none;
-}
-
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-.main-container{
-    background-color: #f2f2f2;
-    padding: 2%;
-}
-
-body {
-  /* background-image: linear-gradient(45deg, #2d322e,#2d322e); */
+.login-title h3 {
+  color: white;
   font-family: "Montserrat", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+
+.login-form {
+  margin-top: 30px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+label {
+  font-family: "Open-sans", sans-serif;
+}
+
+
+#login-btn {
+  background-color: #435933;
+  border-color: #435933;
+  margin-left: 40px;
 }
