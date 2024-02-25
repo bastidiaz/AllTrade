@@ -100,3 +100,75 @@
     background-color: #846954;
     border: #846954;
 }
+
+.contact-main-container {
+    display: flex;
+}
+
+.contact-container {
+    background-color: black;
+    width: 50%;
+    color: white;
+}
+
+.contact-title {
+    background-color: #0B7649;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 1px;
+    width: 30%;
+    font-size: 20px;
+}
+
+.contact-content-container {
+    font-family: "Opens-sans", sans-serif;
+    margin: 80px;
+    padding: 20px;
+}
+
+.contact-title h6,
+.inquire-title h6 {
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    font-size: 20px;
+}
+
+.inquire-container {
+    justify-content: right;
+    background-color: #FEFFFE;
+    width: 50%;
+}
+
+.inquire-title {
+    background-color: #0B7649;
+    margin-top: 18px;
+    padding-top: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 2px;
+    width: 30%;
+    font-size: 20px;
+    float: right;
+}
+
+.inquire-content-container {
+    margin: 120px;
+}
+
+#send-btn {
+   background-color: #84A869;
+   border-color: #84A869;
+   color: white;
+}
+
+textarea {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    resize: none;
+}
