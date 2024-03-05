@@ -6,13 +6,12 @@ const ticketControl = {
         let tickets = await Ticket.find().limit(limit).exec();
         tickets = tickets.map(ticket => {
             return {
-                _id: ticket._id,
                 orderNum: ticket.orderNum,
                 creationDate: ticket.creationDate,
-                prioLevel: ticket.prioLevel
+                prioLevel: ticket.prioLevel,
+                userAssigned: ticket.userAssigned
             }
         });
-
         res.render("tickets", {tickets: tickets});
     }
 };

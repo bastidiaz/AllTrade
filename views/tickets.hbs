@@ -75,6 +75,16 @@
             </div>
         </div>
         -->
+        {{#each tickets}}
+            <div class="ticket-entry">
+                <p>Order Number: {{this.orderNum}}</p>
+                <p>Creation Date: {{this.creationDate}}</p>
+                <p>Priority Level: {{this.prioLevel}}</p>
+                <p>Order Status: {{this.orderStatus}}</p>
+            </div>
+        {{else}}
+            <p>No tickets found.</p>
+        {{/each}}
     </div>
 </main>
 <script>
@@ -85,32 +95,6 @@
     function closeForm() {
         document.getElementById("popupForm").style.display = "none";
     }
-
-    document.addEventListener("DOMContentLoaded", async function() {
-        const user = window.location.pathname.split('/').pop();
-        const response = await fetch(`/tickets/${user}`);
-        const tickets = await response.json();
-
-        const ticketEntries = document.querySelector(".ticket-entries");
-
-        tickets.forEach(ticket => {
-            const ticketEntry = document.createElement("div");
-            ticketEntry.classList.add("ticket-entry");
-            ticketEntry.innerHTML = `
-            <div class="ticket-info">
-                <div class="left-info">
-                    <p>Request for: ${ticket.clientName}</p>
-                    <p>Created on: ${new Date(ticket.creationDate).toLocaleDateString()}</p>
-                    <p>Handled by: ${ticket.handler}</p> <!-- Adjust based on how you store handler -->
-                </div>
-                <div class="right-info">
-                    <p>Status: ${ticket.orderStatus}</p>
-                </div>
-            </div>
-        `;
-            ticketEntries.appendChild(ticketEntry);
-        });
-    });
 </script>
 </body>
 </html>
