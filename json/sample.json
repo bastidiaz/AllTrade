@@ -1,0 +1,46 @@
+[
+    {
+        "clientName": "Global Industries",
+        "orderNum": "ORD0001",
+        "creationDate": "2024-03-05T10:00:00.000Z",
+        "prioLevel": 1,
+        "capacityUtilization": 50,
+        "orderStatus": "PENDING",
+        "otherDetails": "First phase of the project.",
+        "handler": "letty",
+        "assignedUser": "letty"
+    },
+    {
+        "clientName": "Tech Solutions",
+        "orderNum": "ORD0002",
+        "creationDate": "2024-03-06T11:30:00.000Z",
+        "prioLevel": 3,
+        "capacityUtilization": 65,
+        "orderStatus": "ACCEPTED",
+        "otherDetails": "Requires immediate attention.",
+        "handler": "letty",
+        "assignedUser": "letty"
+    },
+    {
+        "clientName": "Eco Friendly Corp",
+        "orderNum": "ORD0003",
+        "creationDate": "2024-03-07T09:20:00.000Z",
+        "prioLevel": 2,
+        "capacityUtilization": 70,
+        "orderStatus": "IN PROGRESS",
+        "otherDetails": "Focus on sustainable materials.",
+        "handler": "letty",
+        "assignedUser": "letty"
+    },
+    {
+        "clientName": "Innovative Designs",
+        "orderNum": "ORD0004",
+        "creationDate": "2024-03-08T14:45:00.000Z",
+        "prioLevel": 4,
+        "capacityUtilization": 80,
+        "orderStatus": "ON THE WAY",
+        "otherDetails": "Deliver to the new site location.",
+        "handler": "letty",
+        "assignedUser": "letty"
+    }
+]
