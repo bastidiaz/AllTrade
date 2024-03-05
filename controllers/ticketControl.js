@@ -9,6 +9,7 @@ const ticketControl = {
                 orderNum: ticket.orderNum,
                 creationDate: ticket.creationDate,
                 prioLevel: ticket.prioLevel,
+                orderStatus: ticket.orderStatus,
                 userAssigned: ticket.userAssigned
             }
         });

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const hbs = require('express-handlebars');
 const path = require('path');
 
-const uri = 'mongodb://127.0.0.1:27017'
+const uri = 'mongodb://127.0.0.1:27017/AllTrade'
 
 const Ticket = require("./models/Ticket.js");
 const User = require("./models/User.js");
