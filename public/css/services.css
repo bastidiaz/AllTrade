@@ -1,0 +1,68 @@
+.nav-tabs .nav-item .nav-link {
+    color: green;
+    border-radius: 0;
+    border: none;
+}
+
+.nav-tabs > li > a:hover {
+    color: gray !important;
+}
+
+/* DOST */
+.nav-tabs .nav-dost-item .nav-link.active {
+    background-color: #bb8835;
+    color: white;
+    margin: 0;
+}
+
+#dost-tab-content {
+    background-color: #bb8835;
+    color: white;
+}
+
+.dost-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dost-logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+#dost-logo {
+    height: 42vh;
+    width: 50vh;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.dost-info-container h6 {
+    font-family: "Open-sans", sans-serif;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.dost-fiber-info,
+.dost-dyeing-info {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.dost-fiber-img,
+.dost-dyeing-img {
+    display: flex;
+    justify-content: center;
+}
+
+.dost-fiber-img img,
+.dost-dyeing-img img {
+    height: 50vh;
+    width: 150vh;
+    margin-bottom: 30px;
+}
+
+/* UPLB */
