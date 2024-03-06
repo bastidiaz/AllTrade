@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>User Login</title>
+</head>
+
+<body class="sign-up-log-in-body">
+    <!-- LOG IN BODY -->
+    <div class="sign-up-log-in-content">
+        <div class="content">
+            <div class="left">
+                <h1>Log In</h1>
+                <form class="log-in-grid" action ="/login" method="post">
+                    <input class = "other" name="emailLogin" type="text" placeholder="Email">
+                    <input class = "other" name="passwordLogin" type="text" placeholder="Password">
+                    <div class = "remember-me">
+                        <input type="checkbox" name="remember">
+                        Remember Me?
+                    </div>
+                    <a href="/forgot-password">Forgot Password?</a>
+                    <button class = "other button button-inside" name="submit-log-in" type="submit" value="Log In">Log In</button>
+                </form>
+                <div class="bottom">
+                    {{#if errorMessage}}
+                        <div class="error-message">
+                            {{errorMessage}}
+                        </div>
+                    {{/if}}
+                    <div class="old-new-account">
+                        New to AnimoEats?
+                        <a href="/sign-up">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <a href="/">
+                    <img src="assets/svg/animoeats-logo.svg" alt="logo">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JQuery Lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
