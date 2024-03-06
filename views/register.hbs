@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/ico/favicon.ico" type="image/x-icon">
+    <title>Register</title>
+</head>
+
+<body class="register-login-body">
+    <!-- SIGN UP BODY -->
+    <div class="register-login-content">
+        <div class="content">
+            <div class="left">
+                <h1>Register</h1>
+                <form class="register-grid" action="/register" method="post">
+                    <input class = "name" name ="firstName" type="text" placeholder="First Name">
+                    <input class = "name" name="lastName" type="text" placeholder="Last Name">
+                    <input class = "username" name="username" type="text" placeholder="Username">
+                    <input class = "other" name="email" type="text" placeholder="Email">
+                    <input class = "other" name="password" type="text" placeholder="Password">
+                    <div class="other button"><button class = "button-inside" name="submit-register" type="submit" value="Register">Register</button></div>
+                </form>
+                <div class="old-new-account">
+                    Already have an account?
+                    <a href="/login">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JQuery Lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

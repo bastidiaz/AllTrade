@@ -10,9 +10,10 @@ const registerControl = {
         const data = { 
             firstName: req.body.firstName,
             lastName: req.body.lastName,
+            username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-            dateMade: today.getDate(),
+            dateMade: today,
         };
     
         try {
