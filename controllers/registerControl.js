@@ -6,14 +6,14 @@ const registerControl = {
     },
     
     async submitRegistration(req, res) {
-        const today = new Date();
-        const data = { 
+        const data = {
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-            dateMade: today,
+            dateMade: new Date(),
+            isAdmin: false
         };
     
         try {
