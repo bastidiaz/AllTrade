@@ -166,7 +166,7 @@
 
 .packaging-content2 {
     text-align: left;
-    margin-top: 80px;
+    margin-top: 150px;
     margin-right: 50px;
     margin-left: 100px;
 }
@@ -224,7 +224,7 @@
     font-family: "Montserrat", sans-serif;
     text-align: left;
     margin-left: 100px;
-    margin-top: 100px;
+    margin-top: 150px;
     margin-right: 100px;
 }
 
@@ -298,6 +298,7 @@
     text-align: left;
     margin-right: 100px;
     margin-left: 20px;
+    margin-top: 200px;
 }
 
 .fabrication-content2-info {
@@ -311,4 +312,5 @@
     height: 60vh;
     width: 120vh;
     margin-bottom: 30px;
+    margin-top: 170px;
 }

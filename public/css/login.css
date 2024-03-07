@@ -24,7 +24,7 @@
   background-color: #F3F2F2;
   margin: 100px;
   width: 60vh;
-  height: 54vh;
+  height: 60vh;
   border-radius: 20px;
 }
 
@@ -55,5 +55,13 @@ label {
 #login-btn {
   background-color: #435933;
   border-color: #435933;
+  margin-left: 40px;
+}
+
+.remember-me-container {
+  margin-left: 40px;
+}
+
+.forgot-pass-container {
   margin-left: 40px;
 }
