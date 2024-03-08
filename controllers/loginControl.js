@@ -1,4 +1,5 @@
 const User = require('../models/User.js');
+const bcrypt = require('bcrypt');
 
 const loginControl = {
     showLoginForm(req, res) {
@@ -13,7 +14,9 @@ const loginControl = {
     async submitLoginForm(req, res) {
         try {
             const user = await User.findOne({ email: req.body.emailLogin });
-            if (user && user.password === req.body.passwordLogin) {
+            const passwordLogin = req.body.passwordLogin;
+            const samePass = await bcrypt.compare(passwordLogin, user.password); //since the pass is hashed already
+            if (user && samePass) {
                 // Simplify session handling based on 'remember' checkbox
                 if (req.body.remember === "on") {
                     req.session.cookie.maxAge = 21 * 24 * 60 * 60 * 1000; // 3 weeks
