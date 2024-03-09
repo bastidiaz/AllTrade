@@ -20,66 +20,70 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
             <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+            <div class="user-info"> 
+                <p> Hi, Letty! </p>
+            </div>
+
+            <div class="logout-container">
+                <button id="logout-btn"> Log Out </button>
+            </div>
         </nav>
 
-        <div class="header-outer-container">
-            <div class="dropdown" id="dropdown-container">
-                <button class="btn btn-secondary dropdown-toggle" id="dropdown-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Sort by: Date
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#"> Priority Level </a>
-                </div>
-            </div>
-
-            <div class="search-box-container">
-                <input type="text" placeholder="Search..">
-            </div>
-
-            <div class="create-ticket-container">
-                <button id="create-btn"> Create Ticket </button>
-            </div>
-        </div>
-
-        <div class="ticket-container">
-            <div class="left-info-container">
-                <div class="Lfirst-line">
-                    <p class="Lfirst-info">
-                        <span class="request-tag">Request for </span>
-                        <span class="name-info">Juan Cruz</span>
-                        <span class="request-type">[Order Inquiry] </span>
-                        <span class="ticket-number-tag">Order number: </span>
-                        <span class="ticket-number">OR0001</span>
-                    </p>
-                </div>
-                <div class="Lsecond-line">
-                    <p class="Lsecond-info">
-                        <span class="created-on-tag">Created on </span>
-                        <span class="created-date">Jan 01, 2024</span>
-                        <span class="separator"> | </span>
-                        <span class="created-time">12:00pm</span>
-                        <span class="separator"> | </span>
-                        <span class="created-day"> MON </span>
-                    </p>
-                </div>
-                <div class="Lthrid-line">
-                    <p class="Lthird-info">
-                        <span class="handled-by-tag">Ticket handled by: </span>
-                        <span class="employee-name">David Juan</span>
-                    </p>
-                </div>
-            </div>
-            <div class="right-info-container"> 
-                <div class="progress-box">
-                    <span class="status"> In Proogress </span>
-                </div>
-            </div>
-        </div>
+        <div class="main-outer-container">
+            <div class="header-outer-container">
+                <div class="header-inner-container">
+                    <div class="search-box-container">
+                        <input type="text" placeholder="Search..">
+                    </div>
         
+                    <div class="dropdown" id="dropdown-container">
+                        <select id="sort-by">
+                            <option value="date"> Sort by Date </option>
+                            <option value="status"> Sort by Status </option>
+                        </select>
+                    </div>
+    
+                    <div class="create-ticket-container">
+                        <button id="create-btn"> CREATE TICKET </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="ticket-outer-container">
+                <div class="ticket-inner-container">
+                    <div class="ticket-container1">
+                        <div class="number-container">
+                            <div class="order-number">
+                                <p> Order Number: </p>
+                            </div>
+                        </div>
+
+                        <div class="date-container">
+                            <div class="creation-date">
+                                <p> Creation date: </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ticket-container2">
+                        <div class="priority-container">
+                            <div class="priority-level">
+                                <p> Priority Level </p>
+                                <p> 4 </p>
+                            </div>
+                        </div>
+
+                        <div class="status-container">
+                            <div class="order-status">
+                                <p> Order Status </p>
+                                <p> IN PROGRESS </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- JavaScript -->
