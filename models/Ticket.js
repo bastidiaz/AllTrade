@@ -32,11 +32,11 @@ const ticketSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    handler: {
+    handlerUsername: {
         type: String,
         required: true
     },
-    assignedUser: {
+    companyUsername: {
         type: String,
         required: true
     }

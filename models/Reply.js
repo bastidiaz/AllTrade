@@ -13,14 +13,10 @@ const replySchema = new Schema({
         type: Date,
         required: true
     },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: User
-    },
     description: {
         type: String,
         required: true
-    },
+    }
 });
 
 const Reply = mongoose.model('Reply', replySchema);

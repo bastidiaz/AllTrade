@@ -7,8 +7,7 @@ const registerControl = {
     
     async submitRegistration(req, res) {
         const data = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
+            companyName: req.body.companyName,
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,

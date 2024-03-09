@@ -69,6 +69,8 @@ app.engine('hbs', hbs.engine({extname: 'hbs'}) );
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
+app.post('/reply', ticketControl.submitReply);
+
 app.get('/', indexControl.showHome);
 // user management
 app.get("/login", loginControl.showLoginForm);
