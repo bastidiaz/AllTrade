@@ -22,9 +22,11 @@
 
 .login-sub-container {
   background-color: #F3F2F2;
-  margin: 100px;
-  width: 60vh;
-  height: 60vh;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 20px;
+  width: 30vw;
+  height: 64vh;
   border-radius: 20px;
 }
 

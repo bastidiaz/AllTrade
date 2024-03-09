@@ -30,31 +30,6 @@
     height: 800px;
 }
 
-/* Core capabilities */
-.core-outer-container {
-    display: flex;
-    background-color: green;
-    justify-content: center;
-}
-
-.core-inner-container {
-    display: flex;
-    margin: 50px;
-}
-
-.core-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#img-packaging {
-    height: 30vh;
-    width: 30vh;
-    border-radius: 500px;
-    margin: 5vh;
-}
-
 /* Contact and Inquire */
 .contact-main-container {
     display: flex;

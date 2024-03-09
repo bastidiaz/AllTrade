@@ -5,19 +5,19 @@
 }
 
 .nav-tabs > li > a:hover {
-    color: gray !important;
+    color: rgb(35, 31, 31) !important;
 }
 
 /* DOST */
 .nav-tabs .nav-dost-item .nav-link.active {
-    background-color: #bb8835;
-    color: white;
+    background-color: #8FB885;
+    color: rgb(38, 36, 36);
     margin: 0;
 }
 
 #dost-tab-content {
-    background-color: #bb8835;
-    color: white;
+    background-color:#8FB885;
+    color: rgb(38, 36, 36);
 }
 
 .dost-title-container {
@@ -66,3 +66,13 @@
 }
 
 /* UPLB */
+.nav-tabs .nav-uplb-item .nav-link.active {
+    background-color: #657FA6;
+    color: rgb(38, 36, 36);
+    margin: 0;
+}
+
+#uplb-tab-content {
+    background-color:#657FA6;
+    color: rgb(38, 36, 36);
+}
