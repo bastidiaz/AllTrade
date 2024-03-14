@@ -27,12 +27,12 @@ const registerControl = {
     // }
 
     async submitRegistration(req, res) {
-        const { firstName, lastName, username, email, password } = req.body;
+        const { companyName, username, email, password } = req.body;
         // check for existing user
         try {
             const Existing = await User.findOne({$or: [{username}, {email}] });
             if(Existing){
-                return res.status(400).json({message: 'Username already exists'});
+                return res.status(400).json({message: 'Username or email already exists'});
             }
 
             //hash the password
@@ -40,10 +40,9 @@ const registerControl = {
 
             //create record in userscchma
             const newUser = new User({
-                firstName,
-                lastName,
-                email,
+                companyName,
                 username,
+                email,
                 password: hashedPassword,
                 dateMade: new Date(),
                 isAdmin: false
@@ -53,7 +52,7 @@ const registerControl = {
             
             await newUser.save();
             req.session.username = username;
-            res.redirect("login");
+            res.redirect("/login");
         }catch (error){
             console.error('Error creating account:', error);
             res.status(500).send("An error occurred.");

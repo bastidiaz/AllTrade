@@ -37,7 +37,7 @@ const loginControl = {
 
     async submitLoginForm(req, res) {
         try {
-            const user = await User.findOne({ email: req.body.emailLogin });
+            const user = await User.findOne({ username: req.body.usernameLogin });
             const passwordLogin = req.body.passwordLogin;
             const samePass = await bcrypt.compare(passwordLogin, user.password); //since the pass is hashed already
             if (user && samePass) {
@@ -47,7 +47,7 @@ const loginControl = {
                 } else {
                     req.session.cookie.expires = false; // Session ends when browser closes
                 }
-                req.session.user = { username: user.username, email: user.email }; // Store minimal user info in session
+                req.session.user = { username: user.username}; // Store minimal user info in session
                 res.redirect('/tickets/' + user.username);
             } else {
                 res.render("login", { errorMessage: 'Invalid email or password' });
