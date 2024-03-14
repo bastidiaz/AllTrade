@@ -62,7 +62,7 @@ async function connect() {
 //     next(); // Proceed to the route handler if authentication and authorization checks pass
 // };
 
-app.use(express.static('public'));
+app.use(express.static('/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.engine('hbs', hbs.engine({extname: 'hbs'}) );

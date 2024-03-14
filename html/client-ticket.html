@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Favicon -->
+        <link rel ="icon" href="/public/img/favicon.png">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/public/css/general.css">
+        <link rel="stylesheet" href="/public/css/main.css">
+        <link rel="stylesheet" href="/public/css/client-ticket.css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <title> AllTrade Manufacturing </title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
+            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+
+        <div class="header-outer-container">
+            <div class="dropdown" id="dropdown-container">
+                <button class="btn btn-secondary dropdown-toggle" id="dropdown-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Sort by: Date
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#"> Priority Level </a>
+                </div>
+            </div>
+
+            <div class="search-box-container">
+                <input type="text" placeholder="Search..">
+            </div>
+
+            <div class="create-ticket-container">
+                <button id="create-btn"> Create Ticket </button>
+            </div>
+        </div>
+
+        <div class="ticket-container">
+            <div class="left-info-container">
+                <div class="Lfirst-line">
+                    <p class="Lfirst-info">
+                        <span class="request-tag">Request for </span>
+                        <span class="name-info">Juan Cruz</span>
+                        <span class="request-type">[Order Inquiry] </span>
+                        <span class="ticket-number-tag">Order number: </span>
+                        <span class="ticket-number">OR0001</span>
+                    </p>
+                </div>
+                <div class="Lsecond-line">
+                    <p class="Lsecond-info">
+                        <span class="created-on-tag">Created on </span>
+                        <span class="created-date">Jan 01, 2024</span>
+                        <span class="separator"> | </span>
+                        <span class="created-time">12:00pm</span>
+                        <span class="separator"> | </span>
+                        <span class="created-day"> MON </span>
+                    </p>
+                </div>
+                <div class="Lthrid-line">
+                    <p class="Lthird-info">
+                        <span class="handled-by-tag">Ticket handled by: </span>
+                        <span class="employee-name">David Juan</span>
+                    </p>
+                </div>
+            </div>
+            <div class="right-info-container"> 
+                <div class="progress-box">
+                    <span class="status"> In Proogress </span>
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,316 @@
+#pills-tab {
+    background-color: #F3F2F2;
+}
+
+.nav-pills > li > a.active {
+    background-color: #435933 !important;
+    color: #ffffff !important;
+}
+  
+.nav-pills > li > a:hover {
+    color: black !important;
+}
+  
+.nav-link {
+    color: black;
+}
+
+/* Toll */
+.toll-content1-container,
+.toll-content2-container {
+    background-color: #F6F6DA;
+    display: flex;
+}
+
+.toll-content1 {
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin: 100px;
+}
+
+#img-toll-content1 {
+    height: 50vh;
+    width: 80vh;
+    margin-right: 50px;
+    margin-top: 100px;
+}
+
+.toll-content1 h3 {
+    font-size: 30px;
+    margin-top: 100px;
+}
+
+.toll-content1 p {
+    font-family: "Open-sans", sans-serif;
+    text-align: justify;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.toll-content2 {
+    font-family: "Open-sans", sans-serif;
+    text-align: left;
+    padding-top: 80px;
+    margin-top: 50px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+.toll-content2 h3 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.toll-content2-info h6 {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.toll-content2-info p {
+    font-size: 18px;
+}
+
+/* Contract */
+.contract-content1-container,
+.contract-content2-container {
+    background-color: #5a8faa;
+    display: flex;
+    color: white;
+}
+
+.contract-content1 {
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 120px;
+}
+
+.contract-content1 h3 {
+    margin-top: 80px;
+}
+
+.contract-content1 p {
+    font-family: "Open-sans", sans-serif;
+    text-align: justify;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#img-contract-content {
+    height: 60vh;
+    width: 120vh;
+    margin-right: -50px;
+    margin-top: 80px;
+}
+
+.contract-content2 {
+    font-family: "Open-sans", sans-serif;
+    text-align: left;
+    padding-top: 80px;
+    margin-top: 50px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+.contract-content2 h3 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.contract-content2-info h6 {
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.contract-content2-info p {
+    font-size: 18px;
+}
+
+.contract-content2-info p {
+    font-size: 18px;
+}
+
+/* Packaging */
+.packaging-content1-container,
+.packaging-content2-container,
+.packaging-content3-container {
+    background-color: #F3F2F2;
+    display: flex;
+}
+
+.packaging-content1 {
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 200px;
+    margin-right: 100px;
+}
+
+.packaging-content h3 {
+    margin-top: 100px;
+}
+
+.packaging-content1 p {
+    font-family: "Open-sans", sans-serif;
+    text-align: justify;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#img-packaging-content1 {
+    height: 50vh;
+    width: 80vh;
+    margin-right: 50px;
+    margin-top: 100px;
+}
+
+.packaging-content2 {
+    text-align: left;
+    margin-top: 150px;
+    margin-right: 50px;
+    margin-left: 100px;
+}
+
+#img-packaging-content2 {
+    height: 60vh;
+    width: 80vh;
+    margin-top: 20px;
+}
+
+.packaging-content2 h3{
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 20px;
+    margin-left: -50px;
+}
+
+.packaging-content2-info {
+    font-family: "Open-sans", sans-serif;
+    padding: 5px;
+    margin-left: -50px;
+}
+
+.packaging-content3 {
+    font-family: "Open-sans", sans-serif;
+    text-align: left;
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-bottom: 50px;
+}
+
+.packaging-content3 h3 {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 30px;
+}
+
+.packaging-content3-info h6 {
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.packaging-content3-info p {
+    font-size: 18px;
+}
+
+/* Formulation */
+.formulation-content1-container,
+.formulation-content2-container {
+    background-color: #ce8e66;
+    display: flex;
+    color: white;
+}
+
+.formulation-content1 {
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 150px;
+    margin-right: 100px;
+}
+
+.formulation-content1 h3 {
+    margin-top: 80px; 
+}
+
+.formulation-content1 p {
+    font-family: "Open-sans", sans-serif;
+    text-align: justify;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-right: -120px;
+}
+
+#img-formulation-content {
+    height: 60vh;
+    width: 125vh;
+    margin-right: -50px;
+    margin-top: 80px;
+}
+
+.formulation-content2-info {
+    font-family: "Open-sans", sans-serif;
+    text-align: left;
+    font-size: 18px;
+    margin-top: 200px;
+    margin-left: 140px;;
+    margin-bottom: 60px;
+}
+
+.formulation-content2-info p {
+    padding: 2px;
+}
+
+/* Fabrication */
+.fabrication-content1-container,
+.fabrication-content2-container {
+    background-color: #99b585;
+    display: flex;
+}
+
+.fabrication-content1 {
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.fabrication-content1 h3 {
+    margin-top: 100px;
+}
+
+.fabrication-content1 p {
+    font-family: "Open-sans", sans-serif;
+    text-align: justify;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#img-fabrication-content1 {
+    height: 60vh;
+    width: 125vh;
+    margin-right: -50px;
+    margin-top: 80px;
+}
+
+.fabrication-content2 {
+    font-family: "Montserrat", sans-serif;
+    text-align: left;
+    margin-right: 100px;
+    margin-left: 20px;
+    margin-top: 200px;
+}
+
+.fabrication-content2-info {
+    font-family: "Open-sans", sans-serif;
+    text-align: justify;
+    padding: 12px;
+    margin-left: -100px;
+}
+
+#img-fabrication-content2 {
+    height: 60vh;
+    width: 120vh;
+    margin-bottom: 30px;
+    margin-top: 170px;
+}
