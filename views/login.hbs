@@ -2,7 +2,7 @@
     {{> navigationBar}}
     <div class="main-container">
             <div class="img-container">
-                <img id="img-content" src="/public/img/img-login.jpg">
+                <img id="img-content" src="/img/img-login.jpg">
             </div>    
             
             <div class="login-main-container">
@@ -13,28 +13,49 @@
                         </div>
                     </div>
                           
-                    <form class="login-form">
+                    <form class="login-form" action ="/login" method="post">
                         <div class="form-group row">
-                            <label for="inputUsername" class="col-sm-2 col-form-label"> Username </label>
-                            <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                            {{!-- <label name="usernameLogin" class="col-sm-2 col-form-label">Username</label> --}}
+                            <input type="text" name="usernameLogin" class="form-control" id="inputUsername" placeholder="Username">
                         </div>
     
                         <div class="form-group row">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label"> Password </label>
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                            {{!-- <label for="inputPassword3" class="col-sm-2 col-form-label"> Password </label> --}}
+                            <input type="password" name="passwordLogin" class="form-control" id="inputPassword3" placeholder="Password">
                         </div>
+
+                        <div class="remember-me-container">
+                            <input type="checkbox" id="remember-me" name="remember" value="Bike">
+                            <label for="remember-me"> Remember Me? </label><br>
+                        </div>
+
+                         <a href="/forgot-password">Forgot Password?</a>
+
+                         <button type="submit" value="Log In"  name="submit-log-in" class="btn btn-primary"> LOGIN </button>
                     </form>
-                    
-                    <div class="remember-me-container">
-                        <input type="checkbox" id="remember-me" name="remember" value="Bike">
-                        <label for="remember-me"> Remember Me? </label><br>
-                    </div>
 
-                    <div class="forgot-pass-container">
+                    {{!-- <div class="forgot-pass-container">
                         <p> Forgot Password? </p>
-                    </div>
+                    </div> --}}
+                    <div class="bottom">
+                    {{!-- {{#if errorMessage}}
+                        <div class="error-message">
+                            {{errorMessage}}
+                        </div>
+                    {{/if}} --}}
 
-                    <button type="submit" class="btn btn-primary" id="login-btn"> LOGIN </button>
+                    {{#if errorMessage}}
+                    <div class="alert alert-danger" role="alert">
+                        {{errorMessage}}
+                    </div>
+                    {{/if}}
+                    <div class="old-new-account">
+                        New client?
+                        <a href="/register">Register</a>
+                    </div>
+                </div>
+
+                    
                 </div>
             </div>
         </div>
