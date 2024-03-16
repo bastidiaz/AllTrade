@@ -1,78 +1,167 @@
-.nav-tabs .nav-item .nav-link {
-    color: green;
-    border-radius: 0;
-    border: none;
+#mytab {
+    background-color: #E5EEED;
 }
 
+.nav-tabs > li > a.active {
+    background-color: rgb(167, 117, 90) !important;
+    color: #ffffff !important;
+}
+  
 .nav-tabs > li > a:hover {
-    color: rgb(35, 31, 31) !important;
+    color: black !important;
+}
+  
+.nav-link {
+    color: black;
 }
 
 /* DOST */
-.nav-tabs .nav-dost-item .nav-link.active {
-    background-color: #8FB885;
-    color: rgb(38, 36, 36);
-    margin: 0;
+#dost-container {
+    background-color: #E5EEED;
+    margin-top: 20px;
 }
 
-#dost-tab-content {
-    background-color:#8FB885;
-    color: rgb(38, 36, 36);
-}
-
-.dost-title-container {
+.dost-content1-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.dost-logo-container {
-    display: flex;
-    justify-content: center;
+#dost-img {
+    margin: 50px;
+    width: 20vw;
+    height: 35vh;
 }
 
-#dost-logo {
-    height: 42vh;
-    width: 50vh;
-    margin-top: 50px;
-    margin-bottom: 20px;
+.dost-title-container h3 {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 130px;
 }
 
-.dost-info-container h6 {
+.dost-content1-container p {
     font-family: "Open-sans", sans-serif;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    font-size: 20px;
 }
 
-.dost-fiber-info,
-.dost-dyeing-info {
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-
-.dost-fiber-img,
-.dost-dyeing-img {
+.dost-content2-container {
     display: flex;
     justify-content: center;
 }
 
-.dost-fiber-img img,
-.dost-dyeing-img img {
-    height: 50vh;
-    width: 150vh;
-    margin-bottom: 30px;
+.dost-fiber-container {
+    margin-bottom: 50px;
+    margin-right: 50px;
+}
+
+.dost-fiber-container h6,
+.dost-natural-container h6 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 25px;
+}
+
+#fiber-img,
+#natural-img {
+    width: 40vw;
+    height: 20vh;
 }
 
 /* UPLB */
-.nav-tabs .nav-uplb-item .nav-link.active {
-    background-color: #657FA6;
-    color: rgb(38, 36, 36);
-    margin: 0;
+#uplb-container {
+    background-color: #e7bd7a;
+    margin-top: 20px;
 }
 
-#uplb-tab-content {
-    background-color:#657FA6;
-    color: rgb(38, 36, 36);
+.uplb-content1-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#uplb-img {
+    margin-top: 40px;
+    margin-right: 20px;
+    width: 20vw;
+    height: 35vh;
+}
+
+.uplb-title-container h3 {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 130px;
+}
+
+.uplb-content1-container p {
+    font-family: "Open-sans", sans-serif;
+    font-size: 20px;
+}
+
+.uplb-content2-container,
+.uplb-content4-container,
+.uplb-content6-container {
+    display: flex;
+    background-color: #7C1616;
+}
+
+.uplb-evap-info-container h6,
+.uplb-liquid-info-container h6,
+.uplb-storage-info-container h6,
+.uplb-decon-info-container h6,
+.uplb-bio-info-container h6 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    color: white;
+}
+
+.uplb-evap-info-container p,
+.uplb-liquid-info-container p,
+.uplb-storage-info-container p,
+.uplb-decon-info-container p,
+.uplb-bio-info-container p  {
+    font-family: "Open-sans", sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+.uplb-content3-container,
+.uplb-content5-container {
+    display: flex;
+    background-color: #0C4328;
+}
+
+.uplb-evap-info-container {
+    margin: 120px;
+}
+
+.evap-img-container {
+    margin-right: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.uplb-liquid-info-container {
+    margin-top: 120px;
+    margin-right: 100px;
+}
+
+.liquid-img-container {
+    margin-left: 100px;
+}
+
+.uplb-storage-info-container {
+    margin-top: 140px;
+    margin-left: 400px;
+}
+
+.uplb-decon-info-container {
+    margin-top: 260px;
+}
+
+.decon-img-container {
+    margin-left: 50px;
+}
+
+.uplb-bio-info-container {
+    margin-top: 130px;
+    margin-left: 100px;
+}
+
+.bio-img-container {
+    margin-right: 120px;
 }
