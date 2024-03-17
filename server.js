@@ -70,7 +70,10 @@ app.engine('hbs', hbs.engine({extname: 'hbs'}) );
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
+//main pages
 app.get('/', indexControl.showHome);
+app.get('/services',indexControl.showServices);
+app.get('/core', indexControl.showCore);
 // user management
 app.get("/login", loginControl.showLoginForm);
 app.post("/login", loginControl.submitLoginForm);
