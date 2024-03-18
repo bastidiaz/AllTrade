@@ -5,21 +5,25 @@ const path = require('path');
 const session = require('express-session');
 const connectMongo = require('connect-mongo');
 
-const uri = 'mongodb://127.0.0.1:27017/AllTrade'
+//const uri = 'mongodb://127.0.0.1:27017/AllTrade'
+const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
 
 const Ticket = require("./models/Ticket.js");
 const User = require("./models/User.js");
 const Reply = require("./models/Reply.js");
+const Inquiry = require("./models/inquiryForm.js");
 
 const ticketControl = require("./controllers/ticketControl.js");
 const indexControl = require("./controllers/indexControl.js");
 const loginControl = require("./controllers/loginControl.js");
 const registerControl = require("./controllers/registerControl.js");
+const inquiryControl = require("./controllers/inquiryControl.js");
 
 const app = express();
 
 const sessionStore = connectMongo.create({
-    mongoUrl: 'mongodb://127.0.0.1:27017/AllTrade',
+    //mongoUrl: 'mongodb://127.0.0.1:27017/AllTrade',
+    mongoUrl: 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue',
     collectionName: 'users',
     ttl: 1 * 24 * 60 * 60,
     autoRemove: 'native'
@@ -87,6 +91,9 @@ app.post('/tickets/:username/accept', ticketControl.acceptTicket);
 app.post('/tickets/:username/delete', ticketControl.deleteTicket);
 app.post('/tickets/:username/cancel', ticketControl.cancelTicket);
 app.post('/tickets/:username/update', ticketControl.updateTicketStatus);
+//inquiry
+app.post('/send', inquiryControl.sendInquiry);
+
 connect();
 
 app.listen(8000, () => {

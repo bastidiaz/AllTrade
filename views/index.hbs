@@ -71,32 +71,37 @@
                 </div>
 
                 <div class="inquire-content-container">
-                    <form>
+                    <form id="inquiryForm" action="/send" method="post" onsubmit="sendInquiry(event)"> 
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputFirstName">First name </label>
-                                <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
+                                <label for="inputFirstName">First name *</label>
+                                <input type="text" class="form-control" id="inputFirstName" name="firstName" placeholder="First name" required>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputLastName"> Last name </label>
-                                <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
+                                <label for="inputLastName"> Last name *</label>
+                                <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Last name" required>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputEmail4"> Email address </label>
-                                <input type="email" class="form-control" id="inputEmail4" placeholder="Email address">
+                                <label for="companyName"> company name </label>
+                                <input type="text" class="form-control" id="companyName" name="comapanyName" placeholder="comapay name">
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputNumber"> Phone number </label>
-                                <input type="number" class="form-control" id="inputNumber" placeholder="Phone number">
+                                <label for="inputEmail4"> Email address *</label>
+                                <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email address" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="inputNumber"> Phone number *</label>
+                                <input type="number" class="form-control" id="inputNumber" name="phoneNumber" placeholder="Phone number" required>
                             </div>
                         </div>
 
                         <div class="form-group" id="message-form-group">
-                            <label for="inputMessage"> Message/Inquiry </label>
-                            <textarea> Write a message... </textarea>
+                            <label for="inputMessage"> Message/Inquiry *</label>
+                            <textarea id="inputMessage" name="message" placeholder="Write a message..." required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" id="send-btn"> SEND </button>
@@ -134,8 +139,45 @@
                 </p>
             </div>
         </div>
+        {{!-- <script>
+            function sendInquiry(event) {
+                event.preventDefault();
+                const form = document.getElementById('inquiryForm');
+                const formData = new FormData(form);
+                fetch('/send', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        form.reset();
+                        alert('Your inquiry has been sent!');
+                    } else {
+                        alert('Failed to send inquiry. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while sending the inquiry. Please try again later.');
+                });
+            }
+        </script> --}}
+
+        <script>
+            $(document).ready(function() {
+            $('#inquiryForm').submit(function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+            setTimeout(() => {
+                $('#inquiryForm')[0].reset(); // Clear the input fields
+                alert('Your inquiry has been sent!'); // Display success message
+            }, 1000); // Adjust the timeout as needed
+        });
+    });
+        </script>
         
         <!-- JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script src="index.js"></script>
