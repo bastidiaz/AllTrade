@@ -1,4 +1,13 @@
 <title> AllTrade Manufacturing - Main </title>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+        (function(){
+            emailjs.init({
+            publicKey: "8LaiP-8xDJcSs6TFp",
+        });
+        })();
+        </script>
 {{> navigationBar}}
 <div class="main-container">
             <div id="img-main">
@@ -71,7 +80,8 @@
                 </div>
 
                 <div class="inquire-content-container">
-                    <form id="inquiryForm" action="/send" method="post" onsubmit="sendInquiry(event)"> 
+                    <form id="inquiryForm"> 
+                    <input type="hidden" name="access_key" value="9de67d05-5062-43a2-b1e2-0a09f9f3d3a3">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputFirstName">First name *</label>
@@ -104,11 +114,14 @@
                             <textarea id="inputMessage" name="message" placeholder="Write a message..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary" id="send-btn"> SEND </button>
+                        <button type="submit" class="btn btn-primary" id="send-btn" onclick="sendToMail()"> SEND </button>
                     </form>
                 </div>
             </div>
         </div>
+        <script>
+
+        </script>
 
         <div class="branches-outer-container">
             <div class="branches-inner-container">
@@ -139,45 +152,46 @@
                 </p>
             </div>
         </div>
-        {{!-- <script>
-            function sendInquiry(event) {
-                event.preventDefault();
-                const form = document.getElementById('inquiryForm');
-                const formData = new FormData(form);
-                fetch('/send', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => {
-                    if (response.ok) {
-                        form.reset();
-                        alert('Your inquiry has been sent!');
-                    } else {
-                        alert('Failed to send inquiry. Please try again.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('An error occurred while sending the inquiry. Please try again later.');
-                });
-            }
-        </script> --}}
-
         <script>
-            $(document).ready(function() {
-            $('#inquiryForm').submit(function(event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-            setTimeout(() => {
-                $('#inquiryForm')[0].reset(); // Clear the input fields
-                alert('Your inquiry has been sent!'); // Display success message
-            }, 1000); // Adjust the timeout as needed
-        });
-    });
-        </script>
+            function sendToMail() {
+                 console.log("sendToMail function called.");
+                var params = {
+                    lastName: document.getElementById("inputLastName").value,
+                    firstName: document.getElementById("inputFirstName").value,
+                    companyName: document.getElementById("companyName").value,
+                    email: document.getElementById("inputEmail4").value,
+                    phoneNumber: document.getElementById("inputNumber").value,
+                    message: document.getElementById("inputMessage").value,
+                };
+                console.log("Params:", params);
+
+                const serviceID = "service_7wmnjwq";
+                const templateID = "template_q8rohka";
+
+                try {
+                    emailjs.send(serviceID, templateID, params)
+                        .then(function (res) {
+                            document.getElementById("inputLastName").value = "";
+                            document.getElementById("inputFirstName").value = "";
+                            document.getElementById("companyName").value = "";
+                            document.getElementById("inputEmail4").value = "";
+                            document.getElementById("inputNumber").value = "";
+                            document.getElementById("inputMessage").value = "";
+                            console.log(res);
+                            alert("Your Inquiry is sent! Thank you.");
+                        });
+                } catch (err) {
+                    console.log(err);
+                    alert("Oops! An error occurred while sending your inquiry. Please try again later.");
+                }
+            }
+
+
+        </script>     
+
         
         <!-- JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <script src="index.js"></script>
+        {{!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> --}}
