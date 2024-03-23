@@ -1,38 +1,36 @@
 .main-container {
+  background-color: rgb(226, 226, 226);
   display: flex;
-  background-color: #F3F2F2;
-}
-
-.img-container {
-  display: flex;
-  margin-top: 20px;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: left;
+  width: 100%;
 }
 
 #img-content {
-  width:50vh;
-  height: 80vh;
+  margin: 0;
+  width: 40vw;
+  height: 115vh;
 }
 
 .login-main-container {
-  background-color: #C5C4C0;
-  width: 100vh;
-  height: 80vh;
-  margin-top: 20px;
+  margin-top: 0rem;
+  width: 100%;
 }
 
 .login-sub-container {
   background-color: #F3F2F2;
-  margin-top: 50px;
-  margin-left: 100px;
-  margin-right: 20px;
-  width: 30vw;
-  height: 64vh;
+  margin-top: 12rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
   border-radius: 20px;
+  width: auto;
+  height: 30rem;
 }
 
 .login-header {
   background-color: #8FB885;
-  padding: 20px;
+  padding: 1rem;
   text-align: center;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -41,29 +39,35 @@
 .login-title h3 {
   color: white;
   font-family: "Montserrat", sans-serif;
+  margin-top: 0.5em;
 }
 
 .login-form {
-  margin-top: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-top: 3rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 label {
-  font-family: "Open-sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  margin-left: -1rem;
 }
 
+.remember-me-container {
+  margin-left: 2rem;
+}
+
+#remember-checkbox {
+  margin-right: 1rem;
+}
+
+.forgot-pass-container {
+  margin-left: 2rem;
+}
 
 #login-btn {
   background-color: #435933;
   border-color: #435933;
-  margin-left: 40px;
-}
-
-.remember-me-container {
-  margin-left: 40px;
-}
-
-.forgot-pass-container {
-  margin-left: 40px;
+  float: right;
+  margin-right: 2rem;
 }
