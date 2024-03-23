@@ -30,6 +30,7 @@
             </div>
         </nav>
 
+        <!-- Search bar, sort, and create ticket container -->
         <div class="main-outer-container">
             <div class="header-outer-container">
                 <div class="header-inner-container">
@@ -49,7 +50,73 @@
                     </div>
                 </div>
             </div>
+
+            <!-- The Create Ticket Modal -->
+            <div id="ticketModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2> Purchase Order Form </h2>
+                    </div>
+
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Project Name">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Project Code">
+                                </div>
+                                <div class="col">
+                                    <input type="date" class="form-control" placeholder="Date">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                  <input type="text" class="form-control" placeholder="Reason for Request">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Item Description">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Specifications">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Quantity">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Supplier">
+                                </div>
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Price">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button> Submit </button>
+                    </div>
+                </div>
+            </div>
     
+            <!-- Ticket container -->
             <div class="ticket-outer-container">
                 <div class="ticket-inner-container">
                     <div class="ticket-container1">
@@ -85,6 +152,34 @@
         </div>
 
         <!-- JavaScript -->
+        <script>
+            // Get the modal
+            var modal = document.getElementById("ticketModal");
+            
+            // Get the button that opens the modal
+            var btn = document.getElementById("create-btn");
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+              modal.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+        </script>
+
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

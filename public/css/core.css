@@ -1,3 +1,4 @@
+/* Nav Pills */
 #pills-tab {
     background-color: #F3F2F2;
 }
@@ -25,36 +26,38 @@
 .toll-content1 {
     font-family: "Montserrat", sans-serif;
     text-align: left;
-    margin: 100px;
+    margin-top: 5rem;
+    margin-left: 10rem;
+    margin-right: 15rem;
 }
 
 #img-toll-content1 {
     height: 22vw;
     width: 80vh;
-    margin-right: 60px;
-    margin-top: 110px;
+    margin-right: 5rem;
+    margin-top: 6rem;
 }
 
 .toll-content1 h3 {
-    font-size: 30px;
-    margin-top: 100px;
+    font-size: 2rem;
+    margin-top: 5rem;
 }
 
 .toll-content1 p {
     font-family: "Open-sans", sans-serif;
     text-align: justify;
-    font-size: 18px;
-    margin-top: 20px;
+    font-size: 1.2rem;
+    margin-top: 1.2rem;
 }
 
 .toll-content2 {
     font-family: "Open-sans", sans-serif;
     text-align: left;
-    padding-top: 80px;
-    margin-top: 50px;
-    margin-right: 100px;
-    margin-left: 100px;
-    margin-bottom: 20px;
+    padding-top: 2rem;
+    margin-top: 5rem;
+    margin-right: 5rem;
+    margin-left:  5rem;
+    margin-bottom: 1rem;
 }
 
 .toll-content2 h3 {
@@ -62,12 +65,12 @@
 }
 
 .toll-content2-info h6 {
-    font-size: 20px;
-    margin-top: 30px;
+    font-size: 1.2rem;
+    margin-top: 2rem;
 }
 
 .toll-content2-info p {
-    font-size: 18px;
+    font-size: 1.2rem;
 }
 
 /* Contract */
@@ -81,12 +84,13 @@
 .contract-content1 {
     font-family: "Montserrat", sans-serif;
     text-align: left;
-    margin-left: 100px;
-    margin-top: 120px;
+    margin-top: 5rem;
+    margin-left: 10rem;
+    margin-right: 4rem;
 }
 
 .contract-content1 h3 {
-    margin-top: 80px;
+    margin-top: 5rem;
 }
 
 .contract-content1 p {

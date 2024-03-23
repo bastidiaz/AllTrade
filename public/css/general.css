@@ -7,17 +7,14 @@ body::-webkit-scrollbar {
 
 /* Navbar */
 #main-header {
-    font-family: "Open-sans", sans-serif;
-    font-size: 3vh;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2em;
     font-weight: 500;
-    /* position: sticky;
-    top: 0;
-    z-index: 3000; */
 }
 
 #logo-img {
     height: 10vh;
-    width: 30vh;
+    width: 14vw;
 }
 
 #about:hover,#services:hover,
@@ -30,6 +27,7 @@ body::-webkit-scrollbar {
 li {
     display: inline;
 }
+
 .nav-space {
-    margin-left: 350px;
+    margin-left: 30rem;
 }

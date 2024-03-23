@@ -20,7 +20,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
-            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
+            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png" alt="alltrade-logo"></a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -29,10 +29,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" id="about" href="main.html"> About </a>
+                        <a class="nav-link" id="about" href="#about-profile"> About </a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" id="profile" href="main.html"> Profile </a>
+                        <a class="nav-link" id="profile" href="#about-profile"> Profile </a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" id="services" href="services.html"> Services </a>
@@ -42,10 +42,9 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" id="contact" href="contact.html"> Contact <span class="sr-only">(current)</span></a>
-                    </li>
+                <li class="nav-space"> </li>
+
+                <ul class="navbar-nav mr-auto" id="navbar-right">
                     <li class="nav-item active">
                         <a class="nav-link" id="inquire" href="contact.html"> Inquire <span class="sr-only">(current)</span></a>
                     </li>
@@ -67,6 +66,7 @@
         </ul>
         
         <div class="tab-content" id="myTabContent">
+            <!-- DOST -->
             <div class="tab-pane fade show active" id="dost-container" role="tabpanel" aria-labelledby="dost-tab">
                 <div class="dost-content1-container">
                     <div class="dost-logo-container">
@@ -95,6 +95,7 @@
                 </div>
             </div>
 
+            <!-- UPLB -->
             <div class="tab-pane fade" id="uplb-container" role="tabpanel" aria-labelledby="uplb-tab">
                 <div class="uplb-content1-container">
                     <div class="uplb-logo-container">
