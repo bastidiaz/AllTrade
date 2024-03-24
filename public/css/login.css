@@ -1,5 +1,13 @@
+/* @media screen and (max-height: 54rem) and (min-width: 96rem) {
+
+}; */
+
+/* @media screen and (max-height: 67.5rem) and (max-width: 120rem) {
+
+}; */
+
+/* Photo */
 .main-container {
-  background-color: rgb(226, 226, 226);
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -7,29 +15,40 @@
   width: 100%;
 }
 
-#img-content {
-  margin: 0;
-  width: 40vw;
-  height: 115vh;
+.img-container {
+  background-color: rgb(240, 235, 222);
+  width: 60vw;
+  height: 100vh;
 }
 
+#img-content {
+  margin-top: 10rem;
+  margin-left: 7rem;
+  width: 20vw;
+  height: 44vh;
+}
+
+#home-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  color: white;
+  border-radius: 5px;
+  background-color: rgb(52, 81, 52);
+  width: 10vw;
+  height: 6vh;
+  margin-top: 9rem;
+  margin-left: 2rem;
+}
+
+/* Login */
 .login-main-container {
+  background-color: rgb(49, 69, 49);
   margin-top: 0rem;
   width: 100%;
 }
 
-.login-sub-container {
-  background-color: #F3F2F2;
-  margin-top: 12rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  border-radius: 20px;
-  width: auto;
-  height: 30rem;
-}
-
 .login-header {
-  background-color: #8FB885;
+  margin-top: 7rem;
   padding: 1rem;
   text-align: center;
   border-top-left-radius: 20px;
@@ -39,35 +58,89 @@
 .login-title h3 {
   color: white;
   font-family: "Montserrat", sans-serif;
+  font-size: 2.5em;
   margin-top: 0.5em;
 }
 
 .login-form {
-  margin-top: 3rem;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-top: 5rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
 }
 
-label {
+input[type=text],
+input[type=password] {
   font-family: "Montserrat", sans-serif;
-  margin-left: -1rem;
+  font-size: 1.5em;
+  color: white !important;
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 2px solid black;
 }
 
-.remember-me-container {
-  margin-left: 2rem;
+input[type=text]::placeholder,
+input[type=password]::placeholder {
+  color: black;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: 0 0 5px transparent;
+  border-bottom: 2px solid black !important;
+} 
+
+#form-username {
+  margin-top: 4rem;
+}
+
+#form-password {
+  margin-top: 2rem;
+}
+
+/* Forogt Password and Remember Me*/
+.remember-forgot-container {
+  display: flex;
+  margin-left: 9rem;
 }
 
 #remember-checkbox {
-  margin-right: 1rem;
+  margin-top: 1rem;
+  margin-right: 0.2rem;
+  height: 2.5vh;
+  width: 2vw;
+  accent-color: #6d6b5a;
 }
 
-.forgot-pass-container {
-  margin-left: 2rem;
+#remember-label {
+  font-family: "Open-sans", sans-serif;
+  color: rgb(211, 211, 211);
+  font-size: 1em;
+  margin-top: 0.7rem;
+  margin-right: 19rem;
 }
 
+#forgot-password {
+  font-family: "Open-sans", sans-serif;
+  margin-top: 0.9rem;
+  color: rgb(211, 211, 211);
+}
+
+/* Login Button */
 #login-btn {
-  background-color: #435933;
-  border-color: #435933;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.4em;
+  background-color: #6d6b5a;
+  border-color: #6d6b5a;
   float: right;
-  margin-right: 2rem;
+  margin-top: 1rem;
+  margin-right: 9rem;
+  width: 10vw;
+}
+
+#login-btn:focus {
+  background-color:#6d6b5a !important;
+  border-color: #6d6b5a !important;
+  box-shadow: 0 0 5px rgb(136, 140, 75);
 }

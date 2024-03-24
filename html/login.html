@@ -15,83 +15,44 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-        <title> AllTrade Manufacturing </title>
+        <title> AllTrade Manufacturing - Login </title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
-            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png" alt="alltrade-logo"></a>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" id="about" href="#about-profile"> About </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" id="profile" href="#about-profile"> Profile </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" id="services" href="services.html"> Services </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" id="core" href="core.html"> Core Capabilities </a>
-                    </li>
-                </ul>
-
-                <li class="nav-space"> </li>
-
-                <ul class="navbar-nav mr-auto" id="navbar-right">
-                    <li class="nav-item active">
-                        <a class="nav-link" id="inquire" href="contact.html"> Inquire <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" id="login" href="login.html"> Login <span class="sr-only">(current)</span></a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-
-     <!-- Login container -->
+        <!-- Login container -->
         <div class="main-container">
             <div class="img-container">
-                <img id="img-content" src="/public/img/login-bg.jpeg">
+                <img id="img-content" src="/public/img/alltrade-icon.png">
+
+                <div>
+                    <a href="main.html"> <button id="home-btn"> Home </button></a>
+                </div>
             </div>
             
             <div class="login-main-container">
-                <div class="login-sub-container">
-                    <div class="login-header">
-                        <div class="login-title">
-                            <h3> Welcome Back! </h3>
-                        </div>
+                <div class="login-header">
+                    <div class="login-title">
+                        <h3> Welcome Back! </h3>
                     </div>
-                          
-                    <form class="login-form">
-                        <div class="form-group row">
-                            <label for="inputUsername" class="col-sm-2 col-form-label"> Username </label>
-                            <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-                        </div>
-    
-                        <div class="form-group row">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label"> Password </label>
-                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                        </div>
-                    </form>
-
-                    <div class="forgot-pass-container">
-                        <p> Forgot Password? </p>
-                    </div>
-                                      
-                    <div class="remember-me-container">
-                        <input type="checkbox" id="remember-checkbox" name="remember" value="Bike">
-                        <label for="remmeber-checkbox"> Remember Me</label><br>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary" id="login-btn"> LOGIN </button>
                 </div>
+                        
+                <form class="login-form">
+                    <div class="form-group row" id="form-username" >
+                        <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                    </div>
+
+                    <div class="form-group row" id="form-password">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                    </div>
+                </form>
+
+                <div class="remember-forgot-container">
+                    <input type="checkbox" id="remember-checkbox" name="remember" value="Bike">
+                    <label id="remember-label" for="remember-checkbox"> Remember Me</label><br>
+
+                    <a href="#" id="forgot-password"> Forgot Password? </a>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="login-btn"> LOGIN </button>
             </div>
         </div>
 

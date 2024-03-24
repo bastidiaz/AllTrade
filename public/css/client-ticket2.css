@@ -1,0 +1,204 @@
+/* Main container */
+.main-outer-container {
+    background-color: #E6ECEE;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.user-info {
+    display: flex;
+    justify-content: end;
+    width: 120vw;
+}
+
+.user-info p {
+    text-align: center;
+    padding: 1rem;
+    margin: 0.2rem;
+}
+
+.logout-container {
+    width: 20vw;
+    height: 10vh;
+}
+
+#logout-btn {
+    margin-top: 1rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #435933;
+    border-radius: 5px;
+    border: 2px solid #435933;
+    cursor: pointer;
+}
+
+/* Ticket Header */
+.header-inner-container {
+    display: flex;
+    align-items: stretch;
+    background-color: #DFDFD4;
+    width: 100vw;
+    height: 18vh;
+}
+
+/* Search Box */
+input[type=text] {
+    margin-top: 2.2rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    padding: 0.5rem;
+    width: 25vw;
+    height: 8vh;
+    box-sizing: border-box;
+    border: 1px solid #215219;
+    border-radius: 4px;
+}
+
+/* Dropdown */
+#sort-by {
+    margin-top: 3rem;
+    margin-left: -1rem;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#sort-by:hover {
+    cursor: pointer;
+}
+
+/* Create Ticket */ 
+.create-ticket-container {
+    width: 100%;
+}
+
+#create-btn {
+    float: right;
+    height: 8vh;
+    width: 15vw;
+    margin-right: 4rem;
+    margin-top: 2rem;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #435933;
+    background-color: #435933;
+    border-radius: 4px;
+}   
+
+#create-btn:hover {
+    background-color: #7b4844;
+    border: 2px solid #7b4844;
+    color: white;
+    transition: 0.7s;
+    cursor: pointer;
+}
+
+/* Ticket Modal Form */
+#ticket-form-main {
+    background-color: #F0ECE1;
+}
+
+#ticket-form-header h5,
+#close-btn {
+   font-family: "Montserrat", sans-serif;
+}
+
+#ticket-form-content::placeholder {
+    font-family: "Montserrat", sans-serif;
+}
+
+.form-control:focus,
+#request-btn:focus {
+    border-color: #5A3E29 !important;
+    box-shadow: 0 0 5px #5A3E29 !important;
+} 
+
+#request-btn {
+    font-family: "Montserrat", sans-serif;  
+    background-color: #AF593E;
+    border-color: #AF593E;
+}
+
+/* Ticket */
+.ticket-outer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-inner-container {
+    display: flex;
+    background-color: #FFFFFF;
+    border: 1px solid #4c4c4c;
+    width: 81rem;
+    margin-top: 2rem;
+}
+
+.ticket-container1 {
+    width: 100%;
+}
+
+.ticket-container2 {
+    display: flex;
+    width: 100%;
+}
+
+.order-number p,
+.creation-date p,
+.priority-level p, 
+.order-status p {
+    font-family: "Opens-sans", sans-serif;
+    font-size: 1em;
+}
+
+.number-container {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.order-number {
+    margin-top: 1.5rem;
+}
+
+.date-container {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.priority-container {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-left: 10rem;
+    padding: 0.1rem; 
+    width: 15vw;
+    height: 10vh;
+    border-radius: 10px;
+    background-color: #B6747A;
+    color: white;
+}
+
+.status-container {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    padding: 2px;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 10px;
+    background-color: #FFD361;
+    color: #545050;
+}
+
+.priority-level p {
+    font-weight: 600;
+    margin: 0.4rem;
+}
+
+.order-status p {
+    font-weight: 600;
+    margin-top: 1.2rem;
+}

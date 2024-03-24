@@ -8,21 +8,6 @@
     margin: 0;
 }
 
-/* Header */
-.header-outer-container {
-    background-color: #E6ECEE;
-    display: flex;
-    justify-content: center;
-}
-
-.header-inner-container {
-    display: flex;
-    background-color: #DFDFD4;
-    border: 2px solid #215219;
-    margin: 3rem;
-    width: 100%;
-}
-
 .user-info {
     display: flex;
     margin-left: 50rem;
@@ -46,6 +31,21 @@
     color: #435933;
     border: 2px solid #435933;
     cursor: pointer;
+}
+
+/* Ticket Header */
+.header-outer-container {
+    background-color: #E6ECEE;
+    display: flex;
+    justify-content: center;
+}
+
+.header-inner-container {
+    display: flex;
+    background-color: #DFDFD4;
+    border: 2px solid #215219;
+    margin: 3rem;
+    width: 100%;
 }
 
 /* Search Box */
