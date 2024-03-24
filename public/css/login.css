@@ -35,8 +35,8 @@
   border-radius: 5px;
   background-color: rgb(52, 81, 52);
   width: 10vw;
-  height: 6vh;
-  margin-top: 9rem;
+  height: 7vh;
+  margin-top: 8.7rem;
   margin-left: 2rem;
 }
 
@@ -75,12 +75,12 @@ input[type=password] {
   color: white !important;
   background-color: transparent;
   border-color: transparent;
-  border-bottom: 2px solid black;
+  border-bottom:  2px solid rgb(240, 235, 222);
 }
 
 input[type=text]::placeholder,
 input[type=password]::placeholder {
-  color: black;
+  color: rgb(240, 235, 222);
 }
 
 input[type=text]:focus,
@@ -133,10 +133,10 @@ input[type=password]:focus {
   font-size: 1.4em;
   background-color: #6d6b5a;
   border-color: #6d6b5a;
-  float: right;
+  border-radius: 30px;
   margin-top: 1rem;
-  margin-right: 9rem;
-  width: 10vw;
+  margin-left: 9.3rem;
+  width: 41vw;
 }
 
 #login-btn:focus {
