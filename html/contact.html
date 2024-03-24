@@ -54,8 +54,8 @@
             </div>
         </nav>
 
-        <!-- Contact and Inquire -->
-        <div class="contact-main-container" id="contact-form">
+            <!-- Contact and Inquire -->
+            <div class="contact-main-container" id="contact-form">
             <div class="contact-container">
                 <div class="contact-title">
                     <h6> Contact Us </h6>
@@ -89,31 +89,33 @@
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
-                                <label for="inputFirstName">First name </label>
+                                <label for="inputFirstName">* First name </label>
                                 <input type="text" class="form-control" id="inputFirstName" placeholder="First name">
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputLastName"> Last name </label>
+                                <label for="inputLastName">* Last name </label>
                                 <input type="text" class="form-control" id="inputLastName" placeholder="Last name">
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputEmail4"> Email address </label>
+                                <label for="inputEmail4">* Email address </label>
                                 <input type="email" class="form-control" id="inputEmail4" placeholder="Email address">
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputNumber"> Phone number </label>
+                                <label for="inputNumber">* Phone number </label>
                                 <input type="number" class="form-control" id="inputNumber" placeholder="Phone number">
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="inputMessage"> Message/Inquiry </label>
+                        <div class="form-group" id="message-form-group">
+                            <label for="inputMessage">* Message/Inquiry </label>
                             <textarea> Write a message... </textarea>
                         </div>
 
+                        <p> *Indicates a required field </p>
+                        
                         <button type="submit" class="btn btn-primary" id="send-btn"> SEND </button>
                     </form>
                 </div>

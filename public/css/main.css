@@ -91,6 +91,12 @@
     color: white;
     font-weight: 500;
     float: right;
+    margin-top: -1rem;
+    width: 8vw;
+}
+
+.inquire-content-container p {
+    color: rgb(182, 67, 67);
 }
 
 textarea {
