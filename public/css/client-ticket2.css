@@ -3,34 +3,40 @@
     background-color: #E6ECEE;
     height: 100vh;
     width: 100vw;
-    margin: 0;
 }
 
-.user-info {
+/* Header */
+.user-info-container {
     display: flex;
     justify-content: end;
-    width: 120vw;
+    width: 90vw;
+    margin-top: 1rem;
 }
 
-.user-info p {
-    text-align: center;
-    padding: 1rem;
-    margin: 0.2rem;
+.username-container p {
+    margin-top: 0.2rem;
+    margin-right: 1rem;
+}
+
+.username-icon-container {
+    margin-left: -1rem;
+}
+
+#person-icon {
+    width: 5vw;
+    height: 5vh;
 }
 
 .logout-container {
-    width: 20vw;
-    height: 10vh;
+    margin-top: -0.6rem;
+    margin-left: 1.5rem;
 }
 
 #logout-btn {
-    margin-top: 1rem;
     font-family: "Montserrat", sans-serif;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: 500;
     color: #435933;
-    border-radius: 5px;
-    border: 2px solid #435933;
     cursor: pointer;
 }
 
@@ -39,12 +45,13 @@
     display: flex;
     align-items: stretch;
     background-color: #DFDFD4;
-    width: 100vw;
+    border-radius: 5px;
+    width: 100%;
     height: 18vh;
 }
 
 /* Search Box */
-input[type=text] {
+#search-box {
     margin-top: 2.2rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -54,6 +61,10 @@ input[type=text] {
     box-sizing: border-box;
     border: 1px solid #215219;
     border-radius: 4px;
+}
+
+#search-box::placeholder {
+    font-family: "Montserrat", sans-serif;
 }
 
 /* Dropdown */
@@ -84,20 +95,25 @@ input[type=text] {
     color: white;
     border: 2px solid #435933;
     background-color: #435933;
-    border-radius: 4px;
+    border-radius: 10px;
 }   
 
 #create-btn:hover {
-    background-color: #7b4844;
-    border: 2px solid #7b4844;
+    background-color: #214825;
+    border: 2px solid #214825;
+    box-shadow: 0 0 5px rgb(60, 47, 47);
     color: white;
     transition: 0.7s;
     cursor: pointer;
 }
 
 /* Ticket Modal Form */
+#ticketModal::-webkit-scrollbar {
+    display: none;
+}
+
 #ticket-form-main {
-    background-color: #F0ECE1;
+    background-color: #F7F8F6;
 }
 
 #ticket-form-header h5,
@@ -109,17 +125,53 @@ input[type=text] {
     font-family: "Montserrat", sans-serif;
 }
 
+.form-control {
+    margin-top: 2rem;
+}
+
 .form-control:focus,
 #request-btn:focus {
     border-color: #5A3E29 !important;
     box-shadow: 0 0 5px #5A3E29 !important;
-} 
+}
 
 #request-btn {
     font-family: "Montserrat", sans-serif;  
     background-color: #AF593E;
     border-color: #AF593E;
 }
+
+#request-description {
+    display:inline-block;
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    min-height: 15vh;
+    margin-top: 2rem;
+    width: 33.5vw;
+    color: rgb(165, 156, 156);
+}
+
+#request-specs {
+    display:inline-block;
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    min-height: 10vh;
+    margin-top: 2rem;
+    width: 33.5vw;
+    color: rgb(165, 156, 156);
+}
+
+#request-description:empty:not(focus):before,
+#request-specs:empty:not(focus):before {
+    content:attr(data-placeholder);
+}  
+
+#request-description:empty:focus:before,
+#request-specs:empty:focus:before {
+    content: "";
+}  
 
 /* Ticket */
 .ticket-outer-container {
@@ -131,6 +183,7 @@ input[type=text] {
     display: flex;
     background-color: #FFFFFF;
     border: 1px solid #4c4c4c;
+    border-radius: 6px;
     width: 81rem;
     margin-top: 2rem;
 }
@@ -139,63 +192,58 @@ input[type=text] {
     width: 100%;
 }
 
+.order-container {
+    margin-left: 1rem;
+}
+
+.order-details {
+    margin-top: 1.5rem;
+}
+
+.order-details p {
+    font-family: "Opens-sans", sans-serif;
+    font-size: 1em;
+    margin-top: -0.5rem;
+}
+
+#creation-date,
+#ticket-handler {
+    color: #545050;
+}
+
 .ticket-container2 {
     display: flex;
     width: 100%;
 }
 
-.order-number p,
-.creation-date p,
-.priority-level p, 
-.order-status p {
-    font-family: "Opens-sans", sans-serif;
-    font-size: 1em;
-}
-
-.number-container {
-    margin-top: 1rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.order-number {
-    margin-top: 1.5rem;
-}
-
-.date-container {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 1.5rem;
-}
-
 .priority-container {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
     margin-left: 10rem;
     padding: 0.1rem; 
     width: 15vw;
     height: 10vh;
-    border-radius: 10px;
-    background-color: #B6747A;
+    border-radius: 50px;
+    background-color: #ca6870;
     color: white;
 }
 
 .status-container {
     text-align: center;
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
     margin-left: 2rem;
     margin-right: 1rem;
     padding: 2px;
     width: 15vw;
     height: 10vh;
-    border-radius: 10px;
-    background-color: #FFD361;
+    border-radius: 50px;
+    background-color: #f6c13a;
     color: #545050;
 }
 
 .priority-level p {
     font-weight: 600;
-    margin: 0.4rem;
+    margin: 1.2rem;
 }
 
 .order-status p {
