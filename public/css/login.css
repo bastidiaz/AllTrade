@@ -32,6 +32,11 @@
   margin-left: 2rem;
 }
 
+#home-btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px rgb(136, 140, 75);
+}
+
 /* Login */
 .login-main-container {
   background-color: rgb(49, 69, 49);

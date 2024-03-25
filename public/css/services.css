@@ -3,7 +3,7 @@
 }
 
 .nav-tabs > li > a.active {
-    background-color: rgb(167, 117, 90) !important;
+    background-color: rgb(148, 118, 103) !important;
     color: #ffffff !important;
 }
   
@@ -17,8 +17,8 @@
 
 /* DOST */
 #dost-container {
-    background-color: #E5EEED;
-    margin-top: 20px;
+    background-color:#657e51;
+    margin-top: 1rem;
 }
 
 .dost-content1-container {
@@ -26,19 +26,21 @@
 }
 
 #dost-img {
-    margin: 50px;
+    margin: 4rem;
     width: 20vw;
     height: 35vh;
 }
 
 .dost-title-container h3 {
     font-family: "Montserrat", sans-serif;
-    margin-top: 130px;
+    margin-top: 8rem;
+    color: white;
 }
 
 .dost-content1-container p {
     font-family: "Open-sans", sans-serif;
-    font-size: 20px;
+    font-size: 1.3em;
+    color: white;
 }
 
 .dost-content2-container {
@@ -47,14 +49,15 @@
 }
 
 .dost-fiber-container {
-    margin-bottom: 50px;
-    margin-right: 50px;
+    margin-bottom: 3rem;
+    margin-right: 3rem;
 }
 
 .dost-fiber-container h6,
 .dost-natural-container h6 {
     font-family: "Montserrat", sans-serif;
-    font-size: 25px;
+    font-size: 1.5em;
+    color: white;
 }
 
 #fiber-img,
@@ -65,103 +68,56 @@
 
 /* UPLB */
 #uplb-container {
-    background-color: #e7bd7a;
-    margin-top: 20px;
+    background-color: #5b8fab;
+    margin-top: 1rem;
+    color: white;
 }
 
 .uplb-content1-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 30px;
-}
-
-#uplb-img {
-    margin-top: 40px;
-    margin-right: 20px;
-    width: 20vw;
-    height: 35vh;
 }
 
 .uplb-title-container h3 {
+    margin-top: 8.5rem;
     font-family: "Montserrat", sans-serif;
-    margin-top: 130px;
 }
 
-.uplb-content1-container p {
+.uplb-title-container p {
     font-family: "Open-sans", sans-serif;
-    font-size: 20px;
+    font-size: 1.4em;
 }
 
-.uplb-content2-container,
-.uplb-content4-container,
-.uplb-content6-container {
+#uplb-img {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    width: 20vw;
+    height: 40vh;
+}
+
+.uplb-content2-container {
     display: flex;
-    background-color: #7C1616;
 }
 
-.uplb-evap-info-container h6,
-.uplb-liquid-info-container h6,
-.uplb-storage-info-container h6,
-.uplb-decon-info-container h6,
-.uplb-bio-info-container h6 {
-    font-family: "Montserrat", sans-serif;
-    font-size: 30px;
-    color: white;
+.uplb-img-tank {
+    margin-top: 1rem;
+    width: 50vw;
+    height: 70vh;
 }
 
-.uplb-evap-info-container p,
-.uplb-liquid-info-container p,
-.uplb-storage-info-container p,
-.uplb-decon-info-container p,
-.uplb-bio-info-container p  {
-    font-family: "Open-sans", sans-serif;
-    font-size: 20px;
-    color: white;
+.uplb-img-tank1 {
+    margin-top: 0.3rem;
+    width: 50vw;
+    height: 70vh;
 }
 
-.uplb-content3-container,
-.uplb-content5-container {
+.uplb-content3-container {
     display: flex;
-    background-color: #0C4328;
+    justify-content: center;
 }
 
-.uplb-evap-info-container {
-    margin: 120px;
-}
-
-.evap-img-container {
-    margin-right: 100px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.uplb-liquid-info-container {
-    margin-top: 120px;
-    margin-right: 100px;
-}
-
-.liquid-img-container {
-    margin-left: 100px;
-}
-
-.uplb-storage-info-container {
-    margin-top: 140px;
-    margin-left: 400px;
-}
-
-.uplb-decon-info-container {
-    margin-top: 260px;
-}
-
-.decon-img-container {
-    margin-left: 50px;
-}
-
-.uplb-bio-info-container {
-    margin-top: 130px;
-    margin-left: 100px;
-}
-
-.bio-img-container {
-    margin-right: 120px;
+.uplb-img-tank2 {
+    margin-top: -2rem;
+    width: 50vw;
+    height: 70vh;
 }
