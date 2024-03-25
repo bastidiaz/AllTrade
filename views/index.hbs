@@ -90,7 +90,7 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="inputLastName"> Last name *</label>
+                                <label for="inputLastName"> * Last name </label>
                                 <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Last name" required>
                             </div>
 
@@ -161,8 +161,8 @@
                 var params = {
                     lastName: document.getElementById("inputLastName").value,
                     firstName: document.getElementById("inputFirstName").value,
-                    companyName: document.getElementById("companyName").value,
-                    email: document.getElementById("inputEmail4").value,
+                    companyName: document.getElementById("inputCompanyName").value,
+                    email: document.getElementById("inputEmail").value,
                     phoneNumber: document.getElementById("inputNumber").value,
                     message: document.getElementById("inputMessage").value,
                 };
@@ -176,8 +176,8 @@
                         .then(function (res) {
                             document.getElementById("inputLastName").value = "";
                             document.getElementById("inputFirstName").value = "";
-                            document.getElementById("companyName").value = "";
-                            document.getElementById("inputEmail4").value = "";
+                            document.getElementById("inputCompanyName").value = "";
+                            document.getElementById("inputEmail").value = "";
                             document.getElementById("inputNumber").value = "";
                             document.getElementById("inputMessage").value = "";
                             console.log(res);
