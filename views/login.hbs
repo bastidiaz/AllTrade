@@ -1,62 +1,59 @@
 
-    {{> navigationBar}}
-    <div class="main-container">
-            <div class="img-container">
-                <img id="img-content" src="/public/img/img-login.jpg">
-            </div>    
+        <div class="img-outer-container">
+            <div class="img-inner-container">
+                <img id="img-content-container" src="/public/img/alltrade-icon.png">
+
+                <div>
+                    <a href="index"> <button id="home-btn"> Home </button></a>
+                </div>
+            </div>
             
             <div class="login-main-container">
-                <div class="login-sub-container">
-                    <div class="login-header">
-                        <div class="login-title">
-                            <h3> Welcome Back! </h3>
-                        </div>
+                <div class="login-header">
+                    <div class="login-title">
+                        <h3> Welcome Back! </h3>
                     </div>
-                          
-                    <form class="login-form" action ="/login" method="post">
-                        <div class="form-group row">
-                            {{!-- <label name="usernameLogin" class="col-sm-2 col-form-label">Username</label> --}}
-                            <input type="text" name="usernameLogin" class="form-control" id="inputUsername" placeholder="Username">
-                        </div>
-    
-                        <div class="form-group row">
-                            {{!-- <label for="inputPassword3" class="col-sm-2 col-form-label"> Password </label> --}}
-                            <input type="password" name="passwordLogin" class="form-control" id="inputPassword3" placeholder="Password">
-                        </div>
+                </div>
 
-                        <div class="remember-me-container">
-                            <input type="checkbox" id="remember-me" name="remember" value="Bike">
-                            <label for="remember-me"> Remember Me? </label><br>
-                        </div>
+                <form class="login-form" action="/login" method="post">
+                    <div class="form-group row" id="form-username" >
+                        <input type="text" name="usernameLogin" class="form-control" id="inputUsername" placeholder="Username">
+                    </div>
 
-                         <a href="/forgot-password">Forgot Password?</a>
+                    <div class="form-group row" id="form-password">
+                        <input type="password" name="passwordLogin" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                </form>
 
-                         <button type="submit" value="Log In"  name="submit-log-in" class="btn btn-primary"> LOGIN </button>
-                    </form>
+                <div class="remember-forgot-container">
+                    <input type="checkbox" id="remember-checkbox" name="remember" value="check">
+                    <label id="remember-label" for="remember-checkbox"> Remember Me</label><br>
 
-                    {{!-- <div class="forgot-pass-container">
-                        <p> Forgot Password? </p>
-                    </div> --}}
-                    <div class="bottom">
-                    {{!-- {{#if errorMessage}}
-                        <div class="error-message">
-                            {{errorMessage}}
-                        </div>
-                    {{/if}} --}}
+                    <a href="/forgot-password" id="forgot-password"> Forgot Password? </a>
+                </div>
 
-                    {{#if errorMessage}}
-                    <div class="alert alert-danger" role="alert">
+                <button type="submit" value="Log-In" name="submit-log-in" class="btn btn-primary" id="login-btn"> Login </button>
+
+                {{!-- <div class="forgot-pass-container">
+                    <p> Forgot Password? </p>
+                </div> --}}
+                <div class="bottom">
+                {{!-- {{#if errorMessage}}
+                    <div class="error-message">
                         {{errorMessage}}
                     </div>
-                    {{/if}}
-                    <div class="old-new-account">
-                        New client?
-                        <a href="/register">Register</a>
-                    </div>
-                </div>
+                {{/if}} --}}
 
-                    
+                {{#if errorMessage}}
+                <div class="alert alert-danger" role="alert">
+                    {{errorMessage}}
                 </div>
+                {{/if}}
+
+                <div class="old-new-account">
+                    New client?
+                    <a id="register-label" href="/register">Register</a>
+                </div>                    
             </div>
         </div>
 

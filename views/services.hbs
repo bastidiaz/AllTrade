@@ -1,63 +1,132 @@
 {{> navigationBar}}
 <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item nav-dost-item">
-              <a class="nav-link active" id="dost-tab" data-toggle="tab" href="#dost-tab-content" role="tab" aria-controls="tabs-dost" aria-selected="true"> Partnership with DOST </a>
+            <li class="nav-item">
+              <a class="nav-link active" id="dost-tab" data-toggle="tab" href="#dost-container" role="tab" aria-controls="dost" aria-selected="true"> Partnership with DOST </a>
             </li>
-            <li class="nav-item nav-uplb item">
-              <a class="nav-link" id="uplb-tab" data-toggle="tab" href="#uplb-tab-content" role="tab" aria-controls="" aria-selected="false"> Partnership with UPLB</a>
+
+            <li class="nav-item">
+              <a class="nav-link" id="uplb-tab" data-toggle="tab" href="#uplb-container" role="tab" aria-controls="uplb" aria-selected="false"> Partnership with UPLB </a>
             </li>
-          </ul>
-
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="dost-tab-content" role="tabpanel" aria-labelledby="dost-tab">
-                <div  class="dost-logo-container">
-                    <img id="dost-logo" src="/public/img/dost-logo.jpg"/>
-                </div>
-
-                <div class="dost-title-container">
-                    <h3>
-                        PARTNERSHIP PROJECTS WITH DOST
-                    </h3>
-                </div>
-
-                <!-- <div class="dost-info container">
-                    <h6>
-                        We have successfully and delivered highly specialized machineries
-                        and equipment for DOST-PTRI, DOST-PCIEERD.
-                    </h6>
-                </div> -->
-                
-                <div class="dost-fiber-container">
-                    <div class="dost-fiber-info">
-                        <h4>
-                            FIBER EXTRACTION
-                        </h4>
+        </ul>
+        
+        <div class="tab-content" id="myTabContent">
+            <!-- DOST -->
+            <div class="tab-pane fade show active" id="dost-container" role="tabpanel" aria-labelledby="dost-tab">
+                <div class="dost-content1-container">
+                    <div class="dost-logo-container">
+                        <img id="dost-img" src="/public/img/dost-logo.jpg" alt="dost-logo"/>
                     </div>
-
-                    <div class="dost-fiber-img">
-                        <img src="/public/img/dost-fiber.png"/>
+             
+                    <div class="dost-title-container">
+                        <h3> Partnership Projects with DOST </h3>
+                        <p> 
+                            We have succdessfully and delivered highly specialized machineries and equipment
+                            for DOST-PTRI, DOST-PCEERD
+                        </p>
                     </div>
                 </div>
 
-                <div class="dost-dyeing-container">
-                    <div class="dost-dyeing-info">
-                        <h4>
-                            NATURAL DYEING FACILITY
-                        </h4>
+                <div class="dost-content2-container">
+                    <div class="dost-fiber-container">
+                        <h6> Fiber Extraction </h6>
+                        <img id="fiber-img" src="/public/img/dost-fiber.png" alt="fiber-extraction"/>
                     </div>
-
-                    <div class="dost-dyeing-img">
-                        <img src="/public/img/dost-dyeing.png"/>
+                    
+                    <div class="dost-natural-container">
+                        <h6> Natural Dyeing Facility </h6>
+                        <img id="natural-img" src="/public/img/dost-dyeing.png" alt="natural-dyeing-facility"/>
                     </div>
                 </div>
             </div>
 
-            <div class="tab-pane fade" id="uplb-tab-content" role="tabpanel" aria-labelledby="uplb-tab">
-                <h6>
-                    HELLO WORLD
-                </h6>
+            <!-- UPLB -->
+            <div class="tab-pane fade" id="uplb-container" role="tabpanel" aria-labelledby="uplb-tab">
+                <div class="uplb-content1-container">
+                    <div class="uplb-logo-container">
+                        <img id="uplb-img" src="/public/img/uplb-logo.png" alt="uplb-logo"/>
+                    </div>
+             
+                    <div class="uplb-title-container">
+                        <h3> Partnership Projects with UPLB </h3>
+                        <p> 
+                            Partnership with UPLB Makiling Tek. 
+                        </p>
+                    </div>
+                </div>
+
+                <div class="uplb-content2-container">
+                    <div class="uplb-evap-info-container">
+                        <h6> Evaporating and Condensing Tank </h6>
+                        <p>
+                            The main function of this system is to concentrate the desired
+                            product, evaporate the solvent used, and recover the solvent by
+                            condensing the vapor.
+                        </p>
+                    </div>
+
+                    <div class="evap-img-container">
+                        <img id="evap-img" src="/public/img/evap-conden-tank.png" alt="evaporating-condensing-tank"/>
+                    </div>
+                </div>
+
+                <div class="uplb-content3-container">
+                    <div class="liquid-img-container">
+                        <img id="liquid-img" src="/public/img/liquid-tank.png" alt="liquid-tank"/>
+                    </div>
+
+                    <div class="uplb-liquid-info-container">
+                        <h6> Liquid Liquid Tank </h6>
+                        <p>
+                            This equipment will be used for liquid-liquid extraction using organic solvents to obtain
+                            the product from the production medium. The tank will have capacity of 100 L.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="uplb-content4-container">
+                    <div class="uplb-storage-info-container">
+                        <h6> Storage Tank </h6>
+                        <p>
+                            This tank serves as the storage tank for solvents.
+                        </p>
+                    </div>
+
+                    <div class="storage-img-container">
+                        <img id="storage-img" src="/public/img/storage tank.png" alt="storage-tank"/>
+                    </div>
+                </div>
+
+                <div class="uplb-content5-container">
+                    <div class="decon-img-container">
+                        <img id="decon-img" src="/public/img/decon-tank.png" alt="decontainer-tank"/>
+                    </div>
+
+                    <div class="uplb-decon-info-container">
+                        <h6> Decontamination Tank </h6>
+                        <p>
+                            This tank used for decontamination of spent media.
+                            Decontamination will be done at 121 celsius and 15 psig.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="uplb-content6-container">
+                    <div class="uplb-bio-info-container">
+                        <h6> Bioreactor Tank </h6>
+                        <p>
+                            This tank will serve as the main bacteria incubation tank. All parts of the tank 
+                            should be airtight and can withstand a pressure of 15psig. The culture media will
+                            also be mixed and sterilized in this tank. Bacteria will be inoculated for 16-hours.
+                            Since the process will be aerobic, air will be supplied through the media.
+                        </p>
+                    </div>
+
+                    <div class="bio-img-container">
+                        <img id="bio-img" src="/public/img/bioreactor-tank.png" alt="bioreactor-tank"/>
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
         
         <!-- JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
