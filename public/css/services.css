@@ -3,7 +3,7 @@
 }
 
 .nav-tabs > li > a.active {
-    background-color: rgb(148, 118, 103) !important;
+    background-color: #435933 !important;
     color: #ffffff !important;
 }
   
@@ -17,7 +17,7 @@
 
 /* DOST */
 #dost-container {
-    background-color:#657e51;
+    background-color:#59679a;
     margin-top: 1rem;
 }
 
@@ -68,7 +68,7 @@
 
 /* UPLB */
 #uplb-container {
-    background-color: #5b8fab;
+    background-color:#59679a;
     margin-top: 1rem;
     color: white;
 }
