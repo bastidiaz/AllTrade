@@ -13,21 +13,22 @@
     margin-top: 1rem;
 }
 
-.username-container p {
+.username {
+    display: flex;
+    justify-content: end;
     margin-top: 0.2rem;
-    margin-right: 1rem;
-}
-
-.username-icon-container {
-    margin-left: -1rem;
 }
 
 #person-icon {
+    margin-top: -0.5rem;
+    margin-left: -1rem;
     width: 5vw;
     height: 5vh;
 }
 
 .logout-container {
+    display: flex;
+    justify-content: end;
     margin-top: -0.6rem;
     margin-left: 1.5rem;
 }

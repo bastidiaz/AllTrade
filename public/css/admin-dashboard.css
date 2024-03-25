@@ -1,0 +1,99 @@
+/* Header */
+.admin-info-container {
+    display: flex;
+    justify-content: end;
+    width: 90vw;
+    margin-top: 1rem;
+}
+
+.admin-username {
+    display: flex;
+    justify-content: end;
+    margin-top: 0.2rem;
+}
+
+#admin-label {
+    color: #657FA6;
+    margin-right: 0.5rem;
+}
+
+#admin-profile-icon {
+    margin-top: -0.5rem;
+    margin-left: -1rem;
+    width: 5vw;
+    height: 5vh;
+}
+
+.admin-logout-container {
+    display: flex;
+    justify-content: end;
+    margin-top: -0.6rem;
+    margin-left: 1.5rem;
+}
+
+#admin-logout-btn {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: #435933;
+    cursor: pointer;
+}
+
+/* Dashboard */
+.dashboard-outer-container {
+    background-color: rgb(239, 237, 237);
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.all-tickets-outer-container,
+.tickets-handled-outer-container,
+.all-clients-outer-container {
+    background-color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5em;
+    border-radius: 20px;
+    margin-right: 3rem;
+    margin-left: 4rem;
+    margin-right: 3rem;
+    margin-top: 10rem;
+    margin-bottom: 3rem;
+    padding-bottom: 0.5rem;
+}
+
+.all-tickets-label p,
+.tickets-handled-label p,
+.all-clients-label p {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
+.all-tickets-inner-container,
+.tickets-handled-inner-container,
+.all-clients-inner-container {
+    width: 25vw;
+    height: 30vh;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+#all-tickets-icon,
+#tickets-handled-icon,
+#all-clients-icon {
+    margin-top: 3rem;
+    width: 10vw;
+    margin-left: 2rem;
+}
+
+.all-tickets-inner-container {
+    background-color: #EDB679;
+}
+
+.tickets-handled-inner-container {
+    background-color: #8FB885;
+}
+
+.all-clients-inner-container {
+    background-color: #B6747A;
+}
