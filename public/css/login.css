@@ -1,5 +1,5 @@
 /* Photo */
-.main-container {
+.img-outer-container {
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -7,13 +7,13 @@
   width: 100%;
 }
 
-.img-container {
+.img-inner-container {
   background-color: rgb(240, 235, 222);
   width: 60vw;
   height: 100vh;
 }
 
-#img-content {
+#img-content-container {
   margin-top: 10rem;
   margin-left: 7rem;
   width: 20vw;
@@ -35,7 +35,7 @@
 /* Login */
 .login-main-container {
   background-color: rgb(49, 69, 49);
-  margin-top: 0rem;
+  margin-top: -1rem;
   width: 100%;
 }
 

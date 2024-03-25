@@ -138,20 +138,26 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <label for="inputEmail4">* Email address </label>
-                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email address">
-                                </div>
-
-                                <div class="form-group col-md-6">
                                     <label for="inputNumber">* Phone number </label>
                                     <input type="number" class="form-control" id="inputNumber" placeholder="Phone number">
                                 </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="inputEmail4">* Email address </label>
+                                    <input type="email" class="form-control" id="inputEmail" placeholder="Email address">
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="inputCompanyName"> Company Name </label>
+                                    <input type="text" class="form-control" id="inputCompanyName" placeholder="Company Name">
+                                </div>
                             </div>
 
-                            <div class="form-group" id="message-form-group">
+                            <div>
                                 <label for="inputMessage">* Message/Inquiry </label>
-                                <textarea> Write a message... </textarea>
                             </div>
+
+                            <div contenteditable="true" id="divMessage" data-placeholder='Write a message..'></div>
 
                             <p> *Indicates a required field </p>
                             
@@ -190,7 +196,6 @@
                     </p>
                 </div>
             </div>
-
         </div>
         
         <!-- JavaScript -->
