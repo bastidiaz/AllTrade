@@ -10,23 +10,29 @@
         <!-- CSS -->
         <link rel="stylesheet" href="/public/css/general.css">
         <link rel="stylesheet" href="/public/css/main.css">
-        <link rel="stylesheet" href="/public/css/client-ticket.css">
+        <link rel="stylesheet" href="/public/css/client-ticket2.css">
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        
         <title> AllTrade Manufacturing </title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
             <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
 
-            <div class="user-info"> 
-                <p> Hi, Letty! </p>
-            </div>
+            <div class="user-info-container"> 
+                <div class="username-container">
+                    <p> Letty Hong </p>
 
-            <div class="logout-container">
-                <button id="logout-btn"> Log Out </button>
+                    <div class="logout-container">
+                        <a id="logout-btn" href="#"> Log Out </a>
+                    </div>
+                </div>
+                    
+                <div class="username-icon-container">
+                    <img id="person-icon" src="/public/img/person-icon.svg">
+                </div>
             </div>
         </nav>
 
@@ -35,7 +41,7 @@
             <div class="header-outer-container">
                 <div class="header-inner-container">
                     <div class="search-box-container">
-                        <input type="text" placeholder="Search..">
+                        <input id="search-box" type="text" placeholder="Search..">
                     </div>
         
                     <div class="dropdown" id="dropdown-container">
@@ -46,72 +52,33 @@
                     </div>
     
                     <div class="create-ticket-container">
-                        <button id="create-btn"> CREATE TICKET </button>
+                        <button id="create-btn" type="button" data-toggle="modal" data-target="#ticketModal"> CREATE TICKET </button>
                     </div>
                 </div>
             </div>
 
-            <!-- The Create Ticket Modal -->
-            <div id="ticketModal" class="modal">
+            <!-- Ticket Modal Form -->
+            <div id="ticketModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" id="modalDialog" role="document">
+                    <div class="modal-content" id="ticket-form-main">
+                        <div class="modal-header" id="ticket-form-header">
+                            <h5 class="modal-title"> REQUEST FOR QUOTE </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
 
-                <!-- Modal content -->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="close">&times;</span>
-                        <h2> Purchase Order Form </h2>
-                    </div>
-
-                    <div class="modal-body">
-                        <form>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Project Name">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Project Code">
-                                </div>
-                                <div class="col">
-                                    <input type="date" class="form-control" placeholder="Date">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                  <input type="text" class="form-control" placeholder="Reason for Request">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Item Description">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Specifications">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Quantity">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Supplier">
-                                </div>
-                                <div class="col">
-                                    <input type="text" class="form-control" placeholder="Price">
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button> Submit </button>
+                        <div class="modal-body" id="ticket-form-content">
+                            <input type="text" class="form-control" id="reason-request" aria-describedby="reasonRequest" placeholder="Reason for Request">
+                            <div contenteditable="true"  id="request-description" data-placeholder='Description'></div>
+                            <div contenteditable="true"  id="request-specs" data-placeholder='Specifications'></div>
+                            <input type="text" class="form-control" id="request-quantity" aria-describedby="requestQuantity" placeholder="Quantity">
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="request-btn"> Send Request </button>
+                            <button type="button" class="btn btn-secondary" id="close-btn" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,15 +87,11 @@
             <div class="ticket-outer-container">
                 <div class="ticket-inner-container">
                     <div class="ticket-container1">
-                        <div class="number-container">
-                            <div class="order-number">
-                                <p> Order Number: ORD0003 </p>
-                            </div>
-                        </div>
-
-                        <div class="date-container">
-                            <div class="creation-date">
-                                <p> Creation date: Thu Mar 07 2024  17:20:00 GMT +0800 (Philippine Standard Time) </p>
+                        <div class="order-container">
+                            <div class="order-details">
+                                <p id="order-number"> Order number #ORD0003 </p>
+                                <p id="creation-date"> Created on: Thu Mar 07 2024  17:20:00 GMT +0800 (Philippine Standard Time) </p>
+                                <p id="ticket-handler"> Ticket Handled by: Keisha Trajano </p>
                             </div>
                         </div>
                     </div>
@@ -136,8 +99,7 @@
                     <div class="ticket-container2">
                         <div class="priority-container">
                             <div class="priority-level">
-                                <p> Priority Level </p>
-                                <p> 4 </p>
+                                <p> Priority Level 4</p>
                             </div>
                         </div>
 
@@ -152,34 +114,6 @@
         </div>
 
         <!-- JavaScript -->
-        <script>
-            // Get the modal
-            var modal = document.getElementById("ticketModal");
-            
-            // Get the button that opens the modal
-            var btn = document.getElementById("create-btn");
-            
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-            
-            // When the user clicks the button, open the modal 
-            btn.onclick = function() {
-              modal.style.display = "block";
-            }
-            
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-              modal.style.display = "none";
-            }
-            
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-            }
-        </script>
-
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

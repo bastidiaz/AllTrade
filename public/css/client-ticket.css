@@ -1,76 +1,78 @@
 /* Main container */
 .main-outer-container {
     background-color: #E6ECEE;
-    height: 100%;
-    width: 100%;
     height: 100vh;
     width: 100vw;
-    margin: 0;
 }
 
-.user-info {
+/* Header */
+.user-info-container {
     display: flex;
-    margin-left: 50rem;
+    justify-content: end;
+    width: 90vw;
+    margin-top: 1rem;
 }
 
-.user-info p {
-    text-align: center;
-    padding: 1rem;
-    margin: 0.2rem;
+.username-container p {
+    margin-top: 0.2rem;
+    margin-right: 1rem;
+}
+
+.username-icon-container {
+    margin-left: -1rem;
+}
+
+#person-icon {
+    width: 5vw;
+    height: 5vh;
 }
 
 .logout-container {
-    margin-left: 0.5rem;
+    margin-top: -0.6rem;
+    margin-left: 1.5rem;
 }
 
 #logout-btn {
     font-family: "Montserrat", sans-serif;
-    font-size: 18px;
+    font-size: 1em;
     font-weight: 500;
-    border-radius: 5px;
     color: #435933;
-    border: 2px solid #435933;
     cursor: pointer;
 }
 
 /* Ticket Header */
-.header-outer-container {
-    background-color: #E6ECEE;
-    display: flex;
-    justify-content: center;
-}
-
 .header-inner-container {
     display: flex;
+    align-items: stretch;
     background-color: #DFDFD4;
-    border: 2px solid #215219;
-    margin: 3rem;
+    border-radius: 5px;
     width: 100%;
+    height: 18vh;
 }
 
 /* Search Box */
-.search-box-container {
-    margin: 2rem;
-}
-
-input[type=text] {
-    width: 100%;
-    padding: 10px 20px;
-    margin: 8px 0;
+#search-box {
+    margin-top: 2.2rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    padding: 0.5rem;
+    width: 25vw;
+    height: 8vh;
     box-sizing: border-box;
-    border: 2px solid #215219;
+    border: 1px solid #215219;
     border-radius: 4px;
 }
 
-/* Dropdown */
-#dropdown-container {
-    margin-top: 50px;
-    margin-right: 120vh;
+#search-box::placeholder {
+    font-family: "Montserrat", sans-serif;
 }
 
+/* Dropdown */
 #sort-by {
+    margin-top: 3rem;
+    margin-left: -1rem;
     text-align: center;
-    font-size: 16px;
+    font-size: 1.2em;
 }
 
 #sort-by:hover {
@@ -79,31 +81,97 @@ input[type=text] {
 
 /* Create Ticket */ 
 .create-ticket-container {
-    display: flex;
-    justify-content: end;
-    margin-top: 2.3rem;
-    margin-right: 45px;
+    width: 100%;
 }
 
 #create-btn {
-    font-size: 14px;
-    font-weight: bold;
-    border: 2px solid #435933;
-    border-radius: 5px;
-    background-color: #435933;
-    color: white;
-    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    float: right;
     height: 8vh;
-    width: 12vw;
+    width: 15vw;
+    margin-right: 4rem;
+    margin-top: 2rem;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #435933;
+    background-color: #435933;
+    border-radius: 10px;
 }   
 
 #create-btn:hover {
-    background-color: #8b352f;
-    border: 2px solid #8b352f;
+    background-color: #214825;
+    border: 2px solid #214825;
+    box-shadow: 0 0 5px rgb(60, 47, 47);
     color: white;
     transition: 0.7s;
     cursor: pointer;
 }
+
+/* Ticket Modal Form */
+#ticketModal::-webkit-scrollbar {
+    display: none;
+}
+
+#ticket-form-main {
+    background-color: #F7F8F6;
+}
+
+#ticket-form-header h5,
+#close-btn {
+   font-family: "Montserrat", sans-serif;
+}
+
+#ticket-form-content::placeholder {
+    font-family: "Montserrat", sans-serif;
+}
+
+.form-control {
+    margin-top: 2rem;
+}
+
+.form-control:focus,
+#request-btn:focus {
+    border-color: #5A3E29 !important;
+    box-shadow: 0 0 5px #5A3E29 !important;
+}
+
+#request-btn {
+    font-family: "Montserrat", sans-serif;  
+    background-color: #AF593E;
+    border-color: #AF593E;
+}
+
+#request-description {
+    display:inline-block;
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    min-height: 15vh;
+    margin-top: 2rem;
+    width: 33.5vw;
+    color: rgb(165, 156, 156);
+}
+
+#request-specs {
+    display:inline-block;
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    min-height: 10vh;
+    margin-top: 2rem;
+    width: 33.5vw;
+    color: rgb(165, 156, 156);
+}
+
+#request-description:empty:not(focus):before,
+#request-specs:empty:not(focus):before {
+    content:attr(data-placeholder);
+}  
+
+#request-description:empty:focus:before,
+#request-specs:empty:focus:before {
+    content: "";
+}  
 
 /* Ticket */
 .ticket-outer-container {
@@ -114,13 +182,33 @@ input[type=text] {
 .ticket-inner-container {
     display: flex;
     background-color: #FFFFFF;
-    border: 2px solid #4c4c4c;
+    border: 1px solid #4c4c4c;
+    border-radius: 6px;
     width: 81rem;
-    margin-bottom: 20px;
+    margin-top: 2rem;
 }
 
 .ticket-container1 {
     width: 100%;
+}
+
+.order-container {
+    margin-left: 1rem;
+}
+
+.order-details {
+    margin-top: 1.5rem;
+}
+
+.order-details p {
+    font-family: "Opens-sans", sans-serif;
+    font-size: 1em;
+    margin-top: -0.5rem;
+}
+
+#creation-date,
+#ticket-handler {
+    color: #545050;
 }
 
 .ticket-container2 {
@@ -128,129 +216,37 @@ input[type=text] {
     width: 100%;
 }
 
-.order-number p,
-.creation-date p,
-.priority-level p, 
-.order-status p {
-    font-family: "Opens-sans", sans-serif;
-    font-size: 16px;
-}
-
-.number-container {
-    margin-top: 20px;
-    margin-left: 30px;
-    margin-right: 20px;
-}
-
-.date-container {
-    margin-left: 30px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-}
-
 .priority-container {
     text-align: center;
-    margin-top: 30px;
-    margin-left: 300px;
-    padding: 2px;
+    margin-top: 1.8rem;
+    margin-left: 10rem;
+    padding: 0.1rem; 
     width: 15vw;
     height: 10vh;
-    border-radius: 10px;
-    background-color: #B6747A;
+    border-radius: 50px;
+    background-color: #ca6870;
     color: white;
 }
 
 .status-container {
     text-align: center;
-    margin-top: 30px;
-    margin-left: 50px;
-    margin-right: 20px;
+    margin-top: 1.8rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
     padding: 2px;
     width: 15vw;
     height: 10vh;
-    border-radius: 10px;
-    background-color: #FFD361;
+    border-radius: 50px;
+    background-color: #f6c13a;
     color: #545050;
 }
 
 .priority-level p {
     font-weight: 600;
-    margin: 5px;
+    margin: 1.2rem;
 }
 
 .order-status p {
     font-weight: 600;
-    margin-top: 20px;
-}
-
-/* Ticket Modal Form */
-
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 20px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 50%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-  }
-  
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-  
-/* Add Animation */
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-}
-  
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-  
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-  
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-  
-.modal-header {
-    padding: 2px 16px;
-    background-color: #D5E6B9;
-    color: rgb(45, 44, 44);
-}
-  
-.modal-body {
-    padding: 2px 16px;
-}
-  
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #D5E6B9;
-    color: rgb(45, 44, 44);
+    margin-top: 1.2rem;
 }
