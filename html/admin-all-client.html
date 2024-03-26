@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Favicon -->
+        <link rel ="icon" href="/public/img/favicon.png">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/public/css/general.css">
+        <link rel="stylesheet" href="/public/css/main.css">
+        <link rel="stylesheet" href="/public/css/admin-all-client.css">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
+        <title> AllTrade Manufacturing - Admin All Ticket </title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
+            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
+
+            <div class="admin-info-container"> 
+                <div class="admin-container">
+                    <div class="admin-username">
+                        <p id="admin-label"> Admin </p>
+                        <p id="admin-name"> Irish Ramos </p>
+                    </div>
+
+                    <div class="admin-logout-container">
+                        <a id="admin-logout-btn" href="#"> Log Out </a>
+                    </div>
+                </div>
+                    
+                <div class="admin-icon-container">
+                    <img id="admin-profile-icon" src="/public/img/person-icon.svg">
+                </div>
+            </div>
+        </nav>
+
+        <!-- Search bar, sort, and create client container -->
+        <div class="main-outer-container">
+            <div class="header-outer-container">
+                <div class="header-inner-container">
+                    <div class="search-box-container">
+                        <input id="search-box" type="text" placeholder="Search..">
+                    </div>
+        
+                    <div class="dropdown" id="dropdown-container">
+                        <select id="sort-by">
+                            <option value="date"> Sort by Date </option>
+                            <option value="status"> Sort by Status </option>
+                        </select>
+                    </div>
+                    
+                    <div class="create-client-container">
+                        <button id="create-client-btn" type="button" data-toggle="modal" data-target="#clientModal"> CREATE CLIENT </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Modal Form -->
+            <div id="clientModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" id="modalDialog" role="document">
+                    <div class="modal-content" id="client-form-main">
+                        <div class="modal-header" id="client-form-header">
+                            <h5 class="modal-title"> NEW CLIENT </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body" id="client-form-content">
+                            <input type="text" class="form-control" id="client-last-name" aria-describedby="clientLastName" placeholder="Last Name">
+                            <input type="text" class="form-control" id="client-first-name" aria-describedby="clientfirstName" placeholder="First Name">
+                            <input type="text" class="form-control" id="client-company-name" aria-describedby="clientCompanyName" placeholder="Company Name">
+                            <input type="text" class="form-control" id="client-phone-number" aria-describedby="clientPhoneNumber" placeholder="Phone Number">
+                            <input type="text" class="form-control" id="client-email-address" aria-describedby="clientEmailAddress" placeholder="Email Address">
+                            <input type="text" class="form-control" id="client-username" aria-describedby="clientUsername" placeholder="Username">
+                            <input type="text" class="form-control" id="client-password" aria-describedby="clientPassword" placeholder="Password">    
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="add-account-btn"> Add Account </button>
+                            <button type="button" class="btn btn-secondary" id="close-btn" data-dismiss="modal"> Close </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ticket container -->
+            <div class="admin-all-client-outer-container">
+                <div class="admin-all-client-inner-container">
+                    <div class="admin-all-client-container1">
+                        <div class="all-client-client-order-container">
+                            <div class="all-client-client-details">
+                                <p id="all-client-client-name"> Client: Sebastian Diaz </p>
+                                <p id="all-client-creation-date"> Account Created on March 11, 2024 </p>
+                                
+                                <div class="all-client-view-details-container">
+                                    <a id="all-client-view-details" href="#"> View Details </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="admin-all-client-container2">
+                        <div class="all-client-client-status-container">
+                            <div class="all-client-client-status">
+                                <p> MANAGE CLIENT </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>
