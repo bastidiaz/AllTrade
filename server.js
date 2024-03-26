@@ -85,6 +85,8 @@ app.get("/register", registerControl.showRegistration);
 app.post("/register", registerControl.submitRegistration);
 app.get("/logout", loginControl.endSession);
 // tickets
+
+app.post('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
 app.get('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
 app.post('/tickets/:username/create', ticketControl.createTicket);
 app.post('/tickets/:username/accept', ticketControl.acceptTicket);
@@ -93,6 +95,8 @@ app.post('/tickets/:username/cancel', ticketControl.cancelTicket);
 app.post('/tickets/:username/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
+
+
 
 connect();
 

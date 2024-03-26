@@ -36,6 +36,7 @@ const loginControl = {
     // },
 
     async submitLoginForm(req, res) {
+        console.log("button clicked");
         try {
             const user = await User.findOne({ username: req.body.usernameLogin });
             const passwordLogin = req.body.passwordLogin;
@@ -48,7 +49,13 @@ const loginControl = {
                     req.session.cookie.expires = false; // Session ends when browser closes
                 }
                 req.session.user = { username: user.username}; // Store minimal user info in session
-                res.redirect('/tickets/' + user.username);
+
+                if (user.isAdmin) {
+                    res.redirect('/admin-dashboard/' + req.session.user.username);
+                } else {
+                    res.redirect('/tickets/' + username);
+                }
+
             } else {
                 res.render("login", { errorMessage: 'Invalid email or password' });
                 res.status(502).send("Invalid email or password.");
