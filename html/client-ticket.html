@@ -14,73 +14,106 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-        <title> AllTrade Manufacturing </title>
+        
+        <title> AllTrade Manufacturing - Client Ticket </title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
             <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+            <div class="user-info-container"> 
+                <div class="username-container">
+                    <div class="username">
+                        <p> Letty Hong </p>
+                    </div>
+
+                    <div class="logout-container">
+                        <a id="logout-btn" href="#"> Log Out </a>
+                    </div>
+                </div>
+                    
+                <div class="username-icon-container">
+                    <img id="person-icon" src="/public/img/person-icon.svg">
+                </div>
+            </div>
         </nav>
 
-        <div class="header-outer-container">
-            <div class="dropdown" id="dropdown-container">
-                <button class="btn btn-secondary dropdown-toggle" id="dropdown-btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Sort by: Date
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#"> Priority Level </a>
-                </div>
-            </div>
-
-            <div class="search-box-container">
-                <input type="text" placeholder="Search..">
-            </div>
-
-            <div class="create-ticket-container">
-                <button id="create-btn"> Create Ticket </button>
-            </div>
-        </div>
-
-        <div class="ticket-container">
-            <div class="left-info-container">
-                <div class="Lfirst-line">
-                    <p class="Lfirst-info">
-                        <span class="request-tag">Request for </span>
-                        <span class="name-info">Juan Cruz</span>
-                        <span class="request-type">[Order Inquiry] </span>
-                        <span class="ticket-number-tag">Order number: </span>
-                        <span class="ticket-number">OR0001</span>
-                    </p>
-                </div>
-                <div class="Lsecond-line">
-                    <p class="Lsecond-info">
-                        <span class="created-on-tag">Created on </span>
-                        <span class="created-date">Jan 01, 2024</span>
-                        <span class="separator"> | </span>
-                        <span class="created-time">12:00pm</span>
-                        <span class="separator"> | </span>
-                        <span class="created-day"> MON </span>
-                    </p>
-                </div>
-                <div class="Lthrid-line">
-                    <p class="Lthird-info">
-                        <span class="handled-by-tag">Ticket handled by: </span>
-                        <span class="employee-name">David Juan</span>
-                    </p>
-                </div>
-            </div>
-            <div class="right-info-container"> 
-                <div class="progress-box">
-                    <span class="status"> In Proogress </span>
-                </div>
-            </div>
-        </div>
+        <!-- Search bar, sort, and create ticket container -->
+        <div class="main-outer-container">
+            <div class="header-outer-container">
+                <div class="header-inner-container">
+                    <div class="search-box-container">
+                        <input id="search-box" type="text" placeholder="Search..">
+                    </div>
         
+                    <div class="dropdown" id="dropdown-container">
+                        <select id="sort-by">
+                            <option value="date"> Sort by Date </option>
+                            <option value="status"> Sort by Status </option>
+                        </select>
+                    </div>
+    
+                    <div class="create-ticket-container">
+                        <button id="create-btn" type="button" data-toggle="modal" data-target="#ticketModal"> CREATE TICKET </button>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Ticket Modal Form -->
+            <div id="ticketModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" id="modalDialog" role="document">
+                    <div class="modal-content" id="ticket-form-main">
+                        <div class="modal-header" id="ticket-form-header">
+                            <h5 class="modal-title"> REQUEST FOR QUOTE </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body" id="ticket-form-content">
+                            <input type="text" class="form-control" id="reason-request" aria-describedby="reasonRequest" placeholder="Reason for Request">
+                            <div contenteditable="true"  id="request-description" data-placeholder='Description'></div>
+                            <div contenteditable="true"  id="request-specs" data-placeholder='Specifications'></div>
+                            <input type="text" class="form-control" id="request-quantity" aria-describedby="requestQuantity" placeholder="Quantity">
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="request-btn"> Send Request </button>
+                            <button type="button" class="btn btn-secondary" id="close-btn" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Ticket container -->
+            <div class="ticket-outer-container">
+                <div class="ticket-inner-container">
+                    <div class="ticket-container1">
+                        <div class="order-container">
+                            <div class="order-details">
+                                <p id="order-number"> Order number #ORD0003 </p>
+                                <p id="creation-date"> Created on: Thu Mar 07 2024  17:20:00 GMT +0800 (Philippine Standard Time) </p>
+                                <p id="ticket-handler"> Ticket Handled by: Keisha Trajano </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ticket-container2">
+                        <div class="priority-container">
+                            <div class="priority-level">
+                                <p> Priority Level 4</p>
+                            </div>
+                        </div>
+
+                        <div class="status-container">
+                            <div class="order-status">
+                                <p> IN PROGRESS </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
 
         <!-- JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
