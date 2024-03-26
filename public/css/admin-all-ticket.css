@@ -1,0 +1,157 @@
+/* Main container */
+.main-outer-container {
+    background-color: #E6ECEE;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Header */
+.admin-info-container {
+    display: flex;
+    justify-content: end;
+    width: 90vw;
+    margin-top: 1rem;
+}
+
+.admin-username {
+    display: flex;
+    justify-content: end;
+    margin-top: 0.2rem;
+}
+
+#admin-label {
+    color: #657FA6;
+    margin-right: 0.5rem;
+}
+
+#admin-profile-icon {
+    margin-top: -0.5rem;
+    margin-left: -1rem;
+    width: 5vw;
+    height: 5vh;
+}
+
+.admin-logout-container {
+    display: flex;
+    justify-content: end;
+    margin-top: -0.6rem;
+    margin-left: 1.5rem;
+}
+
+#admin-logout-btn {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: #435933;
+    cursor: pointer;
+}
+
+/* Ticket Header */
+.header-inner-container {
+    display: flex;
+    align-items: stretch;
+    background-color: #DFDFD4;
+    border-radius: 5px;
+    width: 100%;
+    height: 18vh;
+}
+
+/* Search Box */
+#search-box {
+    margin-top: 2.2rem;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    padding: 0.5rem;
+    width: 25vw;
+    height: 8vh;
+    box-sizing: border-box;
+    border: 1px solid #215219;
+    border-radius: 4px;
+}
+
+#search-box::placeholder {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Dropdown */
+#sort-by {
+    margin-top: 3rem;
+    margin-left: -1rem;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#sort-by:hover {
+    cursor: pointer;
+}
+
+/* Ticket */
+.admin-all-ticket-outer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.admin-all-ticket-inner-container {
+    display: flex;
+    background-color: #FFFFFF;
+    border: 1px solid #4c4c4c;
+    border-radius: 6px;
+    width: 81rem;
+    margin-top: 2rem;
+}
+
+.admin-all-ticket-container1 {
+    width: 100%;
+}
+
+.all-ticket-client-order-container {
+    margin-left: 1rem;
+    width: 50vw;
+}
+
+.all-ticket-client-order-details {
+    margin-top: 1.5rem;
+}
+
+.all-ticket-client-order-details p {
+    font-family: "Opens-sans", sans-serif;
+    font-size: 1em;
+    margin-top: -0.5rem;
+}
+
+#all-ticket-creation-date,
+#ticket-handler {
+    color: #545050;
+}
+
+.all-ticket-view-ticket-container {
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+}
+
+#all-ticket-view-ticket {
+    color: #545050;
+}
+
+.admin-all-ticket-container2 {
+    display: flex;
+    width: 100%;
+}
+
+.all-ticket-client-status-container {
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-left: 20rem;
+    margin-right: 1rem;
+    padding: 2px;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 50px;
+    background-color: #84A869;
+    color: #545050;
+}
+
+.all-ticket-client-order-status p {
+    font-weight: 600;
+    margin-top: 1.2rem;
+}

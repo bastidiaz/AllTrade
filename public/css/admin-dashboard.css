@@ -62,11 +62,18 @@
     padding-bottom: 0.5rem;
 }
 
-.all-tickets-label p,
-.tickets-handled-label p,
-.all-clients-label p {
+.all-tickets-label,
+.tickets-handled-label,
+.all-clients-label {
     margin-left: 2rem;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#all-tickets,
+#tickets-handled,
+#all-clients {
+    color: black;
 }
 
 .all-tickets-inner-container,
@@ -96,4 +103,18 @@
 
 .all-clients-inner-container {
     background-color: #B6747A;
+}
+
+.all-tickets-num,
+.tickets-handled-num,
+.all-clients-num {
+    margin-left: 14rem;
+    margin-top: -5rem;
+}
+
+.all-tickets-num h1,
+.tickets-handled-num h1,
+.all-clients-num h1 {
+    color: white;
+    font-size: 2.5em;
 }
