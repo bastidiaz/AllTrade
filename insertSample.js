@@ -28,7 +28,9 @@ async function insertSampleUsers() {
         username: "bdoChing",
         password: await bcrypt.hash("12345678", 10), // Hash the password before inserting
         dateMade: new Date('2023-11-14T09:00:00'),
-        isAdmin: false
+        isAdmin: false,
+        firstname: "John",
+        lastname: "Ching"
     },
     {
         companyName: "ALLTrade",
@@ -36,7 +38,9 @@ async function insertSampleUsers() {
         username: "1EdwardoManlolos",
         password: await bcrypt.hash("11111111", 10), // Hash the password before inserting
         dateMade: new Date('2021-11-14T09:00:00'),
-        isAdmin: true
+        isAdmin: true,
+        firstname: "Edwardo",
+        lastname: "Manlolos"
     },
     {
         companyName: "AllTrade",
@@ -44,7 +48,9 @@ async function insertSampleUsers() {
         username: "2GraceAby",
         password: await bcrypt.hash("22222222", 10), // Hash the password before inserting
         dateMade: new Date('2023-11-14T09:00:00'),
-        isAdmin: true
+        isAdmin: true,
+        firstname: "Grace",
+        lastname: "Aby"
     },
     {
         companyName: "Corn Facture",
@@ -52,7 +58,9 @@ async function insertSampleUsers() {
         username: "3conrFact",
         password: await bcrypt.hash("33333333", 10), // Hash the password before inserting
         dateMade: new Date('2020-08-14T09:00:00'),
-        isAdmin: false
+        isAdmin: false,
+        firstname: "Adon",
+        lastname: "Corn"
     }
   ];
 

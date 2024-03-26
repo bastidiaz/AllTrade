@@ -1,0 +1,49 @@
+<!-- Search bar, sort, and create client container -->
+        <div class="main-outer-container">
+            <div class="header-outer-container">
+                <div class="header-inner-container">
+                    <div class="search-box-container">
+                        <input id="search-box" type="text" placeholder="Search..">
+                    </div>
+        
+                    <div class="dropdown" id="dropdown-container">
+                        <select id="sort-by">
+                            <option value="date"> Sort Accending </option>
+                            <option value="status"> Sort Decending </option>
+                        </select>
+                    </div>
+                    
+                    <div class="create-client-container">
+                        <button id="create-client-btn" type="button" data-toggle="modal" data-target="#clientModal"> CREATE CLIENT </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Modal Form -->
+            <div id="clientModal" class="modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" id="modalDialog" role="document">
+                    <div class="modal-content" id="client-form-main">
+                        <div class="modal-header" id="client-form-header">
+                            <h5 class="modal-title"> NEW CLIENT </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body" id="client-form-content">
+                            <input type="text" class="form-control" id="client-last-name" aria-describedby="clientLastName" placeholder="Last Name">
+                            <input type="text" class="form-control" id="client-first-name" aria-describedby="clientfirstName" placeholder="First Name">
+                            <input type="text" class="form-control" id="client-company-name" aria-describedby="clientCompanyName" placeholder="Company Name">
+                            <input type="text" class="form-control" id="client-phone-number" aria-describedby="clientPhoneNumber" placeholder="Phone Number">
+                            <input type="text" class="form-control" id="client-email-address" aria-describedby="clientEmailAddress" placeholder="Email Address">
+                            <input type="text" class="form-control" id="client-username" aria-describedby="clientUsername" placeholder="Username">
+                            <input type="text" class="form-control" id="client-password" aria-describedby="clientPassword" placeholder="Password">    
+                        </div>
+                        
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="add-account-btn"> Add Account </button>
+                            <button type="button" class="btn btn-secondary" id="close-btn" data-dismiss="modal"> Close </button>
+                        </div>
+                    </div>
+                </div>
+            </div>

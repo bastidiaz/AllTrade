@@ -1,44 +1,5 @@
-<!DOCTYPE html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Favicon -->
-        <link rel ="icon" href="/public/img/favicon.png">
-
-        <!-- CSS -->
-        <link rel="stylesheet" href="/public/css/general.css">
-        <link rel="stylesheet" href="/public/css/main.css">
-        <link rel="stylesheet" href="/public/css/admin-dashboard.css">
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        
-        <title> AllTrade Manufacturing - Admin Dashboard </title>
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
-            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
-
-            <div class="admin-info-container"> 
-                <div class="admin-container">
-                    <div class="admin-username">
-                        <p id="admin-label"> Admin </p>
-                        <p id="admin-name"> Irish Ramos </p>
-                    </div>
-
-                    <div class="admin-logout-container">
-                        <a id="admin-logout-btn" href="#"> Log Out </a>
-                    </div>
-                </div>
-                    
-                <div class="admin-icon-container">
-                    <img id="admin-profile-icon" src="/public/img/person-icon.svg">
-                </div>
-            </div>
-        </nav>
-
+{{> naviAdmin}}
         <div class="dashboard-outer-container">
             <div class="all-tickets-main-container">
                 <div class="all-tickets-outer-container">
@@ -46,7 +7,7 @@
                         <img id="all-tickets-icon" src="/public/img/all-tickets.png"/>
 
                         <div class="all-tickets-num">
-                            <h1> 21 </h1>
+                            <h1> {{ticketCount}} </h1>
                         </div>
                     </div>
                     
@@ -62,7 +23,7 @@
                         <img id="tickets-handled-icon" src="/public/img/tickets-handled.png"/>
 
                         <div class="tickets-handled-num">
-                            <h1> 19 </h1>
+                            <h1> {{handleCount}} </h1>
                         </div>
                     </div>
                     
@@ -78,12 +39,12 @@
                         <img id="all-clients-icon" src="/public/img/all-clients.png"/>
 
                         <div class="all-clients-num">
-                            <h1> 03 </h1>
+                            <h1> {{clientCount}}</h1>
                         </div>
                     </div>
                     
                     <div class="all-clients-label">
-                        <a id="all-clients" href="admin-all-client.html"> All Clients </a>
+                        <a id="all-clients" href="/all-clients"> All Clients </a>
                     </div>
                 </div>
             </div>
@@ -93,5 +54,3 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </body>
-</html>

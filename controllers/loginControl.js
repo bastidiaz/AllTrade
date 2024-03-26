@@ -45,7 +45,9 @@ const loginControl = {
             const samePass = await bcrypt.compare(passwordLogin, user.password);
 
             if (samePass) {
-                req.session.user = { username: user.username };
+                req.session.user = { username: user.username,
+                    firstname: user.firstname,
+                    lastname: user.lastname };
 
                 // Simplify session handling based on 'remember' checkbox
                 if (req.body.remember === "on") {
@@ -55,7 +57,14 @@ const loginControl = {
                 }
 
                 if (user.isAdmin) {
-                    res.redirect('/admin-dashboard/' + req.session.user.username);
+                    console.log('Session User:', req.session.user);
+                    console.log('Admin Logged In:', user);
+                    req.session.user = {
+                        username: user.username,
+                        firstname: user.firstname,
+                        lastname: user.lastname
+                    };
+                    res.redirect('/admin/' + req.session.user.username);
                 } else {
                     res.redirect('/tickets/' + user.username);
                 }

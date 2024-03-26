@@ -86,12 +86,12 @@
 }
 
 /* Ticket */
-.admin-all-ticket-outer-container {
+.admin-tickets-handled-outer-container {
     display: flex;
     justify-content: center;
 }
 
-.admin-all-ticket-inner-container {
+.admin-tickets-handled-inner-container {
     display: flex;
     background-color: #FFFFFF;
     border: 1px solid #4c4c4c;
@@ -100,44 +100,44 @@
     margin-top: 2rem;
 }
 
-.admin-all-ticket-container1 {
+.admin-tickets-handled-container1 {
     width: 100%;
 }
 
-.all-ticket-client-order-container {
+.tickets-handled-client-order-container {
     margin-left: 1rem;
     width: 50vw;
 }
 
-.all-ticket-client-order-details {
+.tickets-handled-client-order-details {
     margin-top: 1.5rem;
 }
 
-.all-ticket-client-order-details p {
+.tickets-handled-client-order-details p {
     font-family: "Opens-sans", sans-serif;
     font-size: 1em;
     margin-top: -0.5rem;
 }
 
-#all-ticket-creation-date {
+#tickets-handled-creation-date {
     color: #545050;
 }
 
-.all-ticket-view-ticket-container {
+.tickets-handled-view-ticket-container {
     margin-top: -0.5rem;
     margin-bottom: 1rem;
 }
 
-#all-ticket-view-ticket {
+#tickets-handled-view-ticket {
     color: #545050;
 }
 
-.admin-all-ticket-container2 {
+.admin-tickets-handled-container2 {
     display: flex;
     width: 100%;
 }
 
-.all-ticket-client-status-container {
+.tickets-handled-client-status-container {
     text-align: center;
     margin-top: 1.5rem;
     margin-left: 20rem;
@@ -150,7 +150,7 @@
     color: #545050;
 }
 
-.all-ticket-client-order-status p {
+.tickets-handled-client-order-status p {
     font-weight: 600;
     margin-top: 1.2rem;
 }

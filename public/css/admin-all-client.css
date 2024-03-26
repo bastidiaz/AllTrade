@@ -85,13 +85,75 @@
     cursor: pointer;
 }
 
+/* Create Ticket */ 
+.create-client-container {
+    width: 100%;
+}
+
+#create-client-btn {
+    float: right;
+    height: 8vh;
+    width: 15vw;
+    margin-right: 4rem;
+    margin-top: 2rem;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #435933;
+    background-color: #435933;
+    border-radius: 10px;
+}   
+
+#create-client-btn:hover {
+    background-color: #214825;
+    border: 2px solid #214825;
+    box-shadow: 0 0 5px rgb(60, 47, 47);
+    color: white;
+    transition: 0.7s;
+    cursor: pointer;
+}
+
+/* Client Modal Form */
+#clientModal::-webkit-scrollbar {
+    display: none;
+}
+
+#client-form-main {
+    background-color: #F7F8F6;
+}
+
+#client-form-header h5,
+#close-btn {
+   font-family: "Montserrat", sans-serif;
+}
+
+#client-form-content::placeholder {
+    font-family: "Montserrat", sans-serif;
+}
+
+.form-control {
+    margin-top: 2rem;
+}
+
+.form-control:focus,
+#add-account-btn:focus {
+    border-color: #5A3E29 !important;
+    box-shadow: 0 0 5px #5A3E29 !important;
+}
+
+#add-account-btn {
+    font-family: "Montserrat", sans-serif;  
+    background-color: #AF593E;
+    border-color: #AF593E;
+}
+
 /* Ticket */
-.admin-all-ticket-outer-container {
+.admin-all-client-outer-container {
     display: flex;
     justify-content: center;
 }
 
-.admin-all-ticket-inner-container {
+.admin-all-client-inner-container {
     display: flex;
     background-color: #FFFFFF;
     border: 1px solid #4c4c4c;
@@ -100,57 +162,57 @@
     margin-top: 2rem;
 }
 
-.admin-all-ticket-container1 {
+.admin-all-client-container1 {
     width: 100%;
 }
 
-.all-ticket-client-order-container {
+.all-client-client-order-container {
     margin-left: 1rem;
-    width: 50vw;
 }
 
-.all-ticket-client-order-details {
+.all-client-client-details {
     margin-top: 1.5rem;
 }
 
-.all-ticket-client-order-details p {
+.all-client-client-details p {
     font-family: "Opens-sans", sans-serif;
     font-size: 1em;
     margin-top: -0.5rem;
 }
 
-#all-ticket-creation-date {
+#all-client-creation-date,
+#all-client-view-tickets{
     color: #545050;
 }
 
-.all-ticket-view-ticket-container {
+.all-client-view-details-container {
     margin-top: -0.5rem;
     margin-bottom: 1rem;
 }
 
-#all-ticket-view-ticket {
+#all-client-view-details {
     color: #545050;
 }
 
-.admin-all-ticket-container2 {
+.all-client-ticket-container2 {
     display: flex;
     width: 100%;
 }
 
-.all-ticket-client-status-container {
+.all-client-client-status-container {
     text-align: center;
-    margin-top: 1.5rem;
-    margin-left: 20rem;
+    margin-top: 1.8rem;
+    margin-left: 2rem;
     margin-right: 1rem;
     padding: 2px;
     width: 15vw;
     height: 10vh;
     border-radius: 50px;
-    background-color: #FFBA6D;
-    color: #545050;
+    background-color: #65A8FF;
+    color: #444141;
 }
 
-.all-ticket-client-order-status p {
+.all-client-client-status p {
     font-weight: 600;
     margin-top: 1.2rem;
 }

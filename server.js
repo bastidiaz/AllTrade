@@ -18,6 +18,7 @@ const indexControl = require("./controllers/indexControl.js");
 const loginControl = require("./controllers/loginControl.js");
 const registerControl = require("./controllers/registerControl.js");
 const inquiryControl = require("./controllers/inquiryControl.js");
+const adminControl = require("./controllers/adminControl.js");
 
 const app = express();
 
@@ -96,6 +97,8 @@ app.post('/tickets/:username/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
+app.get('/admin/:username', adminControl.showDashboard);
+app.get('/all-clients', adminControl.showAllClients);
 
 
 connect();
