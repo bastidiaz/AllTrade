@@ -1,0 +1,113 @@
+/* Header */
+.ticket-header-label {
+    display: flex;
+    width: 100%;
+}
+
+.view-tickets-label {
+    display: flex;
+    margin-top: 2rem;
+    margin-left: 3rem;
+}
+
+.view-tickets-label p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.2em;
+    margin-right: 1rem;
+}
+
+#tickets {
+    color: green;
+}
+
+#arrow {
+    color: gray;
+    font-weight: 600;
+}
+
+.reply-btn-outer-container {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-right: 5rem;
+    margin-top: 0.8rem;
+}
+
+.reply-btn-inner-container {
+    margin-top: 1rem;
+}
+
+#reply-btn {
+    font-family: "Montserrat", sans-serif;
+    min-width: 5vw;
+    min-height: 5vh;
+    border-radius: 4px;
+    box-shadow: 0 0 2px gray;
+}
+
+/* Reason */
+.reason-for-request-header-outer-container {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    box-shadow: 0 0 2px gray;
+    min-height: 15vh;
+    min-width: 93vw;
+}
+
+.reason-for-request-title {
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+    padding-bottom: 0.2rem;
+}
+
+.reason-for-request-title h5 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+}
+
+.reason-for-request-title p {
+    font-family: "Open-sans", sans-serif;
+}
+
+/* Details */
+.reason-for-request-info-outer-container {
+    display: flex;
+}
+
+.reason-for-request-client-details-container {
+    margin-left: 3rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    box-shadow: 0 0 2px gray;
+    min-width: 70vw;
+    min-height: 10vh;
+    padding-left: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+}
+
+.reason-for-request-client-details-container p {
+    font-size: 1.2em;
+}
+
+.reason-for-request-admin-name-container {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 1rem;
+    min-width: 22vw;
+    min-height: 10vh;
+    box-shadow: 0 0 2px gray;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
+
+.reason-for-request-ticket-details-container {
+    font-family: "Montserrat", sans-serif;
+    margin-top: 1rem;
+    min-width: 22vw;
+    min-height: 20vh;
+    box-shadow: 0 0 2px gray;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+}
