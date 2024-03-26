@@ -49,10 +49,10 @@ const ticketControl = {
             });
     
             if (!tickets || tickets.length === 0) {
-                return res.render("tickets", { tickets: [], username: req.session.user.username });
+                return res.render("tickets", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName });
             }
     
-            res.render("tickets", { tickets: tickets, username: req.session.user.username });
+            res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName });
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred while fetching tickets.");

@@ -149,7 +149,7 @@
     border-radius: 4px;
     min-height: 15vh;
     margin-top: 2rem;
-    width: 33.5vw;
+    width: 100%;
     color: rgb(165, 156, 156);
 }
 
@@ -160,7 +160,7 @@
     border-radius: 4px;
     min-height: 10vh;
     margin-top: 2rem;
-    width: 33.5vw;
+    width: 100%;
     color: rgb(165, 156, 156);
 }
 

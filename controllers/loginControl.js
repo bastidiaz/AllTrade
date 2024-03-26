@@ -34,36 +34,37 @@ const loginControl = {
     //         res.render("login", { errorMessage: 'An error occurred during login' });
     //     }
     // },
-
     async submitLoginForm(req, res) {
-        console.log("button clicked");
         try {
             const user = await User.findOne({ username: req.body.usernameLogin });
+            if (!user) {
+                return res.render("login", { errorMessage: 'User not found' });
+            }
+
             const passwordLogin = req.body.passwordLogin;
-            const samePass = await bcrypt.compare(passwordLogin, user.password); //since the pass is hashed already
-            if (user && samePass) {
+            const samePass = await bcrypt.compare(passwordLogin, user.password);
+
+            if (samePass) {
+                req.session.user = { username: user.username };
+
                 // Simplify session handling based on 'remember' checkbox
                 if (req.body.remember === "on") {
                     req.session.cookie.maxAge = 21 * 24 * 60 * 60 * 1000; // 3 weeks
                 } else {
                     req.session.cookie.expires = false; // Session ends when browser closes
                 }
-                req.session.user = { username: user.username}; // Store minimal user info in session
 
                 if (user.isAdmin) {
                     res.redirect('/admin-dashboard/' + req.session.user.username);
                 } else {
-                    res.redirect('/tickets/' + username);
+                    res.redirect('/tickets/' + user.username);
                 }
-
             } else {
                 res.render("login", { errorMessage: 'Invalid email or password' });
-                res.status(502).send("Invalid email or password.");
             }
         } catch (error) {
             console.error(error);
             res.status(501).send("An error occurred during login.");
-            res.render("login", { errorMessage: 'An error occurred during login' });
         }
     },
 

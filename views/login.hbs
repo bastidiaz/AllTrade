@@ -7,9 +7,14 @@
                     <a href="/"> <button id="home-btn"> Home </button></a>
                 </div>
             </div>
-            
+           
             <div class="login-main-container">
                 <div class="login-header">
+                     {{#if errorMessage}}
+                    <div class="alert alert-danger" role="alert">
+                        {{errorMessage}}
+                    </div>
+                    {{/if}}
                     <div class="login-title">
                         <h3> Welcome Back! </h3>
                     </div>
@@ -23,7 +28,7 @@
                     <div class="form-group row" id="form-password">
                         <input type="password" name="passwordLogin" class="form-control" id="inputPassword" placeholder="Password">
                     </div>
-                </form>
+                
 
                 <div class="remember-forgot-container">
                     <input type="checkbox" id="remember-checkbox" name="remember" value="check">
@@ -31,9 +36,8 @@
 
                     <a href="/forgot-password" id="forgot-password"> Forgot Password? </a>
                 </div>
-
                 <button type="submit" value="Log In" name="submit-log-in" class="btn btn-primary" id="login-btn"> Login </button>
-
+                </form>
                 {{!-- <div class="forgot-pass-container">
                     <p> Forgot Password? </p>
                 </div> --}}
@@ -44,11 +48,7 @@
                     </div>
                 {{/if}} --}}
 
-                {{#if errorMessage}}
-                <div class="alert alert-danger" role="alert">
-                    {{errorMessage}}
-                </div>
-                {{/if}}
+                
 
                 <div class="old-new-account">
                     New client?
@@ -56,7 +56,17 @@
                 </div>                    
             </div>
         </div>
-        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const errorMessage = document.querySelector('.alert-danger');
+                setTimeout(function() {
+                    if (errorMessage) {
+                        errorMessage.style.display = 'none';
+                    }
+                }, 5000); //5sec
+            });
+
+        </script>
 
         <!-- JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

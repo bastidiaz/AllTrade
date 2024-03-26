@@ -1,10 +1,8 @@
-/*This Script Is For Inserting Sample Data For Testing Purposes*/
-
+/* This Script Is For Inserting Sample Data For Testing Purposes */
 
 const mongoose = require('mongoose');
 const User = require("./models/User.js");
-
-
+const bcrypt = require('bcrypt');
 
 const dbURL = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'; 
 
@@ -12,9 +10,7 @@ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(async () => {
     console.log('Connected to MongoDB');
     try {
-      await Promise.all([
-        insertSampleUsers(),
-      ]);
+      await insertSampleUsers();
       console.log('All sample data inserted successfully');
     } catch (error) {
       console.error('Error during data insertion:', error);
@@ -24,15 +20,13 @@ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   })
   .catch(err => console.error('Connection error:', err));
 
-
-
 async function insertSampleUsers() {
   const sampleUsers = [
     {
         companyName: "BDO corporation",
         email: "bdo@gmail.com",
         username: "bdoChing",
-        password: "12345678",
+        password: await bcrypt.hash("12345678", 10), // Hash the password before inserting
         dateMade: new Date('2023-11-14T09:00:00'),
         isAdmin: false
     },
@@ -40,7 +34,7 @@ async function insertSampleUsers() {
         companyName: "ALLTrade",
         email: "allTrade01@gmail.com",
         username: "1EdwardoManlolos",
-        password: "11111111",
+        password: await bcrypt.hash("11111111", 10), // Hash the password before inserting
         dateMade: new Date('2021-11-14T09:00:00'),
         isAdmin: true
     },
@@ -48,7 +42,7 @@ async function insertSampleUsers() {
         companyName: "AllTrade",
         email: "allTrade02@gmail.com",
         username: "2GraceAby",
-        password: "22222222",
+        password: await bcrypt.hash("22222222", 10), // Hash the password before inserting
         dateMade: new Date('2023-11-14T09:00:00'),
         isAdmin: true
     },
@@ -56,7 +50,7 @@ async function insertSampleUsers() {
         companyName: "Corn Facture",
         email: "cornFact@gmail.com",
         username: "3conrFact",
-        password: "33333333",
+        password: await bcrypt.hash("33333333", 10), // Hash the password before inserting
         dateMade: new Date('2020-08-14T09:00:00'),
         isAdmin: false
     }
@@ -64,9 +58,8 @@ async function insertSampleUsers() {
 
   try {
     await User.insertMany(sampleUsers);
-    console.log('Sample posts inserted successfully');
-    mongoose.disconnect();
+    console.log('Sample users inserted successfully');
   } catch (error) {
-    console.error('Error inserting sample posts:', error);
+    console.error('Error inserting sample users:', error);
   }
 }
