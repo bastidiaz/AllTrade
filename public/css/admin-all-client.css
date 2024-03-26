@@ -1,15 +1,17 @@
+
+
 /* Main container */
 .main-outer-container {
     background-color: #E6ECEE;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 }
 
 /* Header */
 .admin-info-container {
     display: flex;
     justify-content: end;
-    width: 90vw;
+    width: 100%;
     margin-top: 1rem;
 }
 
@@ -17,6 +19,7 @@
     display: flex;
     justify-content: end;
     margin-top: 0.2rem;
+    margin-right: 0.2rem;
 }
 
 #admin-label {
@@ -25,8 +28,8 @@
 }
 
 #admin-profile-icon {
-    margin-top: -0.5rem;
-    margin-left: -1rem;
+    margin-top: 0.1rem;
+    margin-left: 1rem;
     width: 5vw;
     height: 5vh;
 }
@@ -151,6 +154,8 @@
 .admin-all-client-outer-container {
     display: flex;
     justify-content: center;
+    padding-left:1rem;
+    padding-right:1rem;
 }
 
 .admin-all-client-inner-container {
@@ -158,8 +163,8 @@
     background-color: #FFFFFF;
     border: 1px solid #4c4c4c;
     border-radius: 6px;
-    width: 81rem;
-    margin-top: 2rem;
+    width: 100%;
+    margin-top: 0.5rem;
 }
 
 .admin-all-client-container1 {

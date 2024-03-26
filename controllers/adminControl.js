@@ -1,5 +1,7 @@
+const { Client } = require('../models/User');
 const User = require('../models/User');
 const Tickets = require('../models/clientTickets');
+const moment = require('moment');
 
 const adminControl = {
     async showDashboard(req, res) {
@@ -17,10 +19,26 @@ const adminControl = {
     },
 
     async showAllClients(req, res) {
-        const admin = req.session.user;
-        res.render('all-clients',{admin});
+        try {
+            const admin = req.session.user;
+            let clients = await User.find({ isAdmin: false }); // Query non-admin clients
+            clients = clients.map(client => {
+                const formattedDate = moment(client.dateMade).format('MMMM D, YYYY');
+                return {
+                    companyName: client.companyName,
+                    email: client.email,
+                    username: client.username,
+                    lastname: client.lastname,
+                    firstname: client.firstname,
+                    dateMade: formattedDate
+                };
+            });
+            res.render('all-clients',{admin, clients});
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }    
     },
-
 };
 
 module.exports = adminControl;
