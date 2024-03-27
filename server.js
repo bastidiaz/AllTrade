@@ -6,7 +6,8 @@ const session = require('express-session');
 const connectMongo = require('connect-mongo');
 
 //const uri = 'mongodb://127.0.0.1:27017/AllTrade'
-const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
+// const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
+const uri = 'mongodb+srv://franceeee09:_apdev2223@fairyfloss.lucgr7f.mongodb.net/?retryWrites=true&w=majority&appName=fairyfloss';
 
 const Ticket = require("./models/Ticket.js");
 const User = require("./models/User.js");
@@ -24,7 +25,9 @@ const app = express();
 
 const sessionStore = connectMongo.create({
     //mongoUrl: 'mongodb://127.0.0.1:27017/AllTrade',
-    mongoUrl: 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue',
+    // mongoUrl: 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue',
+    mongoUrl: 'mongodb+srv://franceeee09:_apdev2223@fairyfloss.lucgr7f.mongodb.net/?retryWrites=true&w=majority&appName=fairyfloss',
+
     collectionName: 'users',
     ttl: 1 * 24 * 60 * 60,
     autoRemove: 'native'

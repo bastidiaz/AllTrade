@@ -40,12 +40,11 @@
 /* Login */
 .login-main-container {
   background-color: rgb(49, 69, 49);
-  margin-top: -3rem;
   width: 100%;
 }
 
 .login-header {
-  margin-top: 7rem;
+  margin-top: 1rem;
   padding: 1rem;
   text-align: center;
   border-top-left-radius: 20px;
@@ -99,7 +98,6 @@
 /* Forogt Password and Remember Me*/
 .remember-forgot-container {
   display: flex;
-  margin-left: 9rem;
 }
 
 #remember-checkbox {
@@ -115,7 +113,7 @@
   color: rgb(211, 211, 211);
   font-size: 1em;
   margin-top: 0.7rem;
-  margin-right: 19rem;
+  margin-right: 20rem;
 }
 
 #forgot-password {
@@ -132,8 +130,7 @@
   border-color: #6d6b5a;
   border-radius: 30px;
   margin-top: 1rem;
-  margin-left: 9.3rem;
-  width: 41vw;
+  min-width: 45vw;
 }
 
 #login-btn:focus {
@@ -145,7 +142,7 @@
 /* Register */
 .old-new-account {
   margin-left: 10rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   color: white;
 }
 
