@@ -8,6 +8,9 @@ const adminControl = {
     async showDashboard(req, res) {
         try {
             const admin = req.session.user;
+            if (!admin) {
+                return res.redirect('/login');
+            }
             //console.log('Admin Info:', admin);
             const clientCount = await User.countDocuments({isAdmin:false});
             const handleCount = await Tickets.countDocuments({handler: req.session.user.username});
@@ -22,6 +25,9 @@ const adminControl = {
     async showAllClients(req, res) {
         try {
             const admin = req.session.user;
+            if (!admin) {
+                return res.redirect('/login');
+            }
             
             //this is for when you click the create, it would generate default infos in case there is no client info yet.
             const existingDefaultUsers = await User.find({ username: /^default\d*$/ }); // Find usernames starting with "default"
@@ -58,6 +64,11 @@ const adminControl = {
         const { companyName, email, username, lastname, firstname,  phoneNumber, password} = req.body;
         // check for existing user
         try {
+            const admin = req.session.user;
+            if (!admin) {
+                return res.redirect('/login');
+            }
+
             const Existing = await User.findOne({$or: [{username}] });
             if(Existing){
                 return res.status(400).json({message: 'Username or email already exists'});
@@ -80,7 +91,7 @@ const adminControl = {
 
             console.log("New User Data:", newUser);
             await newUser.save();
-            res.redirect('/all-clients?success=true&message=User created successfully');
+            res.redirect('/all-clients');
         }catch (error){
             console.error('Error creating account:', error);
             res.status(500).json({ success: false, message: 'An error occurred' });

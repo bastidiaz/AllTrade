@@ -1,4 +1,4 @@
-<!-- Search bar, sort, and create client container -->
+
         <div class="main-outer-container">
             <div class="header-outer-container">
                 <div class="header-inner-container">
@@ -40,6 +40,7 @@
                             <input type="text" class="form-control" id="client-username" aria-describedby="clientUsername" placeholder="Username" value="defualt1">
                             <input type="password" class="form-control" id="client-password" aria-describedby="clientPassword" placeholder="Password" value="00000000"> 
                                 --}}
+                                <div id="form-error" class="alert alert-danger" style="display: none;">Cannot leave these fields empty.</div>
                                 <div class="form-group">
                                     <label for="client-last-name">Last Name</label>
                                     <input type="text" class="form-control" id="client-last-name" name="lastname" aria-describedby="clientLastName" placeholder="Last Name" value="none">
@@ -86,41 +87,49 @@
         <script>
             function validatePhoneNumber(phoneNumber) {
                 // Check if the input is either 0 or an 11-digit number starting with 09
-                return phoneNumber === '0' || /^(09)\d{9}$/.test(phoneNumber);
+                return phoneNumber === '0' || phoneNumber === 0 || /^(09)\d{9}$/.test(phoneNumber);
             }
 
-            function updatePhoneNumberValidation() {
+            function updateFormValidation() {
                 const phoneNumberInput = document.getElementById('client-phone-number');
-                const phoneError = document.getElementById('phone-error');
+                const lastNameInput = document.getElementById('client-last-name');
+                const firstNameInput = document.getElementById('client-first-name');
+                const companyNameInput = document.getElementById('client-company-name');
+                const emailInput = document.getElementById('client-email-address');
+                const usernameInput = document.getElementById('client-username');
+                const passwordInput = document.getElementById('client-password');
+                const formError = document.getElementById('form-error');
                 const addAccountBtn = document.getElementById('add-account-btn');
 
-                if (validatePhoneNumber(phoneNumberInput.value)) {
-                    phoneError.textContent = ''; // Clear error message
-                    phoneError.style.display = 'none'; // Hide error message
-                    addAccountBtn.disabled = false; // Enable Add Account button
+                // Check if any of the fields are empty
+                const isEmptyField = (
+                    lastNameInput.value.trim() === '' ||
+                    firstNameInput.value.trim() === '' ||
+                    companyNameInput.value.trim() === '' ||
+                    emailInput.value.trim() === '' ||
+                    usernameInput.value.trim() === '' ||
+                    passwordInput.value.trim() === ''
+                );
+
+                if (validatePhoneNumber(phoneNumberInput.value) && !isEmptyField) {
+                    formError.style.display = 'none'; // Hide error message
+                    addAccountBtn.disabled = false; 
                 } else {
-                    phoneError.textContent = 'Invalid phone number. Must be 11 digits starting with 09 or 0.'; // Set error message
-                    phoneError.style.display = 'block'; // Show error message
+                    formError.textContent = 'Cannot leave fields as empty.'; // Set error message
+                    formError.style.display = 'block'; // Show error message
                     addAccountBtn.disabled = true; // Disable Add Account button
                 }
             }
 
             document.addEventListener('DOMContentLoaded', function() {
-                const phoneNumberInput = document.getElementById('client-phone-number');
-                phoneNumberInput.addEventListener('input', updatePhoneNumberValidation); // Call the validation function on input
-
-                const showPasswordCheckbox = document.getElementById('show-password-checkbox');
-                const passwordField = document.getElementById('client-password');
-
-                showPasswordCheckbox.addEventListener('change', function() {
-                    if (this.checked) {
-                        passwordField.type = 'text'; // Show password
-                    } else {
-                        passwordField.type = 'password'; // Hide password
-                    }
+                const formInputs = document.querySelectorAll('.form-control');
+                formInputs.forEach(input => {
+                    input.addEventListener('input', updateFormValidation); // Call the validation function on input
                 });
-            });
 
+                // Check initial form validity on page load
+                updateFormValidation();
+            });
 
             function clearForm() {
                 document.getElementById('client-last-name').value = 'none';
@@ -131,6 +140,12 @@
                 document.getElementById('client-username').value = '{{nextUsername}}';
                 document.getElementById('client-password').value = '00000000';
                 document.getElementById('show-password-checkbox').checked = false;
+                const addAccountBtn = document.getElementById('add-account-btn');
+                addAccountBtn.disabled = false; 
+                const formError = document.getElementById('form-error');
+                formError.textContent = '';
+                formError.style.display = 'none'; // Hide the error message when clearing the form
+                updateFormValidation(); // Update form validation after clearing
             }
 
             document.addEventListener('DOMContentLoaded', function() {
@@ -145,4 +160,4 @@
                     }
                 });
             });
-        </script>
+</script>
