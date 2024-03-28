@@ -3,8 +3,7 @@ const User = require("./models/User.js");
 const ClientTicket = require("./models/clientTickets.js");
 const bcrypt = require('bcrypt');
 
-// const dbURL = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'; 
-const dbURL = "mongodb+srv://franceeee09:_apdev2223@fairyfloss.lucgr7f.mongodb.net/?retryWrites=true&w=majority&appName=fairyfloss";
+const dbURL = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'; 
 
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(async () => {

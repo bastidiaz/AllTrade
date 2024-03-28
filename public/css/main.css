@@ -12,23 +12,22 @@
 
 #img-content {
     margin-top: 0.5rem;
-    min-width: 100vw;
-    min-height: auto;
+    width: 100vw;
+    height: auto;
 }
 
 /* About Carousel */
 #about-profile {
-    min-width: 100vw;
+    width: 100vw;
 }
 
 /* Contact and Inquire */
 .contact-main-container {
-    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: center;
     overflow: hidden;
-    min-width: 100%;
+    width: 100%;
     min-height: 100vh;
 }
 
@@ -50,10 +49,8 @@
 
 .contact-content-container {
     font-family: "Open-sans", sans-serif;
-    font-size: 1.3em;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    padding-top: 10rem;
+    margin: 7.5rem;
+    padding: 2rem;
 }
 
 .contact-title h6,
@@ -82,9 +79,9 @@
 }
 
 .inquire-content-container {
-    padding-top: 8rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    margin-top: 8rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 #send-btn {
@@ -100,25 +97,27 @@
 }
 
 #inputCompanyName {
-    min-width: 35vw;
+    width: 38vw;
 }
 
-#inputMessage {
-    min-height: 30vh;
-    width: 100%;
-    background-color: white;
-    border: none;
-    padding-left: 1rem;
-    padding-top: 0.5rem;
+#divMessage {
+    display:inline-block;
+    background-color: #f8f8f8;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    min-height: 20vh;
+    width: 38vw;
+    color: rgb(165, 156, 156);
+    margin-bottom: 1rem;
 }
 
-#inputFirstName,
-#inputLastName,
-#inputEmail,
-#inputNumber,
-#inputCompanyName {
-    margin: 0;
-}
+#divMessage:empty:not(focus):before {
+    content:attr(data-placeholder);
+}  
+
+#divMessage:empty:focus:before {
+    content: "";
+}  
 
 .inquire-content-container p {
     color: rgb(182, 67, 67);
