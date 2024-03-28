@@ -17,18 +17,9 @@
     margin-right: 0.5rem;
 }
 
-#admin-profile-icon {
-    margin-top: -0.5rem;
-    margin-left: -1rem;
-    width: 5vw;
-    height: 5vh;
-}
-
 .admin-logout-container {
     display: flex;
     justify-content: end;
-    margin-top: -0.6rem;
-    margin-left: 1.5rem;
 }
 
 #admin-logout-btn {
@@ -79,8 +70,8 @@
 .all-tickets-inner-container,
 .tickets-handled-inner-container,
 .all-clients-inner-container {
-    width: 25vw;
-    height: 30vh;
+    min-width: 25vw;
+    min-height: 30vh;
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
 }
@@ -115,6 +106,6 @@
 .all-tickets-num h1,
 .tickets-handled-num h1,
 .all-clients-num h1 {
-    color: white;
+    color: rgb(38, 36, 36);
     font-size: 2.5em;
 }
