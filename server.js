@@ -67,6 +67,9 @@ async function connect() {
 //     next(); // Proceed to the route handler if authentication and authorization checks pass
 // };
 
+
+
+
 // app.use(express.static('public'));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
@@ -87,6 +90,17 @@ app.post("/register", registerControl.submitRegistration);
 app.get("/logout", loginControl.endSession);
 // tickets
 
+const ensureAuthenticated = (req, res, next) => {
+    if (req.session.user) {
+        // User is authenticated, proceed to the next middleware or route handler
+        return next();
+    } else {
+        // User is not authenticated, redirect to the login page
+        return res.redirect('/login');
+    }
+};
+
+
 //app.post('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
 app.get('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
 app.post('/tickets/:username/create', ticketControl.createTicket);
@@ -97,8 +111,9 @@ app.post('/tickets/:username/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
-app.get('/admin/:username', adminControl.showDashboard);
-app.get('/all-clients', adminControl.showAllClients);
+app.get('/admin/:username', ensureAuthenticated, adminControl.showDashboard);
+app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
+app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
 
 
 connect();
