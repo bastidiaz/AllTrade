@@ -23,12 +23,12 @@
 
 /* Contact and Inquire */
 .contact-main-container {
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: center;
     overflow: hidden;
     width: 100%;
-    min-height: 100vh;
 }
 
 .contact-container {
@@ -49,8 +49,10 @@
 
 .contact-content-container {
     font-family: "Open-sans", sans-serif;
-    margin: 7.5rem;
-    padding: 2rem;
+    font-size: 1.3em;
+    margin-top: 12rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
 }
 
 .contact-title h6,
@@ -79,7 +81,7 @@
 }
 
 .inquire-content-container {
-    margin-top: 8rem;
+    margin-top: 7rem;
     margin-left: 5rem;
     margin-right: 5rem;
 }
@@ -97,27 +99,22 @@
 }
 
 #inputCompanyName {
-    width: 38vw;
+    min-width: 38vw;
 }
 
-#divMessage {
-    display:inline-block;
-    background-color: #f8f8f8;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    min-height: 20vh;
-    width: 38vw;
-    color: rgb(165, 156, 156);
-    margin-bottom: 1rem;
+#inputMessage {
+    height:200px;
+    width: 100%;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-right: 1.2rem;
 }
 
-#divMessage:empty:not(focus):before {
-    content:attr(data-placeholder);
-}  
-
-#divMessage:empty:focus:before {
-    content: "";
-}  
+#inputFirstName, #inputLastName,
+#inputEmail, #inputNumber,
+#inputCompanyName {
+    margin-top: 0;
+}
 
 .inquire-content-container p {
     color: rgb(182, 67, 67);
