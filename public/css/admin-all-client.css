@@ -135,7 +135,7 @@
 }
 
 .form-control {
-    margin-top: 2rem;
+    margin-top:0;
 }
 
 .form-control:focus,
@@ -220,4 +220,9 @@
 .all-client-client-status p {
     font-weight: 600;
     margin-top: 1.2rem;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
 }

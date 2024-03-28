@@ -99,6 +99,7 @@ app.post('/send', inquiryControl.sendInquiry);
 
 app.get('/admin/:username', adminControl.showDashboard);
 app.get('/all-clients', adminControl.showAllClients);
+app.post('/addAccount', adminControl.addAccount);
 
 
 connect();

@@ -23,6 +23,7 @@
             <div id="clientModal" class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" id="modalDialog" role="document">
                     <div class="modal-content" id="client-form-main">
+                        <form id="add-account-form" action="/addAccount" method="post"> <!-- Added form element with action and method attributes -->
                         <div class="modal-header" id="client-form-header">
                             <h5 class="modal-title"> NEW CLIENT </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -31,19 +32,117 @@
                         </div>
 
                         <div class="modal-body" id="client-form-content">
-                            <input type="text" class="form-control" id="client-last-name" aria-describedby="clientLastName" placeholder="Last Name" vlaue="none">
-                            <input type="text" class="form-control" id="client-first-name" aria-describedby="clientfirstName" placeholder="First Name" value="none">
-                            <input type="text" class="form-control" id="client-company-name" aria-describedby="clientCompanyName" placeholder="Company Name" value="none">
-                            <input type="text" class="form-control" id="client-phone-number" aria-describedby="clientPhoneNumber" placeholder="Phone Number" value="none">
-                            <input type="text" class="form-control" id="client-email-address" aria-describedby="clientEmailAddress" placeholder="Email Address" value="none">
+                            {{!-- <input type="text" class="form-control" id="client-last-name" aria-describedby="clientLastName" placeholder="Last Name">
+                            <input type="text" class="form-control" id="client-first-name" aria-describedby="clientfirstName" placeholder="First Name" >
+                            <input type="text" class="form-control" id="client-company-name" aria-describedby="clientCompanyName" placeholder="Company Name" >
+                            <input type="text" class="form-control" id="client-phone-number" aria-describedby="clientPhoneNumber" placeholder="Phone Number" >
+                            <input type="text" class="form-control" id="client-email-address" aria-describedby="clientEmailAddress" placeholder="Email Address">
                             <input type="text" class="form-control" id="client-username" aria-describedby="clientUsername" placeholder="Username" value="defualt1">
-                            <input type="password" class="form-control" id="client-password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
+                            <input type="password" class="form-control" id="client-password" aria-describedby="clientPassword" placeholder="Password" value="00000000"> 
+                                --}}
+                                <div class="form-group">
+                                    <label for="client-last-name">Last Name</label>
+                                    <input type="text" class="form-control" id="client-last-name" name="lastname" aria-describedby="clientLastName" placeholder="Last Name" value="none">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-first-name">First Name</label>
+                                    <input type="text" class="form-control" id="client-first-name" name="firstname" aria-describedby="clientfirstName" placeholder="First Name" value="none">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-company-name">Company Name</label>
+                                    <input type="text" class="form-control" id="client-company-name" name="companyName" aria-describedby="clientCompanyName" placeholder="Company Name" value="none">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-phone-number">Phone Number</label>
+                                    <input type="text" class="form-control" id="client-phone-number" name="phoneNumber" aria-describedby="clientPhoneNumber" placeholder="Phone Number" value="0">
+                                    <span id="phone-error" class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-email-address">Email Address</label>
+                                    <input type="text" class="form-control" id="client-email-address" name="email" aria-describedby="clientEmailAddress" placeholder="Email Address" value="none">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-username">Username</label>
+                                    <input type="text" class="form-control" id="client-username" name="username" aria-describedby="clientUsername" placeholder="Username" value="{{nextUsername}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-password">Password default:00000000</label>
+                                    <input type="password" class="form-control" id="client-password" name="password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="show-password-checkbox">
+                                    <label for="show-password-checkbox">Show Password</label>
+                                </div>
                         </div>
                         
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="add-account-btn"> Add Account </button>
-                            <button type="button" class="btn btn-secondary" id="close-btn" data-dismiss="modal"> Close </button>
+                            <button type="submit" class="btn btn-primary" id="add-account-btn"> Add Account </button>
+                            <button type="button" class="btn btn-secondary" id="close-btn" onclick="clearForm()"> Clear </button>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
+        <script>
+            function validatePhoneNumber(phoneNumber) {
+                // Check if the input is either 0 or an 11-digit number starting with 09
+                return phoneNumber === '0' || /^(09)\d{9}$/.test(phoneNumber);
+            }
+
+            function updatePhoneNumberValidation() {
+                const phoneNumberInput = document.getElementById('client-phone-number');
+                const phoneError = document.getElementById('phone-error');
+                const addAccountBtn = document.getElementById('add-account-btn');
+
+                if (validatePhoneNumber(phoneNumberInput.value)) {
+                    phoneError.textContent = ''; // Clear error message
+                    phoneError.style.display = 'none'; // Hide error message
+                    addAccountBtn.disabled = false; // Enable Add Account button
+                } else {
+                    phoneError.textContent = 'Invalid phone number. Must be 11 digits starting with 09 or 0.'; // Set error message
+                    phoneError.style.display = 'block'; // Show error message
+                    addAccountBtn.disabled = true; // Disable Add Account button
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const phoneNumberInput = document.getElementById('client-phone-number');
+                phoneNumberInput.addEventListener('input', updatePhoneNumberValidation); // Call the validation function on input
+
+                const showPasswordCheckbox = document.getElementById('show-password-checkbox');
+                const passwordField = document.getElementById('client-password');
+
+                showPasswordCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        passwordField.type = 'text'; // Show password
+                    } else {
+                        passwordField.type = 'password'; // Hide password
+                    }
+                });
+            });
+
+
+            function clearForm() {
+                document.getElementById('client-last-name').value = 'none';
+                document.getElementById('client-first-name').value = 'none';
+                document.getElementById('client-company-name').value = 'none';
+                document.getElementById('client-phone-number').value = '0';
+                document.getElementById('client-email-address').value = 'none';
+                document.getElementById('client-username').value = '{{nextUsername}}';
+                document.getElementById('client-password').value = '00000000';
+                document.getElementById('show-password-checkbox').checked = false;
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const showPasswordCheckbox = document.getElementById('show-password-checkbox');
+                const passwordField = document.getElementById('client-password');
+
+                showPasswordCheckbox.addEventListener('change', function() {
+                    if (this.checked) {
+                        passwordField.type = 'text'; // Show password
+                    } else {
+                        passwordField.type = 'password'; // Hide password
+                    }
+                });
+            });
+        </script>
