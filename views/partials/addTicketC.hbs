@@ -23,7 +23,7 @@
             <div id="ticketModal" class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" id="modalDialog" role="document">
                     <div class="modal-content" id="ticket-form-main">
-                         <form id="ticketForm" class="modal-form" method="POST" action="/ticket/create">
+                         <form id="ticketForm" class="modal-form" method="post" action="/tickets/{{this.username}}/create">
                             <div class="modal-header" id="ticket-form-header">
                                 <h5 class="modal-title"> REQUEST FOR QUOTE </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -32,10 +32,10 @@
                             </div>
 
                             <div class="modal-body" id="ticket-form-content">
-                                <input type="text" class="form-control" id="reason-request" aria-describedby="reasonRequest" placeholder="Reason for Request">
-                                <div contenteditable="true"  id="request-description" data-placeholder='Description'></div>
-                                <div contenteditable="true"  id="request-specs" data-placeholder='Specifications'></div>
-                                <input type="text" class="form-control" id="request-quantity" aria-describedby="requestQuantity" placeholder="Quantity">
+                                <input type="text" class="form-control" name="reason" id="request-reason" aria-describedby="reasonRequest" placeholder="Reason for Request">
+                                <textarea name="description" id="request-description" placeholder="Description" required></textarea>
+                                <textarea name="specs" id="request-specs" placeholder="Specifications" required></textarea>
+                                <input type="number" class="form-control" name="quantity" id="request-quantity" aria-describedby="requestQuantity" placeholder="Quantity">
                             </div>
                             
                             <div class="modal-footer">

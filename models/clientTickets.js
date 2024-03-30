@@ -5,42 +5,46 @@ const mongoose = require('mongoose');
 const Counter = require('../models/ticketCounter'); 
 
 const clientTicketSchema = new mongoose.Schema({
-    clientName: {
-        type: String,
-        required: true
-    },
     orderNum: {
         type: String,
-        default: 'NUM000001' // Default value for orderNum
+        unique: true
+    },
+    clientUsername: {
+        type: String,
+        required: true
     },
     creationDate: {
         type: Date,
         required: true
     },
-    prioLevel: {
-        type: String, //changed from number to string
+    orderStatus: {
+        type: String,
+        enum: ['PENDING', 'ACCEPTED', 'IN PROGRESS', 'ON THE WAY', 'COMPLETED'],
+        default: 'PENDING',
+    },
+    handlerUsername: {
+        type: String,
+        default: 'No one accepted this ticket yet',
+    },
+    reason: {
+        type: String,
         required: true
     },
-    capacityUtilization: {
+    description: {
+        type: String,
+        required: true
+    },
+    specs: {
+        type: String,
+        required: true
+    },
+    quantity: {
         type: Number,
         required: true
     },
-    orderStatus: {
-        type: String,
-        enum: ['PENDING', 'ACCEPTED', 'IN PROGRESS', 'ON THE WAY', 'COMPLETED', 'CANCELLED'],
-        required: true
-    },
-    otherDetails: {
-        type: String,
-        required: true
-    },
-    handler: {
-        type: String,
-        default: "no one accepted this ticket yet"
-    },
     messageUpdates: {
         type: String,
-        default: "no updates yet"
+        default: "No updates yet"
     }
 });
 
@@ -53,7 +57,7 @@ clientTicketSchema.pre('save', async function(next) {
                 { $inc: { sequence_value: 1 } },
                 { new: true, upsert: true }
             );
-            this.orderNum = `NUM${('00000' + counter.sequence_value).slice(-6)}`;
+            this.orderNum = `${('00000' + counter.sequence_value).slice(-6)}`;
         }
         next();
     } catch (error) {

@@ -91,7 +91,7 @@ app.get("/logout", loginControl.endSession);
 // tickets
 
 //app.post('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
-app.get('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
+app.get('/tickets/:username', ticketControl.showTickets);
 app.post('/tickets/:username/create', ticketControl.createTicket);
 app.post('/tickets/:username/accept', ticketControl.acceptTicket);
 app.post('/tickets/:username/delete', ticketControl.deleteTicket);
