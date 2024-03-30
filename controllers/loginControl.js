@@ -8,14 +8,35 @@ const loginControl = {
         if (!req.session.user) {
             res.render("login");
         }
-        else if (req.session.user.isAdmin) {
-            res.redirect('/admin');
-        }
         else {
+            if (req.session.user.isAdmin) {
+                res.redirect('/admin');
+            }
             res.redirect('/tickets');
         }
     },
 
+
+    // async submitLoginForm(req, res) {
+    //     try {
+    //         const user = await User.findOne({ username: req.body.usernameLogin });
+    //         if (user && user.password === req.body.passwordLogin) {
+    //             // Simplify session handling based on 'remember' checkbox
+    //             if (req.body.remember === "on") {
+    //                 req.session.cookie.maxAge = 21 * 24 * 60 * 60 * 1000; // 3 weeks
+    //             } else {
+    //                 req.session.cookie.expires = false; // Session ends when browser closes
+    //             }
+    //             req.session.user = { username: user.username }; // Store minimal user info in session
+    //             res.redirect('/tickets/' + user.username);
+    //         } else {
+    //             res.render("login", { errorMessage: 'Invalid username or password' });
+    //         }
+    //     } catch (error) {
+    //         console.error(error);
+    //         res.render("login", { errorMessage: 'An error occurred during login' });
+    //     }
+    // },
     async submitLoginForm(req, res) {
         try {
             const user = await User.findOne({ username: req.body.usernameLogin });
@@ -27,7 +48,9 @@ const loginControl = {
             const samePass = await bcrypt.compare(passwordLogin, user.password);
 
             if (samePass) {
-                req.session.user = { username: user.username,
+                req.session.user = {
+                    email: user.email,
+                    username: user.username,
                     firstname: user.firstname,
                     lastname: user.lastname,
                     isAdmin: user.isAdmin};
@@ -42,11 +65,6 @@ const loginControl = {
                 if (user.isAdmin) {
                     console.log('Session User:', req.session.user);
                     console.log('Admin Logged In:', user);
-                    req.session.user = {
-                        companyName: user.companyName,
-                        username: user.username,
-                        isAdmin: user.isAdmin
-                    };
                     res.redirect('/admin');
                 } else {
                     res.redirect('/tickets');

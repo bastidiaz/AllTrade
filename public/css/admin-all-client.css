@@ -1,3 +1,5 @@
+
+
 /* Main container */
 .main-outer-container {
     background-color: #E6ECEE;
@@ -133,7 +135,7 @@
 }
 
 .form-control {
-    margin-top:0;
+    margin-top: 2rem;
 }
 
 .form-control:focus,
@@ -152,16 +154,14 @@
 .admin-all-client-outer-container {
     display: flex;
     justify-content: center;
-    padding-left: 4rem;
-    padding-right: 4rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.6rem;
+    padding-left:1rem;
+    padding-right:1rem;
 }
 
 .admin-all-client-inner-container {
     display: flex;
     background-color: #FFFFFF;
-    box-shadow: 0 0 4px gray;
+    border: 1px solid #4c4c4c;
     border-radius: 6px;
     width: 100%;
     margin-top: 0.5rem;
@@ -176,13 +176,13 @@
 }
 
 .all-client-client-details {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
 }
 
 .all-client-client-details p {
     font-family: "Opens-sans", sans-serif;
-    font-size: 0.9rem;
-    margin-top: 0.2rem;
+    font-size: 1em;
+    margin-top: -0.5rem;
 }
 
 #all-client-creation-date,
@@ -206,11 +206,12 @@
 
 .all-client-client-status-container {
     text-align: center;
-    margin-top: 2.5rem;
+    margin-top: 1.8rem;
+    margin-left: 2rem;
     margin-right: 1rem;
     padding: 2px;
-    min-width: 15vw;
-    min-height: 10vh;
+    width: 15vw;
+    height: 10vh;
     border-radius: 50px;
     background-color: #65A8FF;
     color: #444141;
@@ -219,9 +220,4 @@
 .all-client-client-status p {
     font-weight: 600;
     margin-top: 1.2rem;
-}
-
-.error-message {
-    color: red;
-    font-size: 0.8rem;
 }

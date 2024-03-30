@@ -16,6 +16,10 @@ const replySchema = new Schema({
     description: {
         type: String,
         required: true
+    },
+    isHandled: {
+        type: Boolean,
+        default: false
     }
 });
 

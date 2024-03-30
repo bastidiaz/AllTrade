@@ -6,7 +6,7 @@ const session = require('express-session');
 const connectMongo = require('connect-mongo');
 
 //const uri = 'mongodb://127.0.0.1:27017/AllTrade'
-//const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
+// const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
 const uri = 'mongodb+srv://franceeee09:_apdev2223@fairyfloss.lucgr7f.mongodb.net/?retryWrites=true&w=majority&appName=fairyfloss';
 
 const Ticket = require("./models/Ticket.js");
@@ -25,7 +25,9 @@ const app = express();
 
 const sessionStore = connectMongo.create({
     //mongoUrl: 'mongodb://127.0.0.1:27017/AllTrade',
-    mongoUrl: 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue',
+    // mongoUrl: 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue',
+    mongoUrl: 'mongodb+srv://franceeee09:_apdev2223@fairyfloss.lucgr7f.mongodb.net/?retryWrites=true&w=majority&appName=fairyfloss',
+
     collectionName: 'users',
     ttl: 1 * 24 * 60 * 60,
     autoRemove: 'native'
@@ -52,25 +54,6 @@ async function connect() {
     }
 }
 
-// FIX LOGIN LOGIC SO USERS DON'T GET INTO INFINITE LOGIN LOOP, ALSO ENSURE USERS DON'T END UP CHECKING OTHER USER'S TICKETS
-// const ensureAuthenticated = (req, res, next) => {
-//     // Check if the user is authenticated
-//     if (!req.session.username) {
-//         return res.redirect('/login'); // or respond with an appropriate error message
-//     }
-//
-//     // Authorization: Check if the logged-in user is trying to access their own tickets
-//     const requestedUsername = req.params.username;
-//     if (req.session.username !== requestedUsername) {
-//         return res.status(403).send('Access Denied: You are not allowed to access this page.');
-//     }
-//
-//     next(); // Proceed to the route handler if authentication and authorization checks pass
-// };
-
-
-
-
 // app.use(express.static('public'));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
@@ -91,15 +74,6 @@ app.post("/register", registerControl.submitRegistration);
 app.get("/logout", loginControl.endSession);
 // tickets
 
-const ensureAuthenticated = (req, res, next) => {
-    if (req.session.user) {
-        return next();
-    } else {
-        return res.redirect('/login');
-    }
-};
-
-
 //app.post('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
 app.get('/tickets', ticketControl.showTickets);
 app.post('/tickets/create', ticketControl.createTicket);
@@ -110,10 +84,8 @@ app.post('/tickets/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
-app.get('/admin', ensureAuthenticated, adminControl.showDashboard);
-app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
-app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
-// app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
+app.get('/admin', adminControl.showDashboard);
+app.get('/all-clients', adminControl.showAllClients);
 
 
 connect();

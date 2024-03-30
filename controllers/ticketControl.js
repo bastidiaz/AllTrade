@@ -5,7 +5,7 @@ const User = require('../models/User.js');
 
 const ticketControl = {
     //render of tickets
-    async showTickets(req, res) {
+    async showTickets(req, res) {    
         if (!req.session.user) {
             return res.redirect('/login');
         }
@@ -16,12 +16,12 @@ const ticketControl = {
             if (req.session.user.isAdmin) {
                 tickets = await Ticket.find().exec();
 
-                //client show tickets
+            //client show tickets
             } else {
                 const username = req.session.user.username;
                 tickets = await Ticket.find({ clientUsername: username }).exec();
             }
-
+    
             tickets = tickets.map(ticket => {
                 return {
                     orderNum: ticket.orderNum,
@@ -35,11 +35,11 @@ const ticketControl = {
                     messageUpdates: ticket.messageUpdates,
                 };
             });
-
+    
             if (!tickets || tickets.length === 0) {
                 return res.render("tickets", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName });
             }
-
+    
             res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName });
         } catch (error) {
             console.error(error);
@@ -51,7 +51,7 @@ const ticketControl = {
         if (!req.session.user || req.session.user.isAdmin) {
             return res.status(401).send("Unauthorized");
         }
-
+        
         const username = req.session.user.username;
         const { reason, description, specs, quantity } = req.body;
         console.log(reason);
@@ -121,11 +121,11 @@ const ticketControl = {
             const ticket = await Ticket.findOne({ orderNum: ticketNumber });
             if (ticket.orderStatus === "CANCELLED") {
                 return res.status(400).send("Cannot update a cancelled ticket.");
-            }
-
+            } 
+            
             const updatedTicket = await Ticket.findOneAndUpdate({ orderNum: ticketNumber }, { orderStatus: newStatus, messageUpdates: message }, { new: true });
             res.status(200).json(updatedTicket);
-
+            
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred while updating the ticket status.");
@@ -145,18 +145,18 @@ const ticketControl = {
             const ticketNumber = req.params.ticketNumber;
             const ticket = await Ticket.findOne({ orderNum: ticketNumber });
 
-            if (ticket.orderStatus !== "PENDING" && ticket.orderStatus !== "ACCEPTED") {
-                return res.status(400).send("Ticket cannot be cancelled.");
-            }
+        if (ticket.orderStatus !== "PENDING" && ticket.orderStatus !== "ACCEPTED") {
+            return res.status(400).send("Ticket cannot be cancelled.");
+        }
 
-            // Mark the ticket as cancelled and store who cancelled it
-            ticket.orderStatus = "CANCELLED";
-            await ticket.save();
+        // Mark the ticket as cancelled and store who cancelled it
+        ticket.orderStatus = "CANCELLED";
+        await ticket.save();
 
-            res.status(200).send("Ticket cancelled successfully.");
-        } catch (error) {
-            console.error(error);
-            res.status(500).send("An error occurred while cancelling the ticket.");
+        res.status(200).send("Ticket cancelled successfully.");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("An error occurred while cancelling the ticket.");
         }
     },
 

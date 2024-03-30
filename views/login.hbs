@@ -1,26 +1,20 @@
+   <title>Login - AllTrade Manufacturing</title>
+        <div class="img-outer-container">
+            <div class="img-inner-container">
+                <img id="img-content-container" src="/public/img/alltrade-icon.png">
 
-        <div class="login-form-outer-container">
-            <div class="img-outer-container">
-                <!-- Home Button -->
                 <div>
                     <a href="/"> <button id="home-btn"> Home </button></a>
                 </div>
-
-                <!-- Logo -->
-                <div class="img-inner-container">
-                    <img id="img-alltrade-icon-content" src="/public/img/alltrade-icon.png">
-                </div>
             </div>
            
-            <!-- Login Form -->
             <div class="login-main-container">
                 <div class="login-header">
-                    {{#if errorMessage}}
+                     {{#if errorMessage}}
                     <div class="alert alert-danger" role="alert">
                         {{errorMessage}}
                     </div>
                     {{/if}}
-
                     <div class="login-title">
                         <h3> Welcome Back! </h3>
                     </div>
@@ -34,21 +28,16 @@
                     <div class="form-group row" id="form-password">
                         <input type="password" name="passwordLogin" class="form-control" id="inputPassword" placeholder="Password">
                     </div>
+                
 
-                    <div class="remember-forgot-container">
-                        <div class="remember-me-container">
-                            <input type="checkbox" id="remember-checkbox" name="remember" value="check">
-                            <label id="remember-label" for="remember-checkbox"> Remember Me</label><br>
-                        </div>
+                <div class="remember-forgot-container">
+                    <input type="checkbox" id="remember-checkbox" name="remember" value="check">
+                    <label id="remember-label" for="remember-checkbox"> Remember Me</label><br>
 
-                        <div class="forgot-password-container">
-                            <a href="/forgot-password" id="forgot-password"> Forgot Password? </a>
-                        </div>
-                    </div>
-
-                    <button type="submit" value="Log In" name="submit-log-in" class="btn btn-primary" id="login-btn"> Login </button>
+                    <a href="/forgot-password" id="forgot-password"> Forgot Password? </a>
+                </div>
+                <button type="submit" value="Log In" name="submit-log-in" class="btn btn-primary" id="login-btn"> Login </button>
                 </form>
-
                 {{!-- <div class="forgot-pass-container">
                     <p> Forgot Password? </p>
                 </div> --}}
@@ -65,7 +54,7 @@
                 </div>                    
             </div>
         </div>
-        
+
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const errorMessage = document.querySelector('.alert-danger');
@@ -76,3 +65,8 @@
                 }, 5000); //5sec
             });
         </script>
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
