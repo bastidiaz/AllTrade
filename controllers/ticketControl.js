@@ -4,12 +4,25 @@ const Ticket = require('../models/clientTickets.js');
 const User = require('../models/User.js');
 
 const ticketControl = {
+    // async showTickets(req, res) {
+    //     const username = req.params.username;
+    //     let tickets = await Ticket.find({assignedUser: username}, undefined, undefined).exec();
+    //     tickets = tickets.map(ticket => {
+    //         return {
+    //             orderNum: ticket.orderNum,
+    //             creationDate: ticket.creationDate,
+    //             prioLevel: ticket.prioLevel,
+    //             orderStatus: ticket.orderStatus,
+    //         }
+    //     });
+    //     res.render("tickets", {tickets: tickets, username});
+    // }
+
     //render of tickets
     async showTickets(req, res) {    
         if (!req.session.user) {
             return res.redirect('/login');
         }
-
         try {
             let tickets;
             //admin show tickets
@@ -19,20 +32,19 @@ const ticketControl = {
             //client show tickets
             } else {
                 const username = req.session.user.username;
-                tickets = await Ticket.find({ clientUsername: username }).exec();
+                tickets = await Ticket.find({ clientName: username }).exec();
             }
     
             tickets = tickets.map(ticket => {
                 return {
                     orderNum: ticket.orderNum,
                     creationDate: ticket.creationDate,
+                    prioLevel: ticket.prioLevel,
                     orderStatus: ticket.orderStatus,
-                    handlerUsername: ticket.handlerUsername,
-                    reason: ticket.reason,
-                    description: ticket.description,
-                    specs: ticket.specs,
-                    quantity: ticket.quantity,
+                    capacityUtilization: ticket.capacityUtilization,
                     messageUpdates: ticket.messageUpdates,
+                    handler: ticket.handler,
+                    otherDetails: ticket.otherDetails
                 };
             });
     
@@ -47,34 +59,32 @@ const ticketControl = {
         }
     },
 
+    //ticket creation, not yet working right
     async createTicket(req, res) {
         if (!req.session.user || req.session.user.isAdmin) {
             return res.status(401).send("Unauthorized");
         }
         
-        const username = req.session.user.username;
-        const { reason, description, specs, quantity } = req.body;
-        console.log(reason);
+        const loggedInUsername = req.session.user.username;
         try {
-            const user = await User.findOne({ username: username });
+            const user = await User.findOne({ username: loggedInUsername });
             if (!user) {
                 return res.status(404).send("User not found");
             }
 
-            const newTicket = new Ticket({
-                clientUsername: username,
+            const ticketData = {
+                clientName: loggedInUsername,
                 creationDate: new Date(),
-                reason: reason,
-                description: description,
-                specs: specs,
-                quantity: quantity
-            });
+                orderStatus: "PENDING",  // Default status
+                handler: "no one accepted this ticket yet",  // Default handler
+                messageUpdates: "no updates yet",  // Default message updates
+                otherDetails: req.body.otherDetails,
+                capacityUtilization: req.body.capacityUtilization,
+                prioLevel: req.body.prioLevel
+            };
 
-            console.log("New Ticket Data:", newTicket);
-
-            await newTicket.save();
-            console.log("Ticket created successfully:", newTicket);
-            res.redirect(`/tickets`);
+            const ticket = await Ticket.create(ticketData);
+            res.status(201).json(ticket);  // Respond with the newly created ticket data
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred during ticket creation.");

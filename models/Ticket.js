@@ -3,7 +3,11 @@ const User = require('./User.js');
 const { Schema, model } = mongoose;
 
 const ticketSchema = new mongoose.Schema({
-    clientUsername: {
+    clientName: {
+        type: String,
+        required: true
+    },
+    orderNum: {
         type: String,
         required: true
     },
@@ -11,29 +15,29 @@ const ticketSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    prioLevel: {
+        type: Number,
+        required: true
+    },
+    capacityUtilization: {
+        type: Number,
+        required: true
+    },
     orderStatus: {
         type: String,
         enum: ['PENDING', 'ACCEPTED', 'IN PROGRESS', 'ON THE WAY', 'COMPLETED'],
-        default: 'PENDING',
+        required: true
+    },
+    otherDetails: {
+        type: String,
+        required: true
     },
     handlerUsername: {
         type: String,
-        default: 'No one accepted this ticket yet',
-    },
-    reason: {
-        type: String,
         required: true
     },
-    description: {
+    companyUsername: {
         type: String,
-        required: true
-    },
-    specs: {
-        type: String,
-        required: true
-    },
-    quantity: {
-        type: Number,
         required: true
     }
 });

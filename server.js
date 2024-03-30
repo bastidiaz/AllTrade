@@ -51,6 +51,25 @@ async function connect() {
     }
 }
 
+// FIX LOGIN LOGIC SO USERS DON'T GET INTO INFINITE LOGIN LOOP, ALSO ENSURE USERS DON'T END UP CHECKING OTHER USER'S TICKETS
+// const ensureAuthenticated = (req, res, next) => {
+//     // Check if the user is authenticated
+//     if (!req.session.username) {
+//         return res.redirect('/login'); // or respond with an appropriate error message
+//     }
+//
+//     // Authorization: Check if the logged-in user is trying to access their own tickets
+//     const requestedUsername = req.params.username;
+//     if (req.session.username !== requestedUsername) {
+//         return res.status(403).send('Access Denied: You are not allowed to access this page.');
+//     }
+//
+//     next(); // Proceed to the route handler if authentication and authorization checks pass
+// };
+
+
+
+
 // app.use(express.static('public'));
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
@@ -81,17 +100,19 @@ const ensureAuthenticated = (req, res, next) => {
 
 
 //app.post('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
-app.get('/tickets', ticketControl.showTickets);
-app.post('/tickets/create', ticketControl.createTicket);
-app.post('/tickets/accept', ticketControl.acceptTicket);
-app.post('/tickets/delete', ticketControl.deleteTicket);
-app.post('/tickets/cancel', ticketControl.cancelTicket);
-app.post('/tickets/update', ticketControl.updateTicketStatus);
+app.get('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
+app.post('/tickets/:username/create', ticketControl.createTicket);
+app.post('/tickets/:username/accept', ticketControl.acceptTicket);
+app.post('/tickets/:username/delete', ticketControl.deleteTicket);
+app.post('/tickets/:username/cancel', ticketControl.cancelTicket);
+app.post('/tickets/:username/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
-app.get('/admin', adminControl.showDashboard);
-app.get('/all-clients', adminControl.showAllClients);
+app.get('/admin/:username', ensureAuthenticated, adminControl.showDashboard);
+app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
+app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
+// app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
 
 
 connect();
