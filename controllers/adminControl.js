@@ -50,7 +50,8 @@ const adminControl = {
                     username: client.username,
                     lastname: client.lastname,
                     firstname: client.firstname,
-                    dateMade: formattedDate
+                    dateMade: formattedDate,
+                    password: client.password
                 };
             });
             res.render('all-clients',{admin, clients, nextUsername});
@@ -96,7 +97,25 @@ const adminControl = {
             console.error('Error creating account:', error);
             res.status(500).json({ success: false, message: 'An error occurred' });
         }
-    }
+    },
+
+    // async viewClient(req, res){
+    //     console.log("view triggered");
+    //     const username = req.params.username;
+    //     console.log(usrname);
+
+    //     try{
+    //         const client = await User.findById({username});
+    //         if(!client){
+    //             return res.status(404).json({ error: 'Client not found' });
+    //         }
+    //         console.log('Client Data:', client); // Log client data for debugging
+    //         res.render('client-details',{client});
+    //     }catch (error){
+    //         console.error(error);
+    //         res.status(500).json({ error: 'Internal Server Error' });
+    //     }
+    // }
 
 };
 

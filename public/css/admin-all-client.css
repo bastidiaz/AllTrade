@@ -176,13 +176,13 @@
 }
 
 .all-client-client-details {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .all-client-client-details p {
     font-family: "Opens-sans", sans-serif;
-    font-size: 1em;
-    margin-top: -0.5rem;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
 }
 
 #all-client-creation-date,
