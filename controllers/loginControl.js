@@ -9,7 +9,7 @@ const loginControl = {
             res.render("login");
         } else {
             // Redirect using the username from the session
-            res.redirect('/tickets/' + req.session.user.username);
+            res.redirect('/tickets');
         }
     },
 
@@ -66,7 +66,7 @@ const loginControl = {
                     };
                     res.redirect('/admin/' + req.session.user.username);
                 } else {
-                    res.redirect('/tickets/' + user.username);
+                    res.redirect('/tickets');
                 }
             } else {
                 res.render("login", { errorMessage: 'Invalid email or password' });

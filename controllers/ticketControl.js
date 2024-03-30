@@ -4,20 +4,6 @@ const Ticket = require('../models/clientTickets.js');
 const User = require('../models/User.js');
 
 const ticketControl = {
-    // async showTickets(req, res) {
-    //     const username = req.params.username;
-    //     let tickets = await Ticket.find({assignedUser: username}, undefined, undefined).exec();
-    //     tickets = tickets.map(ticket => {
-    //         return {
-    //             orderNum: ticket.orderNum,
-    //             creationDate: ticket.creationDate,
-    //             prioLevel: ticket.prioLevel,
-    //             orderStatus: ticket.orderStatus,
-    //         }
-    //     });
-    //     res.render("tickets", {tickets: tickets, username});
-    // }
-
     //render of tickets
     async showTickets(req, res) {    
         if (!req.session.user) {
@@ -87,7 +73,7 @@ const ticketControl = {
 
             await newTicket.save();
             console.log("Ticket created successfully:", newTicket);
-            res.redirect(`/tickets/${username}`);
+            res.redirect(`/tickets`);
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred during ticket creation.");
