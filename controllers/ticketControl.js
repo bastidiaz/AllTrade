@@ -54,7 +54,6 @@ const ticketControl = {
         
         const username = req.session.user.username;
         const { reason, description, specs, quantity } = req.body;
-        console.log(reason);
         try {
             const user = await User.findOne({ username: username });
             if (!user) {
@@ -69,8 +68,6 @@ const ticketControl = {
                 specs: specs,
                 quantity: quantity
             });
-
-            console.log("New Ticket Data:", newTicket);
 
             await newTicket.save();
             console.log("Ticket created successfully:", newTicket);
