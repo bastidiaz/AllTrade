@@ -32,19 +32,20 @@ const ticketControl = {
             //client show tickets
             } else {
                 const username = req.session.user.username;
-                tickets = await Ticket.find({ clientName: username }).exec();
+                tickets = await Ticket.find({ clientUsername: username }).exec();
             }
     
             tickets = tickets.map(ticket => {
                 return {
                     orderNum: ticket.orderNum,
                     creationDate: ticket.creationDate,
-                    prioLevel: ticket.prioLevel,
                     orderStatus: ticket.orderStatus,
-                    capacityUtilization: ticket.capacityUtilization,
+                    handlerUsername: ticket.handlerUsername,
+                    reason: ticket.reason,
+                    description: ticket.description,
+                    specs: ticket.specs,
+                    quantity: ticket.quantity,
                     messageUpdates: ticket.messageUpdates,
-                    handler: ticket.handler,
-                    otherDetails: ticket.otherDetails
                 };
             });
     
@@ -65,26 +66,28 @@ const ticketControl = {
             return res.status(401).send("Unauthorized");
         }
         
-        const loggedInUsername = req.session.user.username;
+            const username = req.session.user.username;
+            const { reason, description, specs, quantity } = req.body;
+            console.log(reason);
         try {
-            const user = await User.findOne({ username: loggedInUsername });
+            const user = await User.findOne({ username: username });
             if (!user) {
                 return res.status(404).send("User not found");
             }
-
-            const ticketData = {
-                clientName: loggedInUsername,
+            const newTicket = new Ticket({
+                clientUsername: username,
                 creationDate: new Date(),
-                orderStatus: "PENDING",  // Default status
-                handler: "no one accepted this ticket yet",  // Default handler
-                messageUpdates: "no updates yet",  // Default message updates
-                otherDetails: req.body.otherDetails,
-                capacityUtilization: req.body.capacityUtilization,
-                prioLevel: req.body.prioLevel
-            };
+                reason: reason,
+                description: description,
+                specs: specs,
+                quantity: quantity
+            });
 
-            const ticket = await Ticket.create(ticketData);
-            res.status(201).json(ticket);  // Respond with the newly created ticket data
+            console.log("New Ticket Data:", newTicket);
+
+            await newTicket.save();
+            console.log("Ticket created successfully:", newTicket);
+            res.redirect(`/tickets`);
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred during ticket creation.");
