@@ -6,14 +6,6 @@ const bcrypt = require('bcrypt');
 
 const adminControl = {
     async showDashboard(req, res) {
-        if (!req.session.user) {
-            return res.redirect('/login');
-        }
-
-        if (!req.session.user.isAdmin) {
-            return res.redirect('/login');
-        }
-
         try {
             const admin = req.session.user;
             if (!admin) {

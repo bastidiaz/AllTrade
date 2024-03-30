@@ -23,7 +23,8 @@
             <div id="ticketModal" class="modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" id="modalDialog" role="document">
                     <div class="modal-content" id="ticket-form-main">
-                         <form id="ticketForm" class="modal-form" method="post" action="/tickets/create">
+                        
+                         <form id="ticketForm" class="modal-form" method="POST" action="/ticket/create">
                             <div class="modal-header" id="ticket-form-header">
                                 <h5 class="modal-title"> REQUEST FOR QUOTE </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -32,10 +33,10 @@
                             </div>
 
                             <div class="modal-body" id="ticket-form-content">
-                                <input type="text" class="form-control" name="reason" id="request-reason" aria-describedby="reasonRequest" placeholder="Reason for Request">
-                                <textarea name="description" id="request-description" placeholder="Description" required></textarea>
-                                <textarea name="specs" id="request-specs" placeholder="Specifications" required></textarea>
-                                <input type="number" class="form-control" name="quantity" id="request-quantity" aria-describedby="requestQuantity" placeholder="Quantity">
+                                <input type="text" class="form-control client-form-control" id="reason-request" aria-describedby="reasonRequest" placeholder="Reason for Request">
+                                <input type="number" class="form-control client-form-control" id="request-quantity" aria-describedby="requestQuantity" placeholder="Quantity">
+                                <textarea class="client-form-control" id="request-description" name="inputDescription" placeholder="Description" required></textarea>
+                                <textarea class="client-form-control" id="request-specs" name="inputSpecs" placeholder="Specifications" required></textarea>
                             </div>
                             
                             <div class="modal-footer">

@@ -8,12 +8,18 @@
             <div class="order-details">
               <p id="order-number">Order number #{{this.orderNum}}</p>
               <p id="creation-date">Created on: {{this.creationDate}}</p>
-              <p id="ticket-handler">Ticket Handled by: {{this.handlerUsername}}</p>
+              <p id="ticket-handler">Ticket Handled by: {{this.handler}}</p>
             </div>
           </div>
         </div>
 
         <div class="ticket-container2">
+          <div class="priority-container">
+            <div class="priority-level">
+              <p>Priority Level {{this.prioLevel}}</p>
+            </div>
+          </div>
+
           <div class="status-container">
             <div class="order-status">
               <p>{{this.orderStatus}}</p>
