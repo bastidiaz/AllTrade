@@ -9,6 +9,7 @@ const ticketControl = {
         if (!req.session.user) {
             return res.redirect('/login');
         }
+
         try {
             let tickets;
             //admin show tickets
