@@ -7,9 +7,13 @@ const loginControl = {
     showLoginForm(req, res) {
         if (!req.session.user) {
             res.render("login");
-        } else {
+        }
+        else if (req.session.user.isAdmin) {
+            res.redirect('/admin');
+        }
+        else {
             // Redirect using the username from the session
-            res.redirect('/tickets/' + req.session.user.username);
+            res.redirect('/tickets');
         }
     },
 
@@ -47,7 +51,8 @@ const loginControl = {
             if (samePass) {
                 req.session.user = { username: user.username,
                     firstname: user.firstname,
-                    lastname: user.lastname };
+                    lastname: user.lastname,
+                    isAdmin: user.isAdmin};
 
                 // Simplify session handling based on 'remember' checkbox
                 if (req.body.remember === "on") {
@@ -60,13 +65,13 @@ const loginControl = {
                     console.log('Session User:', req.session.user);
                     console.log('Admin Logged In:', user);
                     req.session.user = {
+                        companyName: user.companyName,
                         username: user.username,
-                        firstname: user.firstname,
-                        lastname: user.lastname
+                        isAdmin: user.isAdmin
                     };
-                    res.redirect('/admin/' + req.session.user.username);
+                    res.redirect('/admin');
                 } else {
-                    res.redirect('/tickets/' + user.username);
+                    res.redirect('/tickets');
                 }
             } else {
                 res.render("login", { errorMessage: 'Invalid email or password' });
