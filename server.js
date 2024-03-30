@@ -6,7 +6,8 @@ const session = require('express-session');
 const connectMongo = require('connect-mongo');
 
 //const uri = 'mongodb://127.0.0.1:27017/AllTrade'
-const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
+//const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
+const uri = 'mongodb+srv://franceeee09:_apdev2223@fairyfloss.lucgr7f.mongodb.net/?retryWrites=true&w=majority&appName=fairyfloss';
 
 const Ticket = require("./models/Ticket.js");
 const User = require("./models/User.js");
@@ -100,16 +101,16 @@ const ensureAuthenticated = (req, res, next) => {
 
 
 //app.post('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
-app.get('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
-app.post('/tickets/:username/create', ticketControl.createTicket);
-app.post('/tickets/:username/accept', ticketControl.acceptTicket);
-app.post('/tickets/:username/delete', ticketControl.deleteTicket);
-app.post('/tickets/:username/cancel', ticketControl.cancelTicket);
-app.post('/tickets/:username/update', ticketControl.updateTicketStatus);
+app.get('/tickets', ticketControl.showTickets);
+app.post('/tickets/create', ticketControl.createTicket);
+app.post('/tickets/accept', ticketControl.acceptTicket);
+app.post('/tickets/delete', ticketControl.deleteTicket);
+app.post('/tickets/cancel', ticketControl.cancelTicket);
+app.post('/tickets/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
-app.get('/admin/:username', ensureAuthenticated, adminControl.showDashboard);
+app.get('/admin', ensureAuthenticated, adminControl.showDashboard);
 app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
 app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
 // app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);

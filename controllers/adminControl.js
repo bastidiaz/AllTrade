@@ -6,12 +6,16 @@ const bcrypt = require('bcrypt');
 
 const adminControl = {
     async showDashboard(req, res) {
+        if (!req.session.user) {
+            return res.redirect('/login');
+        }
+
+        if (!req.session.user.isAdmin) {
+            return res.redirect('/login');
+        }
+
         try {
             const admin = req.session.user;
-            if (!admin) {
-                return res.redirect('/login');
-            }
-            //console.log('Admin Info:', admin);
             const clientCount = await User.countDocuments({isAdmin:false});
             const handleCount = await Tickets.countDocuments({handler: req.session.user.username});
             const ticketCount = await Tickets.countDocuments();

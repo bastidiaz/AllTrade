@@ -7,33 +7,15 @@ const loginControl = {
     showLoginForm(req, res) {
         if (!req.session.user) {
             res.render("login");
-        } else {
-            // Redirect using the username from the session
-            res.redirect('/tickets/' + req.session.user.username);
+        }
+        else if (req.session.user.isAdmin) {
+            res.redirect('/admin');
+        }
+        else {
+            res.redirect('/tickets');
         }
     },
 
-
-    // async submitLoginForm(req, res) {
-    //     try {
-    //         const user = await User.findOne({ username: req.body.usernameLogin });
-    //         if (user && user.password === req.body.passwordLogin) {
-    //             // Simplify session handling based on 'remember' checkbox
-    //             if (req.body.remember === "on") {
-    //                 req.session.cookie.maxAge = 21 * 24 * 60 * 60 * 1000; // 3 weeks
-    //             } else {
-    //                 req.session.cookie.expires = false; // Session ends when browser closes
-    //             }
-    //             req.session.user = { username: user.username }; // Store minimal user info in session
-    //             res.redirect('/tickets/' + user.username);
-    //         } else {
-    //             res.render("login", { errorMessage: 'Invalid username or password' });
-    //         }
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.render("login", { errorMessage: 'An error occurred during login' });
-    //     }
-    // },
     async submitLoginForm(req, res) {
         try {
             const user = await User.findOne({ username: req.body.usernameLogin });
@@ -47,7 +29,8 @@ const loginControl = {
             if (samePass) {
                 req.session.user = { username: user.username,
                     firstname: user.firstname,
-                    lastname: user.lastname };
+                    lastname: user.lastname,
+                    isAdmin: user.isAdmin};
 
                 // Simplify session handling based on 'remember' checkbox
                 if (req.body.remember === "on") {
@@ -60,13 +43,13 @@ const loginControl = {
                     console.log('Session User:', req.session.user);
                     console.log('Admin Logged In:', user);
                     req.session.user = {
+                        companyName: user.companyName,
                         username: user.username,
-                        firstname: user.firstname,
-                        lastname: user.lastname
+                        isAdmin: user.isAdmin
                     };
-                    res.redirect('/admin/' + req.session.user.username);
+                    res.redirect('/admin');
                 } else {
-                    res.redirect('/tickets/' + user.username);
+                    res.redirect('/tickets');
                 }
             } else {
                 res.render("login", { errorMessage: 'Invalid email or password' });

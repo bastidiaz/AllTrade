@@ -4,54 +4,42 @@ const Ticket = require('../models/clientTickets.js');
 const User = require('../models/User.js');
 
 const ticketControl = {
-    // async showTickets(req, res) {
-    //     const username = req.params.username;
-    //     let tickets = await Ticket.find({assignedUser: username}, undefined, undefined).exec();
-    //     tickets = tickets.map(ticket => {
-    //         return {
-    //             orderNum: ticket.orderNum,
-    //             creationDate: ticket.creationDate,
-    //             prioLevel: ticket.prioLevel,
-    //             orderStatus: ticket.orderStatus,
-    //         }
-    //     });
-    //     res.render("tickets", {tickets: tickets, username});
-    // }
-
     //render of tickets
-    async showTickets(req, res) {    
+    async showTickets(req, res) {
         if (!req.session.user) {
             return res.redirect('/login');
         }
+
         try {
             let tickets;
             //admin show tickets
             if (req.session.user.isAdmin) {
                 tickets = await Ticket.find().exec();
 
-            //client show tickets
+                //client show tickets
             } else {
                 const username = req.session.user.username;
-                tickets = await Ticket.find({ clientName: username }).exec();
+                tickets = await Ticket.find({ clientUsername: username }).exec();
             }
-    
+
             tickets = tickets.map(ticket => {
                 return {
                     orderNum: ticket.orderNum,
                     creationDate: ticket.creationDate,
-                    prioLevel: ticket.prioLevel,
                     orderStatus: ticket.orderStatus,
-                    capacityUtilization: ticket.capacityUtilization,
+                    handlerUsername: ticket.handlerUsername,
+                    reason: ticket.reason,
+                    description: ticket.description,
+                    specs: ticket.specs,
+                    quantity: ticket.quantity,
                     messageUpdates: ticket.messageUpdates,
-                    handler: ticket.handler,
-                    otherDetails: ticket.otherDetails
                 };
             });
-    
+
             if (!tickets || tickets.length === 0) {
                 return res.render("tickets", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName });
             }
-    
+
             res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName });
         } catch (error) {
             console.error(error);
@@ -59,32 +47,34 @@ const ticketControl = {
         }
     },
 
-    //ticket creation, not yet working right
     async createTicket(req, res) {
         if (!req.session.user || req.session.user.isAdmin) {
             return res.status(401).send("Unauthorized");
         }
-        
-        const loggedInUsername = req.session.user.username;
+
+        const username = req.session.user.username;
+        const { reason, description, specs, quantity } = req.body;
+        console.log(reason);
         try {
-            const user = await User.findOne({ username: loggedInUsername });
+            const user = await User.findOne({ username: username });
             if (!user) {
                 return res.status(404).send("User not found");
             }
 
-            const ticketData = {
-                clientName: loggedInUsername,
+            const newTicket = new Ticket({
+                clientUsername: username,
                 creationDate: new Date(),
-                orderStatus: "PENDING",  // Default status
-                handler: "no one accepted this ticket yet",  // Default handler
-                messageUpdates: "no updates yet",  // Default message updates
-                otherDetails: req.body.otherDetails,
-                capacityUtilization: req.body.capacityUtilization,
-                prioLevel: req.body.prioLevel
-            };
+                reason: reason,
+                description: description,
+                specs: specs,
+                quantity: quantity
+            });
 
-            const ticket = await Ticket.create(ticketData);
-            res.status(201).json(ticket);  // Respond with the newly created ticket data
+            console.log("New Ticket Data:", newTicket);
+
+            await newTicket.save();
+            console.log("Ticket created successfully:", newTicket);
+            res.redirect(`/tickets`);
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred during ticket creation.");
@@ -131,11 +121,11 @@ const ticketControl = {
             const ticket = await Ticket.findOne({ orderNum: ticketNumber });
             if (ticket.orderStatus === "CANCELLED") {
                 return res.status(400).send("Cannot update a cancelled ticket.");
-            } 
-            
+            }
+
             const updatedTicket = await Ticket.findOneAndUpdate({ orderNum: ticketNumber }, { orderStatus: newStatus, messageUpdates: message }, { new: true });
             res.status(200).json(updatedTicket);
-            
+
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred while updating the ticket status.");
@@ -155,18 +145,18 @@ const ticketControl = {
             const ticketNumber = req.params.ticketNumber;
             const ticket = await Ticket.findOne({ orderNum: ticketNumber });
 
-        if (ticket.orderStatus !== "PENDING" && ticket.orderStatus !== "ACCEPTED") {
-            return res.status(400).send("Ticket cannot be cancelled.");
-        }
+            if (ticket.orderStatus !== "PENDING" && ticket.orderStatus !== "ACCEPTED") {
+                return res.status(400).send("Ticket cannot be cancelled.");
+            }
 
-        // Mark the ticket as cancelled and store who cancelled it
-        ticket.orderStatus = "CANCELLED";
-        await ticket.save();
+            // Mark the ticket as cancelled and store who cancelled it
+            ticket.orderStatus = "CANCELLED";
+            await ticket.save();
 
-        res.status(200).send("Ticket cancelled successfully.");
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("An error occurred while cancelling the ticket.");
+            res.status(200).send("Ticket cancelled successfully.");
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("An error occurred while cancelling the ticket.");
         }
     },
 
