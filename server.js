@@ -84,7 +84,7 @@ app.post('/tickets/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
-app.get('/admin/:username', adminControl.showDashboard);
+app.get('/admin', adminControl.showDashboard);
 app.get('/all-clients', adminControl.showAllClients);
 
 
