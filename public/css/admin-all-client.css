@@ -215,6 +215,26 @@
     background-color: #65A8FF;
     color: #444141;
 }
+.manage-button-container{
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-right: 1rem;
+    padding: 2px;
+    min-width: 10vw;
+    min-height: 5vh;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.manage{
+    border-radius: 10px;
+    border-color: #010b18;
+    background-color: #2fb3b7;
+    cursor: pointer;
+    color: #0a1257;
+}
+.manage:hover{
+    background-color: #0dcfd6;
+}
 
 .all-client-client-status p {
     font-weight: 600;

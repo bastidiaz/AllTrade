@@ -106,6 +106,70 @@ const adminControl = {
         }
     },
 
+    async updateClient(req, res) {
+        const { companyName, email, username, lastname, firstname, phoneNumber, oldUsername } = req.body;
+    
+        try {
+            const admin = req.session.user;
+            if (!admin) {
+                return res.redirect('/login');
+            }
+    
+            // check if the old username and new username are the same
+            if (oldUsername !== username) {
+                // if they are different, check if the new username already exists
+                const existingClient = await User.findOne({ username });
+                if (existingClient) {
+                    // return an error response if the new username already exists
+                    return res.status(400).json({ error: 'Username is already taken' });
+                }
+            }
+    
+            // update the client's information including the username
+            const updatedClient = await User.findOneAndUpdate(
+                { username: oldUsername },
+                { $set: { companyName, email, lastname, firstname, phoneNumber, username } },
+                { new: true }
+            );
+    
+            if (!updatedClient) {
+                return res.status(404).json({ error: 'Client not found' });
+            }
+    
+            // redirect to the client list page or send a success message
+            res.redirect('/all-clients');
+        } catch (error) {
+            console.error('Error updating client details:', error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    },
+    
+    
+    
+
+    async deleteClient(req, res) {
+        try {
+            const admin = req.session.user;
+            if (!admin) {
+                return res.redirect('/login');
+            }
+    
+            const username = req.body.username || req.params.username;
+            const client = await User.findOneAndDelete({ username:username });
+            if (!client) {
+                return res.status(404).json({ error: 'Client not found' });
+            }
+    
+            res.redirect('/all-clients');
+        } catch (error) {
+            console.error('Error deleting client:', error);
+            res.status(500).json({ error: 'Internal Server Error' });
+        }
+    }
+    
+    
+    
+
     // async viewClient(req, res){
     //     console.log("view triggered");
     //     const username = req.params.username;

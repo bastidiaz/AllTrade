@@ -98,6 +98,8 @@ app.post('/send', inquiryControl.sendInquiry);
 app.get('/admin', ensureAuthenticated, adminControl.showDashboard);
 app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
 app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
+app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClient);
+app.post('/deleteClient/:username', ensureAuthenticated, adminControl.deleteClient);
 // app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
 
 

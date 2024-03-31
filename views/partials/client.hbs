@@ -1,56 +1,121 @@
 <!-- Ticket container -->
- <!-- Ticket container -->
-            {{#each clients}}
-            <div class="admin-all-client-outer-container">
-                <div class="admin-all-client-inner-container">
-                    <div class="admin-all-client-container1">
-                        <div class="all-client-client-order-container">
-                            <div class="all-client-client-details">
-                                <p id="all-client-client-name"> Client Name: {{this.firstname}} {{this.lastname}}</p>
-                                <p id="all-client-client-name"> Client Username: {{this.username}}</p>
-                                <p id="all-client-creation-date"> Created at {{this.dateMade}}</p>
-                                
-                                <div class="all-client-view-details-container">
-                                    <a id="all-client-view-details" data-toggle="modal" data-target="#clientDetailsModal{{this.username}}"> View Details </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{{#each clients}}
+<div class="admin-all-client-outer-container">
+    <div class="admin-all-client-inner-container">
+        <div class="admin-all-client-container1">
+            <div class="all-client-client-order-container">
+                <div class="all-client-client-details">
+                    <p id="all-client-client-name"> Client Name: {{this.firstname}} {{this.lastname}}</p>
+                    <p id="all-client-client-name"> Client Username: {{this.username}}</p>
+                    <p id="all-client-creation-date"> Created at {{this.dateMade}}</p>
 
-                    <div class="admin-all-client-container2">
-                        <div class="all-client-client-status-container">
-                            <div class="all-client-client-status">
-                                <p> MANAGE CLIENT </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-
-            <!-- Client Details Modal -->
-            <div class="modal fade" id="clientDetailsModal{{this.username}}" tabindex="-1" role="dialog" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="clientDetailsModalLabel">Client Details</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p><strong>first name:</strong> {{this.firstname}}</p>
-                            <p><strong>last name:</strong> {{this.lastname}}</p>
-                            <p><strong>Comapany:</strong> {{this.companyName}}</p>
-                            <p><strong>Username:</strong> {{this.username}}</p>
-                            <p><strong>Email:</strong> {{this.email}}</p>
-                            <p><strong>Created at:</strong> {{this.dateMade}}</p>
-                            <!-- Add other client details as needed -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                    <div class="all-client-view-details-container">
+                        <a id="all-client-view-details" data-toggle="modal" data-target="#clientDetailsModal{{this.username}}"> View Details </a>
                     </div>
                 </div>
             </div>
-            {{/each}}
+        </div>
 
+        <div class="admin-all-client-container2">
+            <div class="manage-button-container">
+                <div class="manage-button">
+                    <button class="manage" data-toggle="modal" data-target="#editModal{{this.username}}"> MANAGE CLIENT </button>
+                </div>
+                <form action="/deleteClient/{{this.username}}" method="POST">
+                        <button type="submit" class="delete"> Delete </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Client Details Modal -->
+<div class="modal fade" id="clientDetailsModal{{this.username}}" tabindex="-1" role="dialog" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="clientDetailsModalLabel">Client Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p><strong>first name:</strong> {{this.firstname}}</p>
+                <p><strong>last name:</strong> {{this.lastname}}</p>
+                <p><strong>Company:</strong> {{this.companyName}}</p>
+                <p><strong>Username:</strong> {{this.username}}</p>
+                <p><strong>Email:</strong> {{this.email}}</p>
+                <p><strong>Created at:</strong> {{this.dateMade}}</p>
+                <!-- Add other client details as needed -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Client Details Modal -->
+<div class="modal fade" id="editModal{{this.username}}" tabindex="-1" role="dialog" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" id="modalDialog" role="document">
+        <div class="modal-content" id="client-form-main">
+            <form id="updateClientForm{{this.username}}" action="/updateClient/{{this.username}}" method="post">
+                <div class="modal-header" id="client-form-header">
+                    <h5 class="modal-title"> NEW CLIENT </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body" id="client-form-content">
+                    <div id="form-error" class="alert alert-danger" style="display: none;">Cannot leave these fields empty.</div>
+                    <div class="form-group">
+                                    <label for="client-last-name">Last Name</label>
+                                    <input type="text" class="form-control" id="client-last-name" name="lastname" aria-describedby="clientLastName" placeholder="Last Name" value="{{this.lastname}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-first-name">First Name</label>
+                                    <input type="text" class="form-control" id="client-first-name" name="firstname" aria-describedby="clientfirstName" placeholder="First Name" value="{{this.firstname}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-company-name">Company Name</label>
+                                    <input type="text" class="form-control" id="client-company-name" name="companyName" aria-describedby="clientCompanyName" placeholder="Company Name" value="{{this.companyName}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-phone-number">Phone Number</label>
+                                    <input type="text" class="form-control" id="client-phone-number" name="phoneNumber" aria-describedby="clientPhoneNumber" placeholder="Phone Number" value="{{this.phoneNumber}}">
+                                    <span id="phone-error" class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-email-address">Email Address</label>
+                                    <input type="text" class="form-control" id="client-email-address" name="email" aria-describedby="clientEmailAddress" placeholder="Email Address" value="{{this.email}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-username">Username</label>
+                                    <input type="text" class="form-control" id="client-username" name="username" aria-describedby="clientUsername" placeholder="Username" value="{{this.username}}">
+                                    <input type="hidden" name="oldUsername" value="{{this.username}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="client-password">Password default: 00000000</label>
+                                    <input type="password" class="form-control" id="client-password" name="password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
+                                </div>
+                                <div class="form-group">
+                                    <input type="checkbox" id="show-password-checkbox">
+                                    <label for="show-password-checkbox">Show Password</label>
+                                </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Update Account</button>
+                    <button type="button" class="btn btn-secondary" id="clear-btn{{this.username}}" onclick="clearForm()">Clear Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+<script>
+
+</script>
