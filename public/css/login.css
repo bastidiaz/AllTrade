@@ -1,23 +1,25 @@
 /* Photo */
-.img-outer-container {
+.login-form-outer-container {
+  background-color: rgb(240, 235, 222);
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  justify-content: left;
   width: 100%;
 }
 
-.img-inner-container {
-  background-color: rgb(240, 235, 222);
-  width: 60vw;
-  height: 100vh;
+.img-outer-container {
+  min-width: 30vw;
+  min-height: 100vh;
 }
 
-#img-content-container {
-  margin-top: 10rem;
-  margin-left: 7rem;
+.img-inner-container {
+  margin-top:8em;
+}
+
+#img-alltrade-icon-content {
+  margin-left: 4rem;
   width: 20vw;
-  height: 44vh;
+  height: 40vh;
 }
 
 #home-btn {
@@ -28,8 +30,8 @@
   background-color: rgb(52, 81, 52);
   width: 10vw;
   height: 7vh;
-  margin-top: 8rem;
-  margin-left: 2rem;
+  margin-top: 1.5rem;
+  margin-left: 1rem;
 }
 
 #home-btn:hover {
@@ -40,33 +42,29 @@
 /* Login */
 .login-main-container {
   background-color: rgb(49, 69, 49);
-  width: 100%;
+  min-width: 70vw;
 }
 
 .login-header {
-  margin-top: 1rem;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
 }
 
 .login-title h3 {
+  margin-top: 1rem;
   color: white;
   font-family: "Montserrat", sans-serif;
-  font-size: 2.5em;
-  margin-top: 0.5em;
+  font-size: 3em;
 }
 
 .login-form {
-  margin-top: 5rem;
   margin-left: 10rem;
   margin-right: 10rem;
 }
 
 #inputUsername,
 #inputPassword {
-  font-family: "Montserrat", sans-serif;
+  font-family: Verdana, sans-serif;
   font-size: 1.5em;
   color: white !important;
   background-color: transparent;
@@ -83,16 +81,16 @@
 #inputPassword:focus {
   background-color: transparent !important;
   border-color: transparent !important;
-  box-shadow: 0 0 5px transparent;
+  box-shadow: 0 0 5px transparent; 
   border-bottom: 2px solid black !important;
 } 
 
 #form-username {
-  margin-top: 4rem;
+  margin-top: 5rem;
 }
 
 #form-password {
-  margin-top: 2rem;
+  margin-top: 4rem;
 }
 
 /* Forogt Password and Remember Me*/
@@ -100,25 +98,32 @@
   display: flex;
 }
 
+.remember-me-container {
+  display: flex;
+  width: 100%;
+}
+
 #remember-checkbox {
-  margin-top: 1rem;
-  margin-right: 0.2rem;
-  height: 2.5vh;
-  width: 2vw;
+  height: 3vh;
+  width: 3vw;
   accent-color: #6d6b5a;
+  margin-top: 0.2rem;
 }
 
 #remember-label {
   font-family: "Open-sans", sans-serif;
   color: rgb(211, 211, 211);
   font-size: 1em;
-  margin-top: 0.7rem;
-  margin-right: 20rem;
+}
+
+.forgot-password-container {
+  display: flex;
+  justify-content: end;
+  width: 100%;
 }
 
 #forgot-password {
   font-family: "Open-sans", sans-serif;
-  margin-top: 0.9rem;
   color: rgb(211, 211, 211);
 }
 
@@ -129,8 +134,8 @@
   background-color: #6d6b5a;
   border-color: #6d6b5a;
   border-radius: 30px;
+  width: 100%;
   margin-top: 1rem;
-  min-width: 45vw;
 }
 
 #login-btn:focus {
