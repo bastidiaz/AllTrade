@@ -1,19 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
-            <a class="navbar-brand" href="main.html"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
+            <img id="logo-img" src="/public/img/alltrade-logo.png"/>
 
             <div class="admin-info-container"> 
                 <div class="admin-container">
                     <div class="admin-username">
-                        <p>{{admin.username}}</p>
+                        <p id="admin-label"> Admin </p>
+                        <p id="admin-name"> {{admin.firstname}} {{admin.lastname}}</p>
                     </div>
 
                     <div class="admin-logout-container">
                         <a id="admin-logout-btn" href="/logout"> Log Out </a>
                     </div>
-                </div>
-                    
-                <div class="admin-icon-container">
-                    <img id="admin-profile-icon" src="/public/img/person-icon.svg">
                 </div>
             </div>
         </nav>

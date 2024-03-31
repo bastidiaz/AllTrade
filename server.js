@@ -62,6 +62,17 @@ app.engine('hbs', hbs.engine({extname: 'hbs'}) );
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
+
+const ensureAuthenticated = (req, res, next) => {
+    if (req.session.user) {
+        return next();
+    } else {
+        return res.redirect('/login');
+    }
+};
+
+
+
 //main pages
 app.get('/', indexControl.showHome);
 app.get('/services',indexControl.showServices);
@@ -84,8 +95,11 @@ app.post('/tickets/update', ticketControl.updateTicketStatus);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
-app.get('/admin', adminControl.showDashboard);
-app.get('/all-clients', adminControl.showAllClients);
+app.get('/admin', ensureAuthenticated, adminControl.showDashboard);
+app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
+app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
+// app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
+
 
 
 connect();
