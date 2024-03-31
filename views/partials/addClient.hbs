@@ -1,9 +1,10 @@
- <div class="main-outer-container">
+<div class="main-outer-container">
             <div class="header-outer-container">
                 <div class="header-inner-container">
                     <div class="search-box-container">
                         <input id="search-box" type="text" placeholder="Search..">
                     </div>
+                   
         
                     <div class="dropdown" id="dropdown-container">
                         <select id="sort-by">
@@ -17,6 +18,12 @@
                     </div>
                 </div>
             </div>
+
+             {{#if errorMessage}}
+                    <div class="alert alert-danger" role="alert">
+                        {{errorMessage}}
+                    </div>
+                    {{/if}}
 
             <!-- Client Modal Form -->
             <div id="clientModal" class="modal" tabindex="-1" role="dialog">
@@ -86,7 +93,7 @@
         <script>
             function validatePhoneNumber(phoneNumber) {
                 // check if the input is either 0 or an 11-digit number starting with 09
-                return phoneNumber === '0' || phoneNumber === 0 || /^(09)\d{9}$/.test(phoneNumber);
+                return phoneNumber === '0' || /^(09)\d{9}$/.test(phoneNumber);
             }
 
             function updateFormValidation() {
@@ -113,8 +120,12 @@
                 if (validatePhoneNumber(phoneNumberInput.value) && !isEmptyField) {
                     formError.style.display = 'none'; // Hide error message
                     addAccountBtn.disabled = false; 
-                } else {
-                    formError.textContent = 'Cannot leave fields as empty.'; // Set error message
+                } else if(!validatePhoneNumber(phoneNumberInput.value)){
+                    formError.textContent = 'phone number should start with 09 with 11 digits, or 0'; // Set error message
+                    formError.style.display = 'block'; // Show error message
+                    addAccountBtn.disabled = true; // Disable Add Account button
+                }else if(isEmptyField){
+                    formError.textContent = 'dont leave fields empty, enter n/a if no input'; // Set error message
                     formError.style.display = 'block'; // Show error message
                     addAccountBtn.disabled = true; // Disable Add Account button
                 }
@@ -159,4 +170,15 @@
                     }
                 });
             });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const errorMessage = document.querySelector('.alert-danger');
+                setTimeout(function() {
+                    if (errorMessage) {
+                        errorMessage.style.display = 'none';
+                    }
+                }, 5000); //5sec
+            });
+
+
 </script>

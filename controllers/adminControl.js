@@ -25,12 +25,13 @@ const adminControl = {
             res.render('admin-dashboard', { admin, clientCount, handleCount, ticketCount });
         } catch (error) {
             console.error(error);
-            res.status(500).send('Internal Server Error');
+            return res.redirect('/login?errorMessage=Internal Server Error');
         }
     },
 
     async showAllClients(req, res) {
         try {
+            const errorMessage = req.query.errorMessage;
             const admin = req.session.user;
             if (!admin) {
                 return res.redirect('/login');
@@ -58,13 +59,14 @@ const adminControl = {
                     lastname: client.lastname,
                     firstname: client.firstname,
                     dateMade: formattedDate,
-                    password: client.password
+                    password: client.password,
+                    phoneNumber: client.phoneNumber
                 };
             });
-            res.render('all-clients',{admin, clients, nextUsername});
+            res.render('all-clients',{admin, clients, nextUsername, errorMessage});
         } catch (error) {
             console.error(error);
-            res.status(500).json({ error: 'Internal Server Error' });
+            return res.redirect('/all-clients?errorMessage=Internal Server Error');
         }    
     },
 
@@ -79,7 +81,7 @@ const adminControl = {
 
             const Existing = await User.findOne({$or: [{username}] });
             if(Existing){
-                return res.status(400).json({message: 'Username or email already exists'});
+                return res.redirect('/all-clients?errorMessage=Username or email already exists');
             }
 
             //hash the password
@@ -94,7 +96,8 @@ const adminControl = {
                 dateMade: new Date(),
                 isAdmin: false,
                 lastname,
-                firstname
+                firstname,
+                phoneNumber
             });
 
             console.log("New User Data:", newUser);
@@ -102,7 +105,7 @@ const adminControl = {
             res.redirect('/all-clients');
         }catch (error){
             console.error('Error creating account:', error);
-            res.status(500).json({ success: false, message: 'An error occurred' });
+            return res.redirect('/all-clients?errorMessage=An error occurred during ticket creation.');
         }
     },
 
@@ -121,7 +124,7 @@ const adminControl = {
                 const existingClient = await User.findOne({ username });
                 if (existingClient) {
                     // return an error response if the new username already exists
-                    return res.status(400).json({ error: 'Username is already taken' });
+                    return res.redirect('/all-clients?errorMessage=Username already taken');
                 }
             }
     
@@ -133,16 +136,19 @@ const adminControl = {
             );
     
             if (!updatedClient) {
-                return res.status(404).json({ error: 'Client not found' });
+                return res.redirect('/all-clients?errorMessage=Client cannot be found');
             }
     
             // redirect to the client list page or send a success message
             res.redirect('/all-clients');
         } catch (error) {
             console.error('Error updating client details:', error);
-            res.status(500).json({ error: 'Internal Server Error' });
+            return res.redirect('/all-clients?errorMessage=Internal Server Error');
         }
     },
+    
+    
+    
 
     async deleteClient(req, res) {
         try {
@@ -154,13 +160,13 @@ const adminControl = {
             const username = req.body.username || req.params.username;
             const client = await User.findOneAndDelete({ username:username });
             if (!client) {
-                return res.status(404).json({ error: 'Client not found' });
+                return res.redirect('/all-clients?errorMessage=Client cannot be found');
             }
     
             res.redirect('/all-clients');
         } catch (error) {
             console.error('Error deleting client:', error);
-            res.status(500).json({ error: 'Internal Server Error' });
+            return res.redirect('/all-clients?errorMessage=Internal Server Error');
         }
     }
     

@@ -20,10 +20,11 @@
             <div class="manage-button-container">
                 <div class="manage-button">
                     <button class="manage" data-toggle="modal" data-target="#editModal{{this.username}}"> MANAGE CLIENT </button>
+                    <button class="delete" data-toggle="modal" data-target="#deleteConfirmationModal{{this.username}}"> Delete </button>
                 </div>
-                <form action="/deleteClient/{{this.username}}" method="POST">
+                {{!-- <form action="/deleteClient/{{this.username}}" method="POST">
                         <button type="submit" class="delete"> Delete </button>
-                </form>
+                </form> --}}
             </div>
         </div>
     </div>
@@ -42,8 +43,9 @@
             <div class="modal-body">
                 <p><strong>first name:</strong> {{this.firstname}}</p>
                 <p><strong>last name:</strong> {{this.lastname}}</p>
-                <p><strong>Company:</strong> {{this.companyName}}</p>
                 <p><strong>Username:</strong> {{this.username}}</p>
+                <p><strong>Company:</strong> {{this.companyName}}</p>
+                <p><strong>phone number:</strong> {{this.phoneNumber}}</p>
                 <p><strong>Email:</strong> {{this.email}}</p>
                 <p><strong>Created at:</strong> {{this.dateMade}}</p>
                 <!-- Add other client details as needed -->
@@ -114,6 +116,31 @@
         </div>
     </div>
 </div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal{{this.username}}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this account?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <form action="/deleteClient/{{this.username}}" method="POST">
+                        <button type="submit" class="delete"> Yes </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 {{/each}}
 
 <script>
