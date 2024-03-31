@@ -1,5 +1,3 @@
-//const Ticket = require('../models/Ticket.js');
-//added section:
 const Ticket = require('../models/clientTickets.js');
 const User = require('../models/User.js');
 
@@ -44,6 +42,46 @@ const ticketControl = {
             } else {
                 res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName });
             }
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("An error occurred while fetching tickets.");
+        }
+    },
+
+    // admin view, tickets handled by admin
+    async showHandledTickets(req, res) {
+        if (!req.session.user) {
+            return res.redirect('/login');
+        }
+
+        try {
+            let tickets;
+
+            if (!req.session.user.isAdmin) {
+                return res.status(401).send("Unauthorized");
+            }
+
+            const handler = req.session.user.username;
+            tickets = await Ticket.find({ handlerUsername: handler }).exec();
+
+            tickets = tickets.map(ticket => {
+                return {
+                    orderNum: ticket.orderNum,
+                    creationDate: ticket.creationDate,
+                    orderStatus: ticket.orderStatus,
+                    handlerUsername: ticket.handlerUsername,
+                    reason: ticket.reason,
+                    description: ticket.description,
+                    specs: ticket.specs,
+                    quantity: ticket.quantity,
+                    messageUpdates: ticket.messageUpdates,
+                };
+            });
+
+            if (!tickets || tickets.length === 0) {
+                return res.render("tickets-handled", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName });
+            }
+            res.render("tickets-handled", { tickets: tickets, admin: req.session.user });
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred while fetching tickets.");

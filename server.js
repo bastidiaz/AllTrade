@@ -106,6 +106,7 @@ app.get('/admin', ensureAuthenticated, adminControl.showDashboard);
 app.get('/all-tickets', ensureAuthenticated, ticketControl.showTickets);
 app.post('/all-tickets/accept', ensureAuthenticated, ticketControl.acceptTicket);
 app.post('/all-tickets/reject', ensureAuthenticated, ticketControl.rejectTicket);
+app.get('/tickets-handled', ensureAuthenticated, ticketControl.showHandledTickets);
 app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
 app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
 app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClient);

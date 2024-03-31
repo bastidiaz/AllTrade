@@ -20,7 +20,7 @@ const adminControl = {
             }
             //console.log('Admin Info:', admin);
             const clientCount = await User.countDocuments({isAdmin:false});
-            const handleCount = await Tickets.countDocuments({handler: req.session.user.username});
+            const handleCount = await Tickets.countDocuments({handlerUsername: req.session.user.username});
             const ticketCount = await Tickets.countDocuments();
             res.render('admin-dashboard', { admin, clientCount, handleCount, ticketCount });
         } catch (error) {

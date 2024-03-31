@@ -1,0 +1,32 @@
+<!-- Ticket container -->
+<div id="ticket-list">
+  {{#each tickets}}
+    <div class="ticket-outer-container">
+      <div class="ticket-inner-container">
+          <div class="ticket-container1">
+              <div class="order-container">
+                <div class="order-details">
+                  <p id="order-number">Order number #{{this.orderNum}}</p>
+                  <p id="creation-date">Created on: {{this.creationDate}}</p>
+                  <p id="ticket-handler">Ticket Handled by: {{this.handlerUsername}}</p>
+                </div>
+              </div>
+          </div>
+          <div class="ticket-container2">
+              <div class="status-container">
+                  <div class="order-status">
+                      <p>{{this.orderStatus}}</p>
+                  </div>
+              </div>
+              <!-- Button for ticket management: pop-up will have two button on bottom: UPDATE and CANCEL; the rest are entry forms
+              for editing the ticket data; X button top right for closing the pop-up -->
+              <div class="status-container">
+                  <div class="order-status">
+                      <button>Manage</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  {{/each}}
+</div>
