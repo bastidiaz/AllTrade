@@ -9,34 +9,14 @@ const loginControl = {
             res.render("login");
         }
         else {
-            if (req.session.user.isAdmin) {
+            if (!req.session.user.isAdmin) {
+                res.redirect('/tickets');
+            } else {
                 res.redirect('/admin');
             }
-            res.redirect('/tickets');
         }
     },
 
-
-    // async submitLoginForm(req, res) {
-    //     try {
-    //         const user = await User.findOne({ username: req.body.usernameLogin });
-    //         if (user && user.password === req.body.passwordLogin) {
-    //             // Simplify session handling based on 'remember' checkbox
-    //             if (req.body.remember === "on") {
-    //                 req.session.cookie.maxAge = 21 * 24 * 60 * 60 * 1000; // 3 weeks
-    //             } else {
-    //                 req.session.cookie.expires = false; // Session ends when browser closes
-    //             }
-    //             req.session.user = { username: user.username }; // Store minimal user info in session
-    //             res.redirect('/tickets/' + user.username);
-    //         } else {
-    //             res.render("login", { errorMessage: 'Invalid username or password' });
-    //         }
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.render("login", { errorMessage: 'An error occurred during login' });
-    //     }
-    // },
     async submitLoginForm(req, res) {
         try {
             const user = await User.findOne({ username: req.body.usernameLogin });

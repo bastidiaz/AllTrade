@@ -143,9 +143,6 @@ const adminControl = {
             res.status(500).json({ error: 'Internal Server Error' });
         }
     },
-    
-    
-    
 
     async deleteClient(req, res) {
         try {

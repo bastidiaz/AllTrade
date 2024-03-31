@@ -18,7 +18,7 @@ const ticketSchema = new mongoose.Schema({
     },
     handlerUsername: {
         type: String,
-        default: 'No one accepted this ticket yet',
+        default: 'N/A'
     },
     reason: {
         type: String,

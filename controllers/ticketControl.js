@@ -39,8 +39,11 @@ const ticketControl = {
             if (!tickets || tickets.length === 0) {
                 return res.render("tickets", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName });
             }
-    
-            res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName });
+            if (req.session.user.isAdmin) {
+                res.render("all-tickets", { tickets: tickets, admin: req.session.user });
+            } else {
+                res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName });
+            }
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred while fetching tickets.");
@@ -85,8 +88,8 @@ const ticketControl = {
         }
 
         try {
-            const ticketNumber = req.params.ticketNumber;
-            const ticket = await Ticket.findOne({ orderNum: ticketNumber });
+            const orderNum = req.body.orderNum;
+            const ticket = await Ticket.findOne({ orderNum: orderNum });
 
             if (ticket.orderStatus !== "PENDING") {
                 return res.status(400).send("Ticket cannot be accepted.");
@@ -94,10 +97,11 @@ const ticketControl = {
 
             // Update ticket status to "ACCEPTED" and store the admin who handled it
             ticket.orderStatus = "ACCEPTED";
-            ticket.handler = req.session.user.username; // Assuming the admin username is stored in the session
+            ticket.handlerUsername = req.session.user.username; // Assuming the admin username is stored in the session
             await ticket.save();
 
-            res.status(200).send("Ticket accepted successfully.");
+            console.log("Ticket accepted successfully.");
+            res.redirect(`/all-tickets`);
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred while accepting the ticket.");

@@ -58,7 +58,14 @@ async function connect() {
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.engine('hbs', hbs.engine({extname: 'hbs'}) );
+app.engine('hbs', hbs.engine({
+    extname: 'hbs',
+    helpers: {
+        isEqual: function(value1, value2, options) {
+            return value1 === value2 ? options.fn(this) : options.inverse(this);
+        }
+    }
+}));
 app.set('view engine', 'hbs');
 app.set('views', './views');
 
@@ -96,6 +103,8 @@ app.post('/tickets/update', ticketControl.updateTicketStatus);
 app.post('/send', inquiryControl.sendInquiry);
 
 app.get('/admin', ensureAuthenticated, adminControl.showDashboard);
+app.get('/all-tickets', ensureAuthenticated, ticketControl.showTickets);
+app.post('/all-tickets/accept', ensureAuthenticated, ticketControl.acceptTicket);
 app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
 app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
 app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClient);
