@@ -108,6 +108,33 @@ const ticketControl = {
         }
     },
 
+    //reject ticket by admin
+    async rejectTicket(req, res) {
+        if (!req.session.user || !req.session.user.isAdmin) {
+            return res.status(401).send("Unauthorized");
+        }
+
+        try {
+            const orderNum = req.body.orderNum;
+            const ticket = await Ticket.findOne({ orderNum: orderNum });
+
+            if (ticket.orderStatus !== "PENDING") {
+                return res.status(400).send("Ticket cannot be rejected.");
+            }
+
+            // Update ticket status to "ACCEPTED" and store the admin who handled it
+            ticket.orderStatus = "REJECTED";
+            ticket.handlerUsername = req.session.user.username; // Assuming the admin username is stored in the session
+            await ticket.save();
+
+            console.log("Ticket rejected successfully.");
+            res.redirect(`/all-tickets`);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("An error occurred while accepting the ticket.");
+        }
+    },
+
     //updating ticket for admin
     async updateTicketStatus(req, res) {
         if (!req.session.user || !req.session.user.isAdmin) {

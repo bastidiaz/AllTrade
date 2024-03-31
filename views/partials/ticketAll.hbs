@@ -24,6 +24,17 @@
                       </div>
                   </div>
               </form>
+              <form id="ticketForm" class="modal-form" method="post" action="/all-tickets/reject">
+                  <div class="ticket-container2">
+                      <div class="status-container">
+                          <div class="order-status">
+                              <!-- HANDLE BUTTON: IF CLICKED, IT WILL ACCEPT TICKET AND ASSIGN TO LOGGED IN ADMIN -->
+                              <input name="orderNum" type="hidden" value="{{this.orderNum}}">
+                              <button type="submit" id="handle-btn">REJECT</button>
+                          </div>
+                      </div>
+                  </div>
+              </form>
           {{else}}
               <div class="ticket-container2">
                   <div class="status-container">

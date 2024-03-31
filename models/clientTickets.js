@@ -19,7 +19,7 @@ const clientTicketSchema = new mongoose.Schema({
     },
     orderStatus: {
         type: String,
-        enum: ['PENDING', 'ACCEPTED', 'IN PROGRESS', 'ON THE WAY', 'COMPLETED'],
+        enum: ['PENDING', 'ACCEPTED', 'REJECTED', 'CANCELLED', 'IN PROGRESS', 'ON THE WAY', 'COMPLETED'],
         default: 'PENDING',
     },
     handlerUsername: {
