@@ -2,24 +2,24 @@
 .login-form-outer-container {
   background-color: rgb(240, 235, 222);
   display: flex;
-  flex-direction: row;
   align-items: stretch;
-  width: 100%;
+  min-width: 100vw;
 }
 
 .img-outer-container {
   min-width: 30vw;
   min-height: 100vh;
+  margin-right: 1rem;
 }
 
 .img-inner-container {
-  margin-top:8em;
+  margin-top: 14rem;
+  padding-left: 2rem;
 }
 
 #img-alltrade-icon-content {
-  margin-left: 4rem;
-  width: 20vw;
-  height: 40vh;
+  min-width: 18.5vw;
+  height: 14vh;
 }
 
 #home-btn {
@@ -28,8 +28,8 @@
   color: white;
   border-radius: 5px;
   background-color: rgb(52, 81, 52);
-  width: 10vw;
-  height: 7vh;
+  min-width: 10vw;
+  min-height: 7vh;
   margin-top: 1.5rem;
   margin-left: 1rem;
 }
@@ -134,7 +134,7 @@
   background-color: #6d6b5a;
   border-color: #6d6b5a;
   border-radius: 30px;
-  width: 100%;
+  min-width: 100%;
   margin-top: 1rem;
 }
 

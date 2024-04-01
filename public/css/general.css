@@ -29,7 +29,7 @@ body {
 
 #logo-img {
     height: 10vh;
-    width: 14vw;
+    min-width: 14vw;
 }
 
 #about:hover,#services:hover,
