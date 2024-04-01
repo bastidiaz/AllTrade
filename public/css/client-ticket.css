@@ -54,7 +54,7 @@
 }
 
 /* Search Box */
-#search-box {
+#search-box-client {
     margin-top: 2.2rem;
     margin-left: 2.5rem;
     margin-right: 2.5rem;
@@ -65,19 +65,20 @@
     border: 1px solid #215219;
 }
 
-#search-box::placeholder {
+#search-box-client::placeholder {
     font-family: "Montserrat", sans-serif;
 }
 
 /* Dropdown */
-#sort-by {
+#sort-by-client {
+    font-family: "Montserrat", sans-serif;
     margin-top: 3rem;
     margin-left: -1rem;
     text-align: center;
     font-size: 1.2em;
 }
 
-#sort-by:hover {
+#sort-by-client:hover {
     cursor: pointer;
 }
 

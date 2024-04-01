@@ -1,15 +1,25 @@
-<div class="main-outer-container">
+        <div class="main-outer-container">
             <div class="header-outer-container">
                 <div class="header-inner-container">
+                    <div class="dashboard-btn-container">
+                        <button id="dashboard-back-btn"> DASHBOARD </button>
+                    </div>
+
                     <div class="search-box-container">
                         <input id="search-box" type="text" placeholder="Search..">
                     </div>
-                   
         
                     <div class="dropdown" id="dropdown-container">
                         <select id="sort-by">
                             <option value="date"> Sort Accending </option>
                             <option value="status"> Sort Decending </option>
+                        </select>
+                    </div>
+
+                    <div class="dropdown" id="dropdown-container">
+                        <select id="sort-by">
+                            <option value="date"> By Name </option>
+                            <option value="status"> By Creation </option>
                         </select>
                     </div>
                     
@@ -19,11 +29,11 @@
                 </div>
             </div>
 
-             {{#if errorMessage}}
+            {{#if errorMessage}}
                     <div class="alert alert-danger" role="alert">
                         {{errorMessage}}
                     </div>
-                    {{/if}}
+            {{/if}}
 
             <!-- Client Modal Form -->
             <div id="clientModal" class="modal" tabindex="-1" role="dialog">
@@ -38,48 +48,48 @@
                         </div>
 
                         <div class="modal-body" id="client-form-content">
-                            {{!-- <input type="text" class="form-control" id="client-last-name" aria-describedby="clientLastName" placeholder="Last Name">
-                            <input type="text" class="form-control" id="client-first-name" aria-describedby="clientfirstName" placeholder="First Name" >
-                            <input type="text" class="form-control" id="client-company-name" aria-describedby="clientCompanyName" placeholder="Company Name" >
-                            <input type="text" class="form-control" id="client-phone-number" aria-describedby="clientPhoneNumber" placeholder="Phone Number" >
-                            <input type="text" class="form-control" id="client-email-address" aria-describedby="clientEmailAddress" placeholder="Email Address">
-                            <input type="text" class="form-control" id="client-username" aria-describedby="clientUsername" placeholder="Username" value="defualt1">
-                            <input type="password" class="form-control" id="client-password" aria-describedby="clientPassword" placeholder="Password" value="00000000"> 
-                                --}}
-                                <div id="form-error" class="alert alert-danger" style="display: none;">Cannot leave these fields empty.</div>
-                                <div class="form-group">
-                                    <label for="client-last-name">Last Name</label>
-                                    <input type="text" class="form-control" id="client-last-name" name="lastname" aria-describedby="clientLastName" placeholder="Last Name" value="n/a">
-                                </div>
-                                <div class="form-group">
-                                    <label for="client-first-name">First Name</label>
-                                    <input type="text" class="form-control" id="client-first-name" name="firstname" aria-describedby="clientfirstName" placeholder="First Name" value="n/a">
-                                </div>
-                                <div class="form-group">
-                                    <label for="client-company-name">Company Name</label>
-                                    <input type="text" class="form-control" id="client-company-name" name="companyName" aria-describedby="clientCompanyName" placeholder="Company Name" value="n/a">
-                                </div>
-                                <div class="form-group">
-                                    <label for="client-phone-number">Phone Number</label>
-                                    <input type="text" class="form-control" id="client-phone-number" name="phoneNumber" aria-describedby="clientPhoneNumber" placeholder="Phone Number" value="0">
-                                    <span id="phone-error" class="error-message"></span>
-                                </div>
-                                <div class="form-group">
-                                    <label for="client-email-address">Email Address</label>
-                                    <input type="text" class="form-control" id="client-email-address" name="email" aria-describedby="clientEmailAddress" placeholder="Email Address" value="n/a">
-                                </div>
-                                <div class="form-group">
-                                    <label for="client-username">Username</label>
-                                    <input type="text" class="form-control" id="client-username" name="username" aria-describedby="clientUsername" placeholder="Username" value="{{nextUsername}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="client-password">Password default: 00000000</label>
-                                    <input type="password" class="form-control" id="client-password" name="password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
-                                </div>
-                                <div class="form-group">
-                                    <input type="checkbox" id="show-password-checkbox">
-                                    <label for="show-password-checkbox">Show Password</label>
-                                </div>
+                            <div id="form-error" class="alert alert-danger" style="display: none;"> Cannot leave these fields empty.</div>
+                            
+                            <div class="form-group">
+                                <label for="client-last-name">Last Name</label>
+                                <input type="text" class="form-control" id="client-last-name" name="lastname" aria-describedby="clientLastName" placeholder="Last Name" value="n/a">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client-first-name">First Name</label>
+                                <input type="text" class="form-control" id="client-first-name" name="firstname" aria-describedby="clientfirstName" placeholder="First Name" value="n/a">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client-company-name">Company Name</label>
+                                <input type="text" class="form-control" id="client-company-name" name="companyName" aria-describedby="clientCompanyName" placeholder="Company Name" value="n/a">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client-phone-number">Phone Number</label>
+                                <input type="text" class="form-control" id="client-phone-number" name="phoneNumber" aria-describedby="clientPhoneNumber" placeholder="Phone Number" value="0">
+                                <span id="phone-error" class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client-email-address">Email Address</label>
+                                <input type="text" class="form-control" id="client-email-address" name="email" aria-describedby="clientEmailAddress" placeholder="Email Address" value="n/a">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="client-username">Username</label>
+                                <input type="text" class="form-control" id="client-username" name="username" aria-describedby="clientUsername" placeholder="Username" value="{{nextUsername}}">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="client-password">Password default: 00000000</label>
+                                <input type="password" class="form-control" id="client-password" name="password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
+                            </div>
+
+                            <div class="form-group">
+                                <input type="checkbox" id="show-password-checkbox">
+                                <label for="show-password-checkbox">Show Password</label>
+                            </div>
                         </div>
                         
                         <div class="modal-footer">
@@ -90,6 +100,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+
         <script>
             function validatePhoneNumber(phoneNumber) {
                 // check if the input is either 0 or an 11-digit number starting with 09
@@ -179,6 +191,4 @@
                     }
                 }, 5000); //5sec
             });
-
-
-</script>
+        </script>

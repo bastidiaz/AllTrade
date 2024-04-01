@@ -24,7 +24,7 @@
 .contact-outer-container {
     display: flex;
     justify-content: center;
-    min-width: 100%;
+    min-width: 100vw;
     min-height: 100vh;
 }
 

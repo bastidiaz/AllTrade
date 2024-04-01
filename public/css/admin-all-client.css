@@ -58,10 +58,12 @@
 }
 
 /* Search Box */
+.search-box-container {
+    width: 100%;
+}
+
 #search-box {
-    margin-top: 2.2rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
+    margin-top: 2rem;
     padding: 0.5rem;
     width: 25vw;
     height: 8vh;
@@ -76,13 +78,43 @@
 
 /* Dropdown */
 #sort-by {
-    margin-top: 3rem;
-    margin-left: -1rem;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 2.5rem;
+    margin-right: 2rem;
     text-align: center;
     font-size: 1.2em;
 }
 
 #sort-by:hover {
+    cursor: pointer;
+}
+
+/* Dashboard button */
+.dashboard-btn-container {
+    width: 100%;
+}
+
+#dashboard-back-btn {
+    float: left;
+    height: 8vh;
+    min-width: 15vw;
+    margin-left: 4rem;
+    margin-top: 2rem;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: white;
+    border: 2px solid #AD4F00;
+    background-color: #AD4F00;
+    border-radius: 4px;
+    box-shadow: 0 0 2px rgb(28, 24, 24);
+}
+
+#dashboard-back-btn:hover {
+    background-color: #72280b;
+    border: 2px solid #72280b;
+    box-shadow: 0 0 5px rgb(60, 47, 47);
+    color: white;
+    transition: 0.7s;
     cursor: pointer;
 }
 
@@ -94,7 +126,7 @@
 #create-client-btn {
     float: right;
     height: 8vh;
-    width: 15vw;
+    min-width: 15vw;
     margin-right: 4rem;
     margin-top: 2rem;
     font-size: 0.9em;
@@ -102,7 +134,8 @@
     color: white;
     border: 2px solid #435933;
     background-color: #435933;
-    border-radius: 10px;
+    box-shadow: 0 0 2px rgb(28, 24, 24);
+    border-radius: 4px;
 }   
 
 #create-client-btn:hover {
@@ -197,6 +230,8 @@
 
 #all-client-view-details {
     color: #545050;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .all-client-ticket-container2 {
@@ -215,26 +250,6 @@
     background-color: #65A8FF;
     color: #444141;
 }
-.manage-button-container{
-    text-align: center;
-    margin-top: 2.5rem;
-    margin-right: 1rem;
-    padding: 2px;
-    min-width: 10vw;
-    min-height: 5vh;
-    border-radius: 50px;
-    cursor: pointer;
-}
-.manage{
-    border-radius: 10px;
-    border-color: #010b18;
-    background-color: #2fb3b7;
-    cursor: pointer;
-    color: #0a1257;
-}
-.manage:hover{
-    background-color: #0dcfd6;
-}
 
 .all-client-client-status p {
     font-weight: 600;
@@ -244,4 +259,54 @@
 .error-message {
     color: red;
     font-size: 0.8rem;
+}
+
+/* Manager Button */
+.admin-all-client-container2 {
+    width: 100%;
+}
+
+.manage-button-container{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.manage {
+    border-radius: 8px;
+    background-color: #246094;
+    border-color: #246094;
+    box-shadow: 0 0 2px gray;
+    cursor: pointer;
+    color: white;
+    margin-top: -0.5rem;
+    margin-right: 2rem;
+    min-width: 15vw;
+    min-height: 8vh;
+}
+
+.manage:hover{
+    background-color: #879fdd;
+    border-color: #879fdd;
+}
+
+.delete {
+    border-radius: 8px;
+    background-color: #011F4B;
+    border-color: #011F4B;
+    box-shadow: 0 0 2px gray;
+    cursor: pointer;
+    color: white;
+    margin-top: -0.5rem;
+    margin-right: 2rem;
+    min-width: 15vw;
+    min-height: 8vh;
+}
+
+.delete:hover{
+    background-color: #425e71;
+    border-color: #425e71;
 }

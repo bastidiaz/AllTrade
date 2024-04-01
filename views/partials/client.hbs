@@ -20,7 +20,10 @@
             <div class="manage-button-container">
                 <div class="manage-button">
                     <button class="manage" data-toggle="modal" data-target="#editModal{{this.username}}"> MANAGE CLIENT </button>
-                    <button class="delete" data-toggle="modal" data-target="#deleteConfirmationModal{{this.username}}"> Delete </button>
+                </div>
+
+                <div class="delete-button">
+                    <button class="delete" data-toggle="modal" data-target="#deleteConfirmationModal{{this.username}}"> DELETE CLIENT </button>
                 </div>
                 {{!-- <form action="/deleteClient/{{this.username}}" method="POST">
                         <button type="submit" class="delete"> Delete </button>
@@ -35,21 +38,23 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="clientDetailsModalLabel">Client Details</h5>
+                <h5 class="modal-title" id="clientDetailsModalLabel"> CLIENT DETAILS </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
-                <p><strong>first name:</strong> {{this.firstname}}</p>
-                <p><strong>last name:</strong> {{this.lastname}}</p>
-                <p><strong>Username:</strong> {{this.username}}</p>
-                <p><strong>Company:</strong> {{this.companyName}}</p>
-                <p><strong>phone number:</strong> {{this.phoneNumber}}</p>
-                <p><strong>Email:</strong> {{this.email}}</p>
-                <p><strong>Created at:</strong> {{this.dateMade}}</p>
+                <p><strong> First name: </strong> {{this.firstname}}</p>
+                <p><strong> Last name: </strong> {{this.lastname}}</p>
+                <p><strong> Username: </strong> {{this.username}}</p>
+                <p><strong> Company Name: </strong> {{this.companyName}}</p>
+                <p><strong> Phone number: </strong> {{this.phoneNumber}}</p>
+                <p><strong> Email: </strong> {{this.email}}</p>
+                <p><strong> Created at: </strong> {{this.dateMade}}</p>
                 <!-- Add other client details as needed -->
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
