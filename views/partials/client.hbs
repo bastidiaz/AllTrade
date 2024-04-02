@@ -1,16 +1,16 @@
 <!-- Ticket container -->
-{{#each clients}}
-<div class="admin-all-client-outer-container">
+{{!-- {{#each clients}} --}}
+{{!-- <div class="admin-all-client-outer-container">
     <div class="admin-all-client-inner-container">
         <div class="admin-all-client-container1">
             <div class="all-client-client-order-container">
                 <div class="all-client-client-details">
-                    <p id="all-client-client-name"> Client Name: {{this.firstname}} {{this.lastname}}</p>
-                    <p id="all-client-client-name"> Client Username: {{this.username}}</p>
-                    <p id="all-client-creation-date"> Created at {{this.dateMade}}</p>
+                    <p class="all-client-client-name"> Client Name: {{this.firstname}} {{this.lastname}}</p>
+                    <p class="all-client-client-name"> Client Username: {{this.username}}</p>
+                    <p class="all-client-creation-date"> Created at {{this.dateMade}}</p>
 
                     <div class="all-client-view-details-container">
-                        <a id="all-client-view-details" data-toggle="modal" data-target="#clientDetailsModal{{this.username}}"> View Details </a>
+                        <a class="all-client-view-details" data-toggle="modal" data-target="#clientDetailsModal{{this.username}}"> View Details </a>
                     </div>
                 </div>
             </div>
@@ -25,20 +25,23 @@
                 <div class="delete-button">
                     <button class="delete" data-toggle="modal" data-target="#deleteConfirmationModal{{this.username}}"> DELETE CLIENT </button>
                 </div>
-                {{!-- <form action="/deleteClient/{{this.username}}" method="POST">
-                        <button type="submit" class="delete"> Delete </button>
-                </form> --}}
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+{{!-- {{/each}} --}}
 
+
+{{!-- this is for rendering the client containers with info --}}
+<div id="clientList"></div>
+
+{{#each clients}}
 <!-- Client Details Modal -->
 <div class="modal fade" id="clientDetailsModal{{this.username}}" tabindex="-1" role="dialog" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="clientDetailsModalLabel"> CLIENT DETAILS </h5>
+                <h5 class="modal-title clientDetailsModalLabel"> CLIENT DETAILS </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -61,54 +64,55 @@
         </div>
     </div>
 </div>
+{{/each}}
 
-
+{{#each clients}}
 <!-- Client Details Modal -->
 <div class="modal fade" id="editModal{{this.username}}" tabindex="-1" role="dialog" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
-    <div class="modal-dialog" id="modalDialog" role="document">
-        <div class="modal-content" id="client-form-main">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content client-form-main">
             <form id="updateClientForm{{this.username}}" action="/updateClient/{{this.username}}" method="post">
-                <div class="modal-header" id="client-form-header">
+                <div class="modal-header client-form-header">
                     <h5 class="modal-title"> NEW CLIENT </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <div class="modal-body" id="client-form-content">
+                <div class="modal-body client-form-content">
                     <div id="form-error" class="alert alert-danger" style="display: none;">Cannot leave these fields empty.</div>
                     <div class="form-group">
                                     <label for="client-last-name">Last Name</label>
-                                    <input type="text" class="form-control" id="client-last-name" name="lastname" aria-describedby="clientLastName" placeholder="Last Name" value="{{this.lastname}}">
+                                    <input type="text" class="form-control client-last-name" name="lastname" aria-describedby="clientLastName" placeholder="Last Name" value="{{this.lastname}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="client-first-name">First Name</label>
-                                    <input type="text" class="form-control" id="client-first-name" name="firstname" aria-describedby="clientfirstName" placeholder="First Name" value="{{this.firstname}}">
+                                    <input type="text" class="form-control client-first-name" name="firstname" aria-describedby="clientfirstName" placeholder="First Name" value="{{this.firstname}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="client-company-name">Company Name</label>
-                                    <input type="text" class="form-control" id="client-company-name" name="companyName" aria-describedby="clientCompanyName" placeholder="Company Name" value="{{this.companyName}}">
+                                    <input type="text" class="form-control client-company-name" name="companyName" aria-describedby="clientCompanyName" placeholder="Company Name" value="{{this.companyName}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="client-phone-number">Phone Number</label>
-                                    <input type="text" class="form-control" id="client-phone-number" name="phoneNumber" aria-describedby="clientPhoneNumber" placeholder="Phone Number" value="{{this.phoneNumber}}">
-                                    <span id="phone-error" class="error-message"></span>
+                                    <input type="text" class="form-control client-phone-number" name="phoneNumber" aria-describedby="clientPhoneNumber" placeholder="Phone Number" value="{{this.phoneNumber}}">
+                                    <span class="phone-error error-message"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="client-email-address">Email Address</label>
-                                    <input type="text" class="form-control" id="client-email-address" name="email" aria-describedby="clientEmailAddress" placeholder="Email Address" value="{{this.email}}">
+                                    <input type="text" class="form-control client-email-address" name="email" aria-describedby="clientEmailAddress" placeholder="Email Address" value="{{this.email}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="client-username">Username</label>
-                                    <input type="text" class="form-control" id="client-username" name="username" aria-describedby="clientUsername" placeholder="Username" value="{{this.username}}">
+                                    <input type="text" class="form-control client-username" name="username" aria-describedby="clientUsername" placeholder="Username" value="{{this.username}}">
                                     <input type="hidden" name="oldUsername" value="{{this.username}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="client-password">Password default: 00000000</label>
-                                    <input type="password" class="form-control" id="client-password" name="password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
+                                    <input type="password" class="form-control client-password" name="password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
                                 </div>
                                 <div class="form-group">
-                                    <input type="checkbox" id="show-password-checkbox">
+                                    <input type="checkbox" id="show-password-checkbox{{this.username}}">
                                     <label for="show-password-checkbox">Show Password</label>
                                 </div>
                 </div>
@@ -121,7 +125,8 @@
         </div>
     </div>
 </div>
-
+{{/each}}
+{{#each clients}}
 <!-- Delete Confirmation Modal -->
 <div class="modal fade" id="deleteConfirmationModal{{this.username}}" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -149,5 +154,184 @@
 {{/each}}
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        console.log("JavaScript loaded");
+        const clients = [
+            {{#each clients}}
+                {
+                    username: "{{this.username}}",
+                    firstname: "{{this.firstname}}",
+                    lastname: "{{this.lastname}}",
+                    dateMade: "{{this.dateMade}}",
+                    companyName: "{{this.companyName}}",
+                    phoneNumber: "{{this.phoneNumber}}",
+                    email: "{{this.email}}"
+                },
+            {{/each}}
+        ];
 
+        console.log(clients);
+
+        const sortSelect = document.getElementById("sort-by");
+        const sortOrderSelect = document.getElementById("order-by");
+        const searchInput = document.getElementById("search-box");
+        const clientList = document.getElementById("clientList");
+
+        // Function to render clients based on the provided array
+        function renderClients(clientsArray) {
+            clientList.innerHTML = ""; // Clear existing list
+
+            clientsArray.forEach(client => {
+                const clientElement = document.createElement("div");
+                clientElement.classList.add("client-item");
+                clientElement.innerHTML = `
+                    <div class="admin-all-client-outer-container">
+                        <div class="admin-all-client-inner-container">
+                            <div class="admin-all-client-container1">
+                                <div class="all-client-client-order-container">
+                                    <div class="all-client-client-details">
+                                        <p class="all-client-client-name"> Client Name: ${client.firstname} ${client.lastname}</p>
+                                        <p class="all-client-client-name"> Client Username: ${client.username}</p>
+                                        <p class="all-client-client-name"> Company: ${client.companyName}</p>
+                                        <p class="all-client-creation-date"> Created at ${client.dateMade}</p>
+
+                                        <div class="all-client-view-details-container">
+                                            <a class="all-client-view-details" data-toggle="modal" data-target="#clientDetailsModal${client.username}"> View Details </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="admin-all-client-container2">
+                                <div class="manage-button-container">
+                                    <div class="manage-button">
+                                        <button class="manage" data-toggle="modal" data-target="#editModal${client.username}"> MANAGE CLIENT </button>
+                                    </div>
+
+                                    <div class="delete-button">
+                                        <button class="delete" data-toggle="modal" data-target="#deleteConfirmationModal${client.username}"> DELETE CLIENT </button>
+                                    </div>
+                                    {{!-- <form action="/deleteClient/${client.username}" method="POST">
+                                            <button type="submit" class="delete"> Delete </button>
+                                    </form> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    {{!-- <!-- Client Details Modal -->
+                    <div class="modal fade" id="clientDetailsModal${client.username}" tabindex="-1" role="dialog" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title clientDetailsModalLabel"> CLIENT DETAILS </h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <p><strong> First name: </strong> ${client.firstname}</p>
+                                    <p><strong> Last name: </strong> ${client.lastname}</p>
+                                    <p><strong> Username: </strong> ${client.username}</p>
+                                    <p><strong> Company Name: </strong> ${client.companyName}</p>
+                                    <p><strong> Phone number: </strong> ${client.phoneNumber}</p>
+                                    <p><strong> Email: </strong> ${client.email}</p>
+                                    <p><strong> Created at: </strong> ${this.dateMade}</p>
+                                    <!-- Add other client details as needed -->
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> --}}
+                `;
+                clientList.appendChild(clientElement);
+            });
+        }
+
+        // Initial rendering of clients
+        renderClients(clients);
+
+        // Event listener for sorting
+        sortSelect.addEventListener("change", function() {
+            console.log("Sorting dropdown changed");
+            const sortBy = sortSelect.value;
+            const sortOrder = sortOrderSelect.value;
+            console.log("Sorting by:", sortBy);
+            console.log("order by:", sortOrder);
+
+            if (sortBy === "clientUserName") {
+                if (sortOrder === "asc") {
+                    clients.sort((a, b) => a.username.localeCompare(b.username));
+                } else {
+                    clients.sort((a, b) => b.username.localeCompare(a.username));
+                }
+            } else if (sortBy === "clientName") {
+                if (sortOrder === "asc") {
+                    clients.sort((a, b) => `${a.firstname} ${a.lastname}`.localeCompare(`${b.firstname} ${b.lastname}`));
+                } else {
+                    clients.sort((a, b) => `${b.firstname} ${b.lastname}`.localeCompare(`${a.firstname} ${a.lastname}`));
+                }
+            } else if (sortBy === "companyName") {
+                if (sortOrder === "asc") {
+                    clients.sort((a, b) => a.companyName.localeCompare(b.companyName));
+                } else {
+                    clients.sort((a, b) => b.companyName.localeCompare(a.companyName));
+                }
+            } else if (sortBy === "date") {
+                if (sortOrder === "asc") {
+                    clients.sort((a, b) => new Date(a.dateMade) - new Date(b.dateMade));
+                } else {
+                    clients.sort((a, b) => new Date(b.dateMade) - new Date(a.dateMade));
+                }
+            }
+
+            renderClients(clients); // Re-render clients after sorting
+        });
+        // event listener for search
+        searchInput.addEventListener("input", function () {
+            console.log("Search input changed");
+            const searchTerm = searchInput.value.trim().toLowerCase();
+
+            if (searchTerm === "") {
+                renderClients(clients); // If search input is empty, render all clients
+                return;
+            }
+
+            const filteredClients = clients.filter(client =>
+                client.firstname.toLowerCase().includes(searchTerm) ||
+                client.lastname.toLowerCase().includes(searchTerm) ||
+                client.username.toLowerCase().includes(searchTerm) ||
+                client.companyName.toLowerCase().includes(searchTerm) ||
+                client.dateMade.toLowerCase().includes(searchTerm)
+            );
+
+            renderClients(filteredClients); // Render filtered clients based on search term
+        });
+    });
+
+    //show password
+    document.addEventListener("DOMContentLoaded", function () {
+    console.log("Show password JavaScript loaded");
+
+    const showPasswordCheckboxes = document.querySelectorAll("[id^='show-password-checkbox']");
+
+    showPasswordCheckboxes.forEach(function (checkbox) {
+        checkbox.addEventListener("change", function () {
+            const username = checkbox.getAttribute("data-username");
+            const passwordField = document.getElementById(`client-password-${username}`);
+
+            if (checkbox.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        });
+    });
+});
 </script>
+

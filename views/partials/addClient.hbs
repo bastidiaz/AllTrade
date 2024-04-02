@@ -2,24 +2,26 @@
             <div class="header-outer-container">
                 <div class="header-inner-container">
                     <div class="dashboard-btn-container">
-                        <button id="dashboard-back-btn"> DASHBOARD </button>
+                        <a id="dashboard-back-btn" href="admin">← back to DASHBOARD </a>
                     </div>
 
                     <div class="search-box-container">
                         <input id="search-box" type="text" placeholder="Search..">
                     </div>
         
-                    <div class="dropdown" id="dropdown-container">
-                        <select id="sort-by">
-                            <option value="date"> Sort Accending </option>
-                            <option value="status"> Sort Decending </option>
+                    <div class="dropdown" id="dropdown-container2">
+                        <select id="order-by">
+                            <option value="asc"> Sort Ascending </option>
+                            <option value="dec"> Sort Decending </option>
                         </select>
                     </div>
 
-                    <div class="dropdown" id="dropdown-container">
+                    <div class="dropdown" id="dropdown-container1">
                         <select id="sort-by">
-                            <option value="date"> By Name </option>
-                            <option value="status"> By Creation </option>
+                            <option value="clientName"> by client name </option>
+                            <option value="clientUserName"> by client username </option>
+                            <option value="date"> by creation date</option>
+                            <option value="companyName"> by company name</option>
                         </select>
                     </div>
                     
@@ -191,4 +193,8 @@
                     }
                 }, 5000); //5sec
             });
+
+
+
+            
         </script>
