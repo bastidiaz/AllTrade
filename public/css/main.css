@@ -126,6 +126,7 @@ label {
     font-weight: 500;
 }
 
+/* Branches */
 .branches-outer-container {
     display: flex;
     background-color: white;

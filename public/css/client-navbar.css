@@ -1,0 +1,35 @@
+/* Client Navbar */
+.user-info-container {
+    display: flex;
+    justify-content: end;
+    width: 90vw;
+    margin-top: 1rem;
+}
+
+.username {
+    display: flex;
+    justify-content: end;
+    margin-top: 0.2rem;
+}
+
+#person-icon {
+    margin-top: -0.5rem;
+    margin-left: -1rem;
+    width: 5vw;
+    height: 5vh;
+}
+
+.logout-container {
+    display: flex;
+    justify-content: end;
+    margin-top: -0.6rem;
+    margin-left: 1.5rem;
+}
+
+#logout-btn {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: #435933;
+    cursor: pointer;
+}
