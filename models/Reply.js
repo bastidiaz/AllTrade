@@ -1,11 +1,16 @@
 const mongoose = require('mongoose');
 const User = require('./User.js');
-const Ticket = require('./Ticket.js');
+const Ticket = require('./clientTickets.js');
 const { Schema, model } = mongoose;
 
 const replySchema = new Schema({
-    ticket: {
-        type: mongoose.Schema.Types.ObjectId,
+    orderNum: {
+        type: String,
+        ref: Ticket,
+        required: true
+    },
+    postedBy: {
+        type: String,
         ref: Ticket,
         required: true
     },
@@ -16,10 +21,6 @@ const replySchema = new Schema({
     description: {
         type: String,
         required: true
-    },
-    isHandled: {
-        type: Boolean,
-        default: false
     }
 });
 

@@ -21,50 +21,6 @@ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true })
   })
   .catch(err => console.error('Connection error:', err));
 
-// async function insertSampleUsers() {
-//   const sampleUsers = [
-//     {
-//         companyName: "BDO corporation",
-//         email: "bdo@gmail.com",
-//         username: "bdoChing",
-//         password: await bcrypt.hash("12345678", 10), // Hash the password before inserting
-//         dateMade: new Date('2023-11-14T09:00:00'),
-//         isAdmin: false
-//     },
-//     {
-//         companyName: "ALLTrade",
-//         email: "allTrade01@gmail.com",
-//         username: "1EdwardoManlolos",
-//         password: await bcrypt.hash("11111111", 10), // Hash the password before inserting
-//         dateMade: new Date('2021-11-14T09:00:00'),
-//         isAdmin: true
-//     },
-//     {
-//         companyName: "AllTrade",
-//         email: "allTrade02@gmail.com",
-//         username: "2GraceAby",
-//         password: await bcrypt.hash("22222222", 10), // Hash the password before inserting
-//         dateMade: new Date('2023-11-14T09:00:00'),
-//         isAdmin: true
-//     },
-//     {
-//         companyName: "Corn Facture",
-//         email: "cornFact@gmail.com",
-//         username: "3conrFact",
-//         password: await bcrypt.hash("33333333", 10), // Hash the password before inserting
-//         dateMade: new Date('2020-08-14T09:00:00'),
-//         isAdmin: false
-//     }
-//   ];
-
-//   try {
-//     await User.insertMany(sampleUsers);
-//     console.log('Sample users inserted successfully');
-//   } catch (error) {
-//     console.error('Error inserting sample users:', error);
-//   }
-// }
-
 async function insertSampleTickets() {
   try {
     const users = await User.find({ isAdmin: false }); // Fetching non-admin users

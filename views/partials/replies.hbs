@@ -1,0 +1,17 @@
+<!-- Replies container -->
+<div id="reply-list">
+    {{#each replies}}
+        <div class="reply-outer-container">
+            <div class="reply-inner-container">
+                <div class="reply-container1">
+                    <div class="reply-container">
+                        <div class="reply-details">
+                            <p id="poster">Posted by <strong>{{postedBy}}</strong> on {{datePosted}}</p>
+                            <p id="description">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>

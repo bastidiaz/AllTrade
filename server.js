@@ -15,6 +15,7 @@ const Reply = require("./models/Reply.js");
 const Inquiry = require("./models/inquiryForm.js");
 
 const ticketControl = require("./controllers/ticketControl.js");
+const replyControl = require("./controllers/replyControl.js");
 const indexControl = require("./controllers/indexControl.js");
 const loginControl = require("./controllers/loginControl.js");
 const registerControl = require("./controllers/registerControl.js");
@@ -98,6 +99,17 @@ app.post('/tickets/create', ticketControl.createTicket);
 app.post('/tickets/accept', ticketControl.acceptTicket);
 // app.post('/tickets/delete', ticketControl.deleteTicket);
 // app.post('/tickets/cancel', ticketControl.cancelTicket);
+
+// replies
+app.get('/tickets/:orderNum', (req, res) => {
+    const orderNum = req.params.orderNum;
+    replyControl.showReplies(orderNum, req, res);
+});
+app.post('/tickets/:orderNum/reply', (req, res) => {
+    const orderNum = req.params.orderNum;
+    replyControl.createReply(orderNum, req, res);
+});
+
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
@@ -112,8 +124,6 @@ app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
 app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClient);
 app.post('/deleteClient/:username', ensureAuthenticated, adminControl.deleteClient);
 // app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
-
-
 
 connect();
 
