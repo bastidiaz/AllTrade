@@ -1,37 +1,4 @@
 <!-- Ticket container -->
-{{!-- {{#each clients}} --}}
-{{!-- <div class="admin-all-client-outer-container">
-    <div class="admin-all-client-inner-container">
-        <div class="admin-all-client-container1">
-            <div class="all-client-client-order-container">
-                <div class="all-client-client-details">
-                    <p class="all-client-client-name"> Client Name: {{this.firstname}} {{this.lastname}}</p>
-                    <p class="all-client-client-name"> Client Username: {{this.username}}</p>
-                    <p class="all-client-creation-date"> Created at {{this.dateMade}}</p>
-
-                    <div class="all-client-view-details-container">
-                        <a class="all-client-view-details" data-toggle="modal" data-target="#clientDetailsModal{{this.username}}"> View Details </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="admin-all-client-container2">
-            <div class="manage-button-container">
-                <div class="manage-button">
-                    <button class="manage" data-toggle="modal" data-target="#editModal{{this.username}}"> MANAGE CLIENT </button>
-                </div>
-
-                <div class="delete-button">
-                    <button class="delete" data-toggle="modal" data-target="#deleteConfirmationModal{{this.username}}"> DELETE CLIENT </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
-{{!-- {{/each}} --}}
-
-
 {{!-- this is for rendering the client containers with info --}}
 <div id="clientList"></div>
 
@@ -73,7 +40,7 @@
         <div class="modal-content client-form-main">
             <form id="updateClientForm{{this.username}}" action="/updateClient/{{this.username}}" method="post">
                 <div class="modal-header client-form-header">
-                    <h5 class="modal-title"> NEW CLIENT </h5>
+                    <h5 class="modal-title"> MANAGE CLIENT </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -217,38 +184,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
-                    {{!-- <!-- Client Details Modal -->
-                    <div class="modal fade" id="clientDetailsModal${client.username}" tabindex="-1" role="dialog" aria-labelledby="clientDetailsModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title clientDetailsModalLabel"> CLIENT DETAILS </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-                                <div class="modal-body">
-                                    <p><strong> First name: </strong> ${client.firstname}</p>
-                                    <p><strong> Last name: </strong> ${client.lastname}</p>
-                                    <p><strong> Username: </strong> ${client.username}</p>
-                                    <p><strong> Company Name: </strong> ${client.companyName}</p>
-                                    <p><strong> Phone number: </strong> ${client.phoneNumber}</p>
-                                    <p><strong> Email: </strong> ${client.email}</p>
-                                    <p><strong> Created at: </strong> ${this.dateMade}</p>
-                                    <!-- Add other client details as needed -->
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
-                `;
+                    </div>`;
                 clientList.appendChild(clientElement);
             });
         }

@@ -1,5 +1,34 @@
 <!-- Ticket container -->
 <div id="ticket-list">
+    <form id="ticket-form" method="post" action="/tickets-handled/update">
+        <div id="ticketModal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Edit Ticket Details</p>
+                <input type="hidden" id="modalOrderNum" name="orderNum">
+                <label for="modalOrderStatus">Order Status:</label>
+                <select id="modalOrderStatus" name="orderStatus">
+                    <option value="PENDING">PENDING</option>
+                    <option value="ACCEPTED">ACCEPTED</option>
+                    <option value="REJECTED">REJECTED</option>
+                    <option value="CANCELLED">CANCELLED</option>
+                    <option value="IN PROGRESS">IN PROGRESS</option>
+                    <option value="ON THE WAY">ON THE WAY</option>
+                    <option value="COMPLETED">COMPLETED</option>
+                </select>
+                <label for="modalHandlerUsername">Handler:</label>
+                <input type="text" id="modalHandlerUsername" name="handlerUsername" placeholder="Handler Username">
+                <label for="modalDescription">Description:</label>
+                <textarea id="modalDescription" name="description" rows="4" cols="10"></textarea>
+                <label for="modalSpecs">Specs:</label>
+                <textarea id="modalSpecs" name="specs" rows="4" cols="10"></textarea>
+                <label for="modalQuantity">Quantity:</label>
+                <input type="number" id="modalQuantity" name="quantity" placeholder="Quantity">
+                <button id="updateBtn" type="submit">Update</button>
+                <button id="cancelBtn" type="button">Cancel</button>
+            </div>
+        </div>
+    </form>
   {{#each tickets}}
     <div class="ticket-outer-container">
       <div class="ticket-inner-container">
@@ -18,11 +47,16 @@
                       <p>{{this.orderStatus}}</p>
                   </div>
               </div>
-              <!-- Button for ticket management: pop-up will have two button on bottom: UPDATE and CANCEL; the rest are entry forms
-              for editing the ticket data; X button top right for closing the pop-up -->
               <div class="status-container">
                   <div class="order-status">
-                      <button>Manage</button>
+                      <button class="manageBtn" data-order-number="{{this.orderNum}}"
+                                                data-order-status="{{this.orderStatus}}"
+                                                data-handler="{{this.handlerUsername}}"
+                                                data-description="{{this.description}}"
+                                                data-specs="{{this.specs}}"
+                                                data-quantity="{{this.quantity}}">
+                          Manage
+                      </button>
                   </div>
               </div>
           </div>
@@ -30,3 +64,30 @@
     </div>
   {{/each}}
 </div>
+<script>
+    $(document).ready(function() {
+        $('.ticket-outer-container').on('click', '.manageBtn', function() {
+            const number = $(this).data('order-number');
+            const status = $(this).data('order-status');
+            const handler = $(this).data('handler');
+            const description = $(this).data('description');
+            const specs = $(this).data('specs');
+            const quantity = $(this).data('quantity');
+            $('#modalOrderNum').val(number);
+            $('#modalOrderStatus').val(status);
+            $('#modalHandlerUsername').val(handler);
+            $('#modalDescription').val(description);
+            $('#modalSpecs').val(specs);
+            $('#modalQuantity').val(quantity);
+            $('#ticketModal').show();
+        });
+        $('.close, #cancelBtn').click(function() {
+            $('#ticketModal').hide();
+        });
+        $(window).click(function(event) {
+            if ($(event.target).is('#ticketModal')) {
+                $('#ticketModal').hide();
+            }
+        });
+    });
+</script>

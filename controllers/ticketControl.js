@@ -174,27 +174,35 @@ const ticketControl = {
     },
 
     //updating ticket for admin
-    async updateTicketStatus(req, res) {
+    async updateTicket(req, res) {
         if (!req.session.user || !req.session.user.isAdmin) {
             return res.status(401).send("Unauthorized");
         }
 
         try {
-            const ticketNumber = req.params.ticketNumber;
-            const newStatus = req.body.newStatus;
-            const message = req.body.message;
+            const orderNum = req.body.orderNum;
+            let ticket = await Ticket.findOne({orderNum: orderNum});
 
-            const ticket = await Ticket.findOne({ orderNum: ticketNumber });
-            if (ticket.orderStatus === "CANCELLED") {
-                return res.status(400).send("Cannot update a cancelled ticket.");
-            } 
-            
-            const updatedTicket = await Ticket.findOneAndUpdate({ orderNum: ticketNumber }, { orderStatus: newStatus, messageUpdates: message }, { new: true });
-            res.status(200).json(updatedTicket);
-            
+            if (!ticket) {
+                return res.status(404).send("Ticket not found.");
+            }
+
+            const {orderStatus, handlerUsername, description, specs, quantity} = req.body;
+
+            ticket = await Ticket.findOneAndUpdate({orderNum: orderNum}, {
+                orderStatus: orderStatus,
+                handlerUsername: handlerUsername,
+                description: description,
+                specs: specs,
+                quantity: quantity
+            }, {new: true});
+
+            console.log("Ticket updated successfully.");
+
+            res.redirect("/tickets-handled")
         } catch (error) {
             console.error(error);
-            res.status(500).send("An error occurred while updating the ticket status.");
+            res.status(500).send("An error occurred while updating the ticket.");
         }
     },
 
@@ -202,45 +210,45 @@ const ticketControl = {
 
     //cancell ticket for client, like if a ticket is created but not accepted yet, a client
     //can cancel it
-    async cancelTicket(req, res) {
-        if (!req.session.user || req.session.user.isAdmin) {
-            return res.status(401).send("Unauthorized");
-        }
+    // async cancelTicket(req, res) {
+    //     if (!req.session.user || req.session.user.isAdmin) {
+    //         return res.status(401).send("Unauthorized");
+    //     }
+    //
+    //     try {
+    //         const ticketNumber = req.params.ticketNumber;
+    //         const ticket = await Ticket.findOne({ orderNum: ticketNumber });
+    //
+    //     if (ticket.orderStatus !== "PENDING" && ticket.orderStatus !== "ACCEPTED") {
+    //         return res.status(400).send("Ticket cannot be cancelled.");
+    //     }
+    //
+    //     // Mark the ticket as cancelled and store who cancelled it
+    //     ticket.orderStatus = "CANCELLED";
+    //     await ticket.save();
+    //
+    //     res.status(200).send("Ticket cancelled successfully.");
+    // } catch (error) {
+    //     console.error(error);
+    //     res.status(500).send("An error occurred while cancelling the ticket.");
+    //     }
+    // },
 
-        try {
-            const ticketNumber = req.params.ticketNumber;
-            const ticket = await Ticket.findOne({ orderNum: ticketNumber });
-
-        if (ticket.orderStatus !== "PENDING" && ticket.orderStatus !== "ACCEPTED") {
-            return res.status(400).send("Ticket cannot be cancelled.");
-        }
-
-        // Mark the ticket as cancelled and store who cancelled it
-        ticket.orderStatus = "CANCELLED";
-        await ticket.save();
-
-        res.status(200).send("Ticket cancelled successfully.");
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("An error occurred while cancelling the ticket.");
-        }
-    },
-
-    //if a ticket is cancelled, it will also be shown in the admin side, and admin can delete it
-    async deleteTicket(req, res) {
-        if (!req.session.user || !req.session.user.isAdmin) {
-            return res.status(401).send("Unauthorized");
-        }
-
-        try {
-            const ticketNumber = req.params.ticketNumber;
-            await Ticket.findOneAndDelete({ orderNum: ticketNumber });
-            res.status(200).send("Ticket deleted successfully.");
-        } catch (error) {
-            console.error(error);
-            res.status(500).send("An error occurred while deleting the ticket.");
-        }
-    },
+    // //if a ticket is cancelled, it will also be shown in the admin side, and admin can delete it
+    // async deleteTicket(req, res) {
+    //     if (!req.session.user || !req.session.user.isAdmin) {
+    //         return res.status(401).send("Unauthorized");
+    //     }
+    //
+    //     try {
+    //         const ticketNumber = req.params.ticketNumber;
+    //         await Ticket.findOneAndDelete({ orderNum: ticketNumber });
+    //         res.status(200).send("Ticket deleted successfully.");
+    //     } catch (error) {
+    //         console.error(error);
+    //         res.status(500).send("An error occurred while deleting the ticket.");
+    //     }
+    // },
 };
 
 

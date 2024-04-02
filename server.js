@@ -96,9 +96,8 @@ app.get("/logout", loginControl.endSession);
 app.get('/tickets', ticketControl.showTickets);
 app.post('/tickets/create', ticketControl.createTicket);
 app.post('/tickets/accept', ticketControl.acceptTicket);
-app.post('/tickets/delete', ticketControl.deleteTicket);
-app.post('/tickets/cancel', ticketControl.cancelTicket);
-app.post('/tickets/update', ticketControl.updateTicketStatus);
+// app.post('/tickets/delete', ticketControl.deleteTicket);
+// app.post('/tickets/cancel', ticketControl.cancelTicket);
 //inquiry
 app.post('/send', inquiryControl.sendInquiry);
 
@@ -107,6 +106,7 @@ app.get('/all-tickets', ensureAuthenticated, ticketControl.showTickets);
 app.post('/all-tickets/accept', ensureAuthenticated, ticketControl.acceptTicket);
 app.post('/all-tickets/reject', ensureAuthenticated, ticketControl.rejectTicket);
 app.get('/tickets-handled', ensureAuthenticated, ticketControl.showHandledTickets);
+app.post('/tickets-handled/update', ensureAuthenticated, ticketControl.updateTicket);
 app.get('/all-clients', ensureAuthenticated, adminControl.showAllClients);
 app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
 app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClient);
