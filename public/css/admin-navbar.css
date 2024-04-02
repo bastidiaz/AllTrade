@@ -1,0 +1,31 @@
+/* Admin Navbar */
+.admin-info-container {
+    display: flex;
+    justify-content: end;
+    width: 90vw;
+    margin-top: 1rem;
+}
+
+.admin-username {
+    display: flex;
+    justify-content: end;
+    margin-top: 0.2rem;
+}
+
+#admin-label {
+    color: #657FA6;
+    margin-right: 0.5rem;
+}
+
+.admin-logout-container {
+    display: flex;
+    justify-content: end;
+}
+
+#admin-logout-btn {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: #435933;
+    cursor: pointer;
+}

@@ -5,42 +5,6 @@
     width: 100vw;
 }
 
-/* Header */
-.user-info-container {
-    display: flex;
-    justify-content: end;
-    width: 90vw;
-    margin-top: 1rem;
-}
-
-.username {
-    display: flex;
-    justify-content: end;
-    margin-top: 0.2rem;
-}
-
-#person-icon {
-    margin-top: -0.5rem;
-    margin-left: -1rem;
-    width: 5vw;
-    height: 5vh;
-}
-
-.logout-container {
-    display: flex;
-    justify-content: end;
-    margin-top: -0.6rem;
-    margin-left: 1.5rem;
-}
-
-#logout-btn {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1em;
-    font-weight: 500;
-    color: #435933;
-    cursor: pointer;
-}
-
 /* Ticket Header */
 .header-inner-container {
     display: flex;
@@ -168,10 +132,11 @@
 .ticket-inner-container {
     display: flex;
     background-color: #FFFFFF;
-    border: 1px solid #4c4c4c;
+    box-shadow: 0 0 5px gray;
     border-radius: 6px;
     width: 81rem;
     margin-top: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .ticket-container1 {
@@ -223,7 +188,6 @@
     width: 15vw;
     height: 10vh;
     border-radius: 50px;
-    background-color: #f6c13a;
     color: #545050;
 }
 
@@ -235,4 +199,53 @@
 .order-status p {
     font-weight: 600;
     margin-top: 1.2rem;
+    background-color: #94e495;
+    text-align: center;
+    margin-top: 0rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    padding-top: 1.2rem;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 50px;
+    color: #545050;
+}
+
+.manageBtn {
+    border-radius: 8px;
+    background-color: #246094;
+    border-color: #246094;
+    box-shadow: 0 0 2px gray;
+    cursor: pointer;
+    color: white;
+    margin-top: 0rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    min-width: 15vw;
+    min-height: 9.5vh;
+}
+
+.manageBtn:hover{
+    background-color: #1b3883;
+    border-color: #1b3883;
+    box-shadow: 0 0 2px gray;
+}
+
+#handle-btn {
+    border-radius: 8px;
+    background-color: #246094;
+    border-color: #246094;
+    box-shadow: 0 0 2px gray;
+    cursor: pointer;
+    color: white;
+    margin-top: 0rem;
+    margin-right: 2rem;
+    min-width: 15vw;
+    min-height: 9.5vh;
+}
+
+#handle-btn:hover {
+    background-color: #1b3883;
+    border-color: #1b3883;
+    box-shadow: 0 0 2px gray;
 }

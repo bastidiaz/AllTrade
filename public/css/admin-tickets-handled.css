@@ -5,86 +5,6 @@
     width: 100vw;
 }
 
-/* Header */
-.admin-info-container {
-    display: flex;
-    justify-content: end;
-    width: 90vw;
-    margin-top: 1rem;
-}
-
-.admin-username {
-    display: flex;
-    justify-content: end;
-    margin-top: 0.2rem;
-}
-
-#admin-label {
-    color: #657FA6;
-    margin-right: 0.5rem;
-}
-
-#admin-profile-icon {
-    margin-top: -0.5rem;
-    margin-left: -1rem;
-    width: 5vw;
-    height: 5vh;
-}
-
-.admin-logout-container {
-    display: flex;
-    justify-content: end;
-    margin-top: -0.6rem;
-    margin-left: 1.5rem;
-}
-
-#admin-logout-btn {
-    font-family: "Montserrat", sans-serif;
-    font-size: 1em;
-    font-weight: 500;
-    color: #435933;
-    cursor: pointer;
-}
-
-/* Ticket Header */
-.header-inner-container {
-    display: flex;
-    align-items: stretch;
-    background-color: #DFDFD4;
-    border-radius: 5px;
-    width: 100%;
-    height: 18vh;
-}
-
-/* Search Box */
-#search-box {
-    margin-top: 2.2rem;
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-    padding: 0.5rem;
-    width: 25vw;
-    height: 8vh;
-    box-sizing: border-box;
-    border: 1px solid #215219;
-    border-radius: 4px;
-}
-
-#search-box::placeholder {
-    font-family: "Montserrat", sans-serif;
-}
-
-/* Dropdown */
-#sort-by {
-    margin-top: 3rem;
-    margin-left: -1rem;
-    text-align: center;
-    font-size: 1.2em;
-}
-
-#sort-by:hover {
-    cursor: pointer;
-}
-
 /* Ticket */
 .admin-tickets-handled-outer-container {
     display: flex;
@@ -130,6 +50,7 @@
 
 #tickets-handled-view-ticket {
     color: #545050;
+    text-decoration: underline;
 }
 
 .admin-tickets-handled-container2 {
