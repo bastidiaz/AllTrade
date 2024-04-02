@@ -1,4 +1,9 @@
 /* Main container */
+body{
+    max-width: 100%;
+    margin:0 auto;
+}
+
 .main-outer-container {
     background-color: #E6ECEE;
     height: 100vh;
@@ -66,7 +71,7 @@
     padding: 2px;
     width: 15vw;
     height: 10vh;
-    border-radius: 50px;
+    border-radius: 30px;
     background-color: #FFBA6D;
     color: #545050;
 }

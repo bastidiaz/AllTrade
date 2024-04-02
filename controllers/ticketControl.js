@@ -1,5 +1,6 @@
 const Ticket = require('../models/clientTickets.js');
 const User = require('../models/User.js');
+const moment = require('moment');
 
 const ticketControl = {
     //render of tickets
@@ -21,9 +22,10 @@ const ticketControl = {
             }
     
             tickets = tickets.map(ticket => {
+                const formattedDate = moment(ticket.creationDate).format('MMMM D, YYYY hh:mm a');
                 return {
                     orderNum: ticket.orderNum,
-                    creationDate: ticket.creationDate,
+                    creationDate: formattedDate,
                     orderStatus: ticket.orderStatus,
                     handlerUsername: ticket.handlerUsername,
                     reason: ticket.reason,
@@ -65,9 +67,10 @@ const ticketControl = {
             tickets = await Ticket.find({ handlerUsername: handler }).exec();
 
             tickets = tickets.map(ticket => {
+                const formattedDate = moment(ticket.creationDate).format('MMMM D, YYYY hh:mm a');
                 return {
                     orderNum: ticket.orderNum,
-                    creationDate: ticket.creationDate,
+                    creationDate: formattedDate,
                     orderStatus: ticket.orderStatus,
                     handlerUsername: ticket.handlerUsername,
                     reason: ticket.reason,
@@ -205,6 +208,34 @@ const ticketControl = {
             res.status(500).send("An error occurred while updating the ticket.");
         }
     },
+
+    async changePass(req, res) {
+        const user = req.session.user;
+        const { oldPassword, newPassword } = req.body;
+        try {
+            const userFromDB = await User.findById(user._id); // Assuming you have a User model
+    
+            if (!userFromDB) {
+                return res.status(404).json({ error: 'User not found' });
+            }
+    
+            const samePass = await bcrypt.compare(oldPassword, userFromDB.password);
+    
+            if (samePass) {
+                const hashedNewPass = await bcrypt.hash(newPassword, 10); // Hash the new password
+    
+                // Update the user's password in the database
+                await User.findByIdAndUpdate(user._id, { password: hashedNewPass });
+    
+                res.status(200).json({ message: 'Password updated successfully' });
+            } else {
+                res.status(400).json({ error: 'Old password is incorrect' });
+            }
+        } catch (error) {
+            console.error('Error changing password:', error);
+            res.status(500).json({ error: 'Internal server error' });
+        }
+    }
 
     //additional features:
 

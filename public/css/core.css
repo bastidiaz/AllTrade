@@ -1,4 +1,7 @@
-
+body{
+    max-width: 100%;
+    margin:0 auto;
+}
 /* Nav Pills */
 #pills-tab {
     background-color: #F3F2F2;

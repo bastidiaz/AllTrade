@@ -1,5 +1,6 @@
 const Ticket = require('../models/clientTickets.js');
 const Reply = require('../models/Reply.js');
+const moment = require('moment');
 
 const replyControl = {
     //render of replies
@@ -28,7 +29,7 @@ const replyControl = {
 
         ticket = {
             orderNum: ticket.orderNum,
-            creationDate: ticket.creationDate,
+            creationDate: moment(ticket.creationDate).format('MMMM D, YYYY hh:mm a'),
             orderStatus: ticket.orderStatus,
             handlerUsername: ticket.handlerUsername,
             reason: ticket.reason,
@@ -38,9 +39,10 @@ const replyControl = {
         };
 
         replies = replies.map(reply => {
+            const formattedDate = moment(reply.datePosted).format('MMMM D, YYYY hh:mm a');
             return {
                 postedBy: reply.postedBy,
-                datePosted: reply.datePosted,
+                datePosted: formattedDate,
                 description: reply.description
             };
         });

@@ -10,10 +10,77 @@
                     <div class="logout-container">
                         <a id="logout-btn" href="/logout"> Log Out </a>
                     </div>
-                </div>
+                    <a id="changePassLink" data-toggle="modal" data-target="#changePassModal">Change Password</a>
                     
                 <div class="username-icon-container">
                     <img id="person-icon" src="/public/img/person-icon.svg">
                 </div>
             </div>
         </nav>
+
+        <div id="changePassModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Change Password</p>
+                <form id="changePassForm" method="post" action="/changePass">
+                <label for="oldPassword">Old Password:</label>
+                <input type="password" id="oldPassword" name="oldPassword" required>
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit"  id="changeBtn">Change</button>
+                </form>
+            </div>
+</div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Get the modal element
+    const modal = document.getElementById("changePassModal");
+
+    // Get the button that opens the modal
+    const changePassBtn = document.getElementById("changePass");
+
+    // Get the <span> element that closes the modal
+    const closeBtn = modal.querySelector(".close");
+
+    // When the user clicks the button, open the modal
+    changePassBtn.addEventListener("click", function () {
+        modal.style.display = "block";
+    });
+
+    // When the user clicks on <span> (x), close the modal
+    closeBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Handle change password button click
+    const changePasswordBtn = modal.querySelector("#changePasswordBtn");
+    changePasswordBtn.addEventListener("click", function () {
+        const oldPassword = document.getElementById("oldPassword").value;
+        const newPassword = document.getElementById("newPassword").value;
+
+        // Here, you can call a function or method to handle the password change on the backend
+        // Example:
+        // changePassword(oldPassword, newPassword);
+
+        // For demonstration purposes, we'll simply log the passwords to the console
+        console.log("Old Password:", oldPassword);
+        console.log("New Password:", newPassword);
+
+        // Close the modal
+        modal.style.display = "none";
+
+        // You can optionally display a success message to the user
+        alert("Password changed successfully!");
+    });
+});
+
+</script>

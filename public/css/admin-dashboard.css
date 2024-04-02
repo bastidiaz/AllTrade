@@ -1,4 +1,9 @@
 /* Dashboard */
+body{
+    max-width: 100%;
+    margin:0 auto;
+}
+
 .dashboard-outer-container {
     background-color: rgb(239, 237, 237);
     display: flex;

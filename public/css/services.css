@@ -1,3 +1,8 @@
+body{
+    max-width: 100%;
+    margin:0 auto;
+}
+
 #mytab {
     background-color: #E5EEED;
 }

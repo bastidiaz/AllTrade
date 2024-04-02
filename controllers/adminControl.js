@@ -51,7 +51,8 @@ const adminControl = {
 
             let clients = await User.find({ isAdmin: false }); 
             clients = clients.map(client => {
-                const formattedDate = moment(client.dateMade).format('MMMM D, YYYY');
+                const formattedDate = moment(client.dateMade).format('MMMM D, YYYY hh:mm a');
+
                 return {
                     companyName: client.companyName,
                     email: client.email,

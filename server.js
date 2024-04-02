@@ -124,7 +124,7 @@ app.post('/addAccount', ensureAuthenticated, adminControl.addAccount);
 app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClient);
 app.post('/deleteClient/:username', ensureAuthenticated, adminControl.deleteClient);
 // app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
-
+app.post('/changePass/:username', ensureAuthenticated, ticketControl.changePass);
 connect();
 
 app.listen(8000, () => {

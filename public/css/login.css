@@ -1,4 +1,8 @@
 /* Photo */
+body{
+  max-width: 100%;
+  margin:0 auto;
+}
 .login-form-outer-container {
   background-color: rgb(240, 235, 222);
   display: flex;

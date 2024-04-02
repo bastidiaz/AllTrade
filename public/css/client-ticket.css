@@ -1,4 +1,8 @@
 /* Main container */
+body{
+    max-width: 100%;
+    margin:0 auto;
+}
 .main-outer-container {
     background-color: #E6ECEE;
     height: 100vh;
@@ -199,7 +203,7 @@
 .order-status p {
     font-weight: 600;
     margin-top: 1.2rem;
-    background-color: #94e495;
+    background-color: #7b3f5b;
     text-align: center;
     margin-top: 0rem;
     margin-left: 2rem;
@@ -208,7 +212,7 @@
     width: 15vw;
     height: 10vh;
     border-radius: 50px;
-    color: #545050;
+    color: #ffffff;
 }
 
 .manageBtn {
