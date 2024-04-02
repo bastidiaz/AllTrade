@@ -95,10 +95,6 @@
     height: 40vh;
 }
 
-.uplb-content2-container {
-    display: flex;
-}
-
 .uplb-img-tank {
     margin-top: 1rem;
     width: 50vw;
@@ -111,7 +107,7 @@
     height: 70vh;
 }
 
-.uplb-content3-container {
+.uplb-content2-container {
     display: flex;
     justify-content: center;
 }
