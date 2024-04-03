@@ -7,14 +7,13 @@
                         <p>{{this.username}}</p>
                     </div>
 
+                    <div class="change-password-container">
+                        <a id="changePassLink" data-toggle="modal" data-target="#changePassModal">Change Password</a>
+                    </div>
+            
                     <div class="logout-container">
                         <a id="logout-btn" href="/logout"> Log Out </a>
                     </div>
-                    <a id="changePassLink" data-toggle="modal" data-target="#changePassModal">Change Password</a>
-                    
-                <div class="username-icon-container">
-                    <img id="person-icon" src="/public/img/person-icon.svg">
-                </div>
             </div>
         </nav>
 
@@ -30,7 +29,7 @@
                 <button type="submit"  id="changeBtn">Change</button>
                 </form>
             </div>
-</div>
+        </div>
 </div>
 
 <script>

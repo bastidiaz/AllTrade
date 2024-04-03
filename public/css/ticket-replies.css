@@ -1,0 +1,42 @@
+.reply-outer-container {
+    display: flex;
+    justify-content: center;
+}
+
+.reply-inner-container {
+    display: flex;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 5px gray;
+    border-radius: 6px;
+    width: 81rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+
+.reply-container1 {
+    width: 100%;
+}
+
+.form-reply {
+    margin-left: 4rem;
+}
+
+#reply-content {
+    background-color: rgb(237, 233, 230);
+    width: 92vw;
+}
+
+#submit-reply-btn {
+    margin-left: 4rem;
+    margin-bottom: 1rem;
+    background-color: rgb(82, 131, 153);
+    border: 2px solid rgb(82, 131, 153);
+    box-shadow: 0 0 2px gray;
+}
+
+#submit-reply-btn:hover {
+    background-color: rgb(49, 83, 99);
+    border: 2px solid rgb(49, 83, 99);
+    box-shadow: 0 0 2px gray;
+}

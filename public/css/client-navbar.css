@@ -14,20 +14,13 @@ body{
 .username {
     display: flex;
     justify-content: end;
-    margin-top: 0.2rem;
-}
-
-#person-icon {
-    margin-top: -0.5rem;
-    margin-left: -1rem;
-    width: 5vw;
-    height: 5vh;
+    margin-bottom: -1rem;
 }
 
 .logout-container {
     display: flex;
     justify-content: end;
-    margin-top: -0.6rem;
+    margin-top: 0.5rem;
     margin-left: 1.5rem;
 }
 
@@ -39,13 +32,7 @@ body{
     cursor: pointer;
 }
 
-.back-history{
-    margin-left:1%;
-    height: min-content;
-    align-self: center;
-    border-radius: 4px;
-    background-color: #435933;
-    color:aliceblue;
-    margin-right: 2%;
+#changePassLink {
+    color: rgb(70, 129, 165);
     cursor: pointer;
 }
