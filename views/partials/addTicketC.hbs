@@ -8,8 +8,14 @@
         
                     <div class="dropdown" id="dropdown-client-container">
                         <select id="sort-by-client">
-                            <option value="date"> Sort by Date </option>
-                            <option value="status"> Sort by Status </option>
+                            <option value="all">ALL</option>
+                            <option value="PENDING">PENDING</option>
+                            <option value="ACCEPTED">ACCEPTED</option>
+                            <option value="REJECTED">REJECTED</option>
+                            <option value="CANCELLED">CANCELLED</option>
+                            <option value="IN PROGRESS">IN PROGRESS</option>
+                            <option value="ON THE WAY">ON THE WAY</option>
+                            <option value="COMPLETED">COMPLETED</option>
                         </select>
                     </div>
     
@@ -18,6 +24,12 @@
                     </div>
                 </div>
             </div>
+             {{#if errorMessage}}
+                    <div class="alert alert-danger" role="alert">
+                        {{errorMessage}}
+                    </div>
+            {{/if}}
+
 
             <!-- Ticket Modal Form -->
             <div id="ticketModal" class="modal" tabindex="-1" role="dialog">
@@ -46,6 +58,16 @@
                     </div>
                 </div>
             </div>
+            <script>
+                 document.addEventListener('DOMContentLoaded', function() {
+                const errorMessage = document.querySelector('.alert-danger');
+                setTimeout(function() {
+                    if (errorMessage) {
+                        errorMessage.style.display = 'none';
+                    }
+                }, 5000); //5sec
+            });
+            </script>
 
         <!-- JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

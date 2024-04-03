@@ -1,6 +1,7 @@
 const Ticket = require('../models/clientTickets.js');
 const User = require('../models/User.js');
 const moment = require('moment');
+const bcrypt = require('bcrypt');
 
 const ticketControl = {
     //render of tickets
@@ -10,6 +11,7 @@ const ticketControl = {
         }
 
         try {
+            const errorMessage = req.query.errorMessage;
             let tickets;
             //admin show tickets
             if (req.session.user.isAdmin) {
@@ -37,12 +39,12 @@ const ticketControl = {
             });
     
             if (!tickets || tickets.length === 0) {
-                return res.render("tickets", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName });
+                return res.render("tickets", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName, errorMessage });
             }
             if (req.session.user.isAdmin) {
                 res.render("all-tickets", { tickets: tickets, admin: req.session.user });
             } else {
-                res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName });
+                res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName, errorMessage });
             }
         } catch (error) {
             console.error(error);
@@ -213,27 +215,31 @@ const ticketControl = {
         const user = req.session.user;
         const { oldPassword, newPassword } = req.body;
         try {
-            const userFromDB = await User.findById(user._id); // Assuming you have a User model
+            const client = await User.findOne({username: user.username}); // Assuming you have a User model
     
-            if (!userFromDB) {
+            if (!client) {
                 return res.status(404).json({ error: 'User not found' });
             }
     
-            const samePass = await bcrypt.compare(oldPassword, userFromDB.password);
+            const samePass = await bcrypt.compare(oldPassword, client.password);
     
             if (samePass) {
                 const hashedNewPass = await bcrypt.hash(newPassword, 10); // Hash the new password
     
                 // Update the user's password in the database
-                await User.findByIdAndUpdate(user._id, { password: hashedNewPass });
+                await User.findOneAndUpdate(client, { password: hashedNewPass });
     
-                res.status(200).json({ message: 'Password updated successfully' });
+                // res.status(200).json({ message: 'Password updated successfully' });
+                // return res.redirect('/tickets');
+                return res.redirect('/tickets?errorMessage=Password updated successfully');
             } else {
-                res.status(400).json({ error: 'Old password is incorrect' });
+                //res.status(400).json({ error: 'Old password is incorrect' });
+                return res.redirect('/tickets?errorMessage=Old password is incorrect');
             }
         } catch (error) {
             console.error('Error changing password:', error);
-            res.status(500).json({ error: 'Internal server error' });
+            //res.status(500).json({ error: 'Internal server error' });
+            return res.redirect('/tickets?errorMessage=Internal server error');
         }
     }
 

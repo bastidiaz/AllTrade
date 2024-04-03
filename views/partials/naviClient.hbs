@@ -19,13 +19,21 @@
 
         <div id="changePassModal" class="modal" style="display: none;">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 <p>Change Password</p>
-                <form id="changePassForm" method="post" action="/changePass">
-                <label for="oldPassword">Old Password:</label>
-                <input type="password" id="oldPassword" name="oldPassword" required>
+                <form id="changePassForm" action="/changePass" method="post">
+                 <label for="oldPassword">Old Password:</label>
+                 <div class="password-input"> 
+                    <input type="password" id="oldPassword" name="oldPassword" required>
+                    <input type="checkbox" id="showOldPass"> Show
+                 </div>
                 <label for="newPassword">New Password:</label>
-                <input type="password" id="newPassword" name="newPassword" required>
+                <div class="password-input">
+                    <input type="password" id="newPassword" name="newPassword" required>
+                    <input type="checkbox" id="showNewPass"> Show
+                </div>
                 <button type="submit"  id="changeBtn">Change</button>
                 </form>
             </div>
@@ -34,52 +42,27 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    // Get the modal element
-    const modal = document.getElementById("changePassModal");
+        const showOldPass = document.getElementById("showOldPass");
+        const showNewPass = document.getElementById("showNewPass");
+        const oldPassword = document.getElementById("oldPassword");
+        const newPassword = document.getElementById("newPassword");
 
-    // Get the button that opens the modal
-    const changePassBtn = document.getElementById("changePass");
-
-    // Get the <span> element that closes the modal
-    const closeBtn = modal.querySelector(".close");
-
-    // When the user clicks the button, open the modal
-    changePassBtn.addEventListener("click", function () {
-        modal.style.display = "block";
-    });
-
-    // When the user clicks on <span> (x), close the modal
-    closeBtn.addEventListener("click", function () {
-        modal.style.display = "none";
-    });
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.addEventListener("click", function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+        // Function to toggle password visibility
+        function togglePasswordVisibility(inputField, checkbox) {
+            if (checkbox.checked) {
+                inputField.type = "text";
+            } else {
+                inputField.type = "password";
+            }
         }
+
+        // Event listeners for show password checkboxes
+        showOldPass.addEventListener("change", function () {
+            togglePasswordVisibility(oldPassword, showOldPass);
+        });
+
+        showNewPass.addEventListener("change", function () {
+            togglePasswordVisibility(newPassword, showNewPass);
+        });
     });
-
-    // Handle change password button click
-    const changePasswordBtn = modal.querySelector("#changePasswordBtn");
-    changePasswordBtn.addEventListener("click", function () {
-        const oldPassword = document.getElementById("oldPassword").value;
-        const newPassword = document.getElementById("newPassword").value;
-
-        // Here, you can call a function or method to handle the password change on the backend
-        // Example:
-        // changePassword(oldPassword, newPassword);
-
-        // For demonstration purposes, we'll simply log the passwords to the console
-        console.log("Old Password:", oldPassword);
-        console.log("New Password:", newPassword);
-
-        // Close the modal
-        modal.style.display = "none";
-
-        // You can optionally display a success message to the user
-        alert("Password changed successfully!");
-    });
-});
-
 </script>
