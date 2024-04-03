@@ -122,7 +122,7 @@ app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClie
 app.post('/deleteClient/:username', ensureAuthenticated, adminControl.deleteClient);
 // app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
 app.post('/changePass', ensureAuthenticated, ticketControl.changePass);
-
+app.post('/changePassword', ensureAuthenticated, adminControl.changePassword);
 connect();
 
 app.listen(8000, () => {

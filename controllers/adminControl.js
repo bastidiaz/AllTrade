@@ -169,7 +169,47 @@ const adminControl = {
             console.error('Error deleting client:', error);
             return res.redirect('/all-clients?errorMessage=Internal Server Error');
         }
-    }
+    },
+
+    //works for changing admin password....
+    // async changePassword(req, res) {
+    //     const user = req.session.user;
+    //     const {password } = req.body;
+    //     try {
+    //         const client = await User.findOne({username: user.username}); // Assuming you have a User model
+
+    //         if (!client) {
+    //             return res.status(404).json({ error: 'User not found' });
+    //         }
+    //             const newPassword = await bcrypt.hash(password, 10); // Hash the new password
+    //             await User.findOneAndUpdate(client, { password: newPassword });;
+    //             return res.redirect('/tickets?message=Password updated successfully');
+    //     } catch (error) {
+    //         console.error('Error changing password:', error);
+    //         //res.status(500).json({ error: 'Internal server error' });
+    //         return res.redirect('/tickets?errorMessage=Internal server error');
+    //     }
+    // }
+
+    async changePassword(req, res) {
+            //const user = req.params.username;
+            const {password, username} = req.body;
+
+            try {
+                const client = await User.findOne({username}); // Assuming you have a User model
+    
+                if (!client) {
+                    return res.status(404).json({ error: 'User not found' });
+                }
+                    const newPassword = await bcrypt.hash(password, 10); // Hash the new password
+                    await User.findOneAndUpdate(client, { password: newPassword });
+                    return res.redirect('/all-clients?message=Password updated successfully');
+            } catch (error) {
+                console.error('Error changing password:', error);
+                //res.status(500).json({ error: 'Internal server error' });
+                return res.redirect('/all-clients?errorMessage=Internal server error');
+            }
+        }
     
     
     

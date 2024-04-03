@@ -74,20 +74,21 @@
                                         <input type="text" class="form-control client-username" name="username" aria-describedby="clientUsername" placeholder="Username" value="{{this.username}}">
                                         <input type="hidden" name="oldUsername" value="{{this.username}}">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="client-password">Password default: 00000000</label>
-                                        <input type="password" class="form-control client-password" name="password" aria-describedby="clientPassword" placeholder="Password" value="00000000">    
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="checkbox" id="show-password-checkbox{{this.username}}">
-                                        <label for="show-password-checkbox">Show Password</label>
-                                    </div>
                     </div>
 
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Update Account</button>
-                        <button type="button" class="btn btn-secondary" id="clear-btn{{this.username}}" onclick="clearForm()">Clear Changes</button>
+                        {{!-- <button type="button" class="btn btn-secondary" id="clear-btn{{this.username}}" onclick="clearForm()">Clear Changes</button> --}}
                     </div>
+                </form>
+                <form action="/changePassword" method="post">
+                    <div class="form-group">
+                        <input type="hidden" name="username" value="{{this.username}}">
+                        <label for="client-password">Change Password</label>
+                        <input type="password" class="form-control client-password" id="passwordField" name="password" aria-describedby="clientPassword" placeholder="Password" value=""> 
+                        <input type="checkbox" onclick="showPass()" id="show-password-checkbox"> show password  
+                    </div>
+                    <button class="btn btn-secondary changePasswordButton" type="submit"> change password</button>
                 </form>
             </div>
         </div>
@@ -121,6 +122,30 @@
 {{/each}}
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const passwordField = document.querySelector('.client-password');
+    const changePasswordButton = document.querySelector('.change-password-btn');
+
+    // Function to enable or disable the change password button based on the password field input
+    function handlePasswordInput() {
+        const passwordValue = passwordField.value.trim();
+
+        if (passwordValue === '') {
+            changePasswordButton.disabled = true;
+        } else {
+            changePasswordButton.disabled = false;
+        }
+    }
+
+    // Event listener for password field input
+    passwordField.addEventListener('input', handlePasswordInput);
+
+    // Initial check for password field input on page load
+    handlePasswordInput();
+});
+
+
+
     document.addEventListener("DOMContentLoaded", function () {
         console.log("JavaScript loaded");
         const clients = [
@@ -250,24 +275,13 @@
         });
     });
 
-    //show password
-    document.addEventListener("DOMContentLoaded", function () {
-    console.log("Show password JavaScript loaded");
-
-    const showPasswordCheckboxes = document.querySelectorAll("[id^='show-password-checkbox']");
-
-    showPasswordCheckboxes.forEach(function (checkbox) {
-        checkbox.addEventListener("change", function () {
-            const username = checkbox.getAttribute("data-username");
-            const passwordField = document.getElementById(`client-password-${username}`);
-
-            if (checkbox.checked) {
-                passwordField.type = "text";
-            } else {
-                passwordField.type = "password";
-            }
-        });
-    });
-});
+    function showPass() {
+  var x = document.getElementById("passwordField");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
 </script>
 

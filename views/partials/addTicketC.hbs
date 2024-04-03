@@ -73,18 +73,13 @@
 
                     function filterTickets() {
                         const searchText = searchBox.value.toLowerCase();
-                        const selectedStatus = sortBy.value.toUpperCase(); // Assuming the option values are like 'PENDING', 'ACCEPTED', etc.
+                        const selectedStatus = sortBy.value.toUpperCase();
 
                         const tickets = document.querySelectorAll('.ticket-outer-container');
                         tickets.forEach(ticket => {
-                            // Find the .order-status div within this ticket and get its text content
                             const ticketStatusText = ticket.querySelector('.hidden-status').textContent.trim().toUpperCase();
                             const ticketText = ticket.textContent.toLowerCase();
-
-                            // Check if the ticket matches the search text
                             const matchesSearch = ticketText.includes(searchText);
-
-                            // Check if the ticket's status matches the selected status (or if 'ALL' is selected)
                             const matchesStatus = selectedStatus === 'ALL' || ticketStatusText === selectedStatus;
 
                             if (matchesSearch && matchesStatus) {
