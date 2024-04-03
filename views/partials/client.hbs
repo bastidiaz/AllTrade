@@ -84,11 +84,11 @@
                 <form action="/changePassword" method="post">
                     <div class="form-group">
                         <input type="hidden" name="username" value="{{this.username}}">
-                        <label for="client-password">Change Password</label>
+                        <label for="client-password" id="change-client-password">Change Password</label>
                         <input type="password" class="form-control client-password" id="passwordField" name="password" aria-describedby="clientPassword" placeholder="Password" value=""> 
-                        <input type="checkbox" onclick="showPass()" id="show-password-checkbox"> show password  
+                        <input type="checkbox" onclick="showPass()" id="show-password-checkbox"> Show Password  
                     </div>
-                    <button class="btn btn-secondary changePasswordButton" type="submit"> change password</button>
+                    <button class="btn btn-secondary changePasswordButton" type="submit"> Change Password</button>
                 </form>
             </div>
         </div>

@@ -344,3 +344,18 @@ body{
     border: 2px solid #0d1f4b;
     box-shadow: 0 0 2px gray;
 }
+
+#change-client-password, 
+#show-password-checkbox {
+    margin-left: 1rem;
+}
+
+#passwordField {
+    margin-left: 1rem;
+    width: 29rem;
+}
+
+.changePasswordButton {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}

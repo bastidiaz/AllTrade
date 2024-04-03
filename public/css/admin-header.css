@@ -18,6 +18,7 @@ body{
 #search-box {
     margin-top: 2rem;
     margin-right: 1rem;
+    margin-left: 2rem;
     padding: 0.5rem;
     width: 25vw;
     height: 8vh;
@@ -43,9 +44,10 @@ body{
     cursor: pointer;
 }
 
+/* Back Button */
 .back-history {
-    margin-left:1%;
-    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-top: 2rem;
     height: min-content;
     align-self: center;
     border-radius: 4px;
