@@ -80,8 +80,7 @@
             </div>
         </div>
     </form>
-
-  {{#each tickets}}
+  {{!-- {{#each tickets}} --}}
     <div class="ticket-outer-container">
         <div class="ticket-inner-container">
             <div class="ticket-container1">
@@ -114,13 +113,13 @@
           </div>
         </div>
     </div>
-  {{/each}}
+  {{!-- {{/each}} --}}
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const searchBox = document.getElementById("search-box");
-        const sortBySelect = document.getElementById("sort-by");
+        const sortBySelect = document.getElementById("sort-by-client");
         const ticketContainer = document.querySelector(".ticket-outer-container");
 
         let tickets = [
@@ -143,7 +142,7 @@
 
             ticketsArray.forEach(ticket => {
                 const ticketElement = document.createElement("div");
-                ticketElement.classList.add("ticket-inner-container");
+                ticketElement.classList.add("ticket-outer-container");
                 ticketElement.innerHTML = `
                 <div class="ticket-inner-container">
                     <div class="ticket-container1">
@@ -232,11 +231,11 @@
         });
 
         // Event listener for sorting by status
-        sortBySelect.addEventListener("change", function () {
+         sortBySelect.addEventListener("change", function () {
             const sortBy = sortBySelect.value;
 
             if (sortBy === "all") {
-                renderTickets(tickets); // Render all tickets
+                renderTickets(tickets);
             } else {
                 const sortedTickets = tickets.filter(ticket => ticket.orderStatus === sortBy);
                 renderTickets(sortedTickets);
