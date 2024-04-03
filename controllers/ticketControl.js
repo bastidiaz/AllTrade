@@ -10,22 +10,26 @@ const ticketControl = {
             return res.redirect('/login');
         }
 
+        let users;
         try {
             const errorMessage = req.query.errorMessage;
             let tickets;
+            let users;
             //admin show tickets
             if (req.session.user.isAdmin) {
                 tickets = await Ticket.find().exec();
 
-            //client show tickets
             } else {
                 const username = req.session.user.username;
-                tickets = await Ticket.find({ clientUsername: username }).exec();
+                tickets = await Ticket.find({clientUsername: username}).exec();
             }
-    
+
+            users = await User.find().exec();
+
             tickets = tickets.map(ticket => {
                 const formattedDate = moment(ticket.creationDate).format('MMMM D, YYYY hh:mm a');
                 return {
+                    clientUsername: ticket.clientUsername,
                     orderNum: ticket.orderNum,
                     creationDate: formattedDate,
                     orderStatus: ticket.orderStatus,
@@ -37,14 +41,27 @@ const ticketControl = {
                     messageUpdates: ticket.messageUpdates,
                 };
             });
-    
+
             if (!tickets || tickets.length === 0) {
-                return res.render("tickets", { tickets: [], username: req.session.user.username, companyName: req.session.user.companyName, errorMessage });
+                return res.render("tickets", {
+                    tickets: [],
+                    username: req.session.user.username,
+                    companyName: req.session.user.companyName,
+                    errorMessage
+                });
             }
             if (req.session.user.isAdmin) {
-                res.render("all-tickets", { tickets: tickets, admin: req.session.user });
+                res.render("all-tickets", {
+                    tickets: tickets,
+                    admin: req.session.user,
+                    errorMessage});
             } else {
-                res.render("tickets", { tickets: tickets, username: req.session.user.username, companyName: req.session.user.companyName, errorMessage });
+                res.render("tickets", {
+                    tickets: tickets,
+                    username: req.session.user.username,
+                    companyName: req.session.user.companyName,
+                    errorMessage
+                });
             }
         } catch (error) {
             console.error(error);
@@ -216,19 +233,19 @@ const ticketControl = {
         const { oldPassword, newPassword } = req.body;
         try {
             const client = await User.findOne({username: user.username}); // Assuming you have a User model
-    
+
             if (!client) {
                 return res.status(404).json({ error: 'User not found' });
             }
-    
+
             const samePass = await bcrypt.compare(oldPassword, client.password);
-    
+
             if (samePass) {
                 const hashedNewPass = await bcrypt.hash(newPassword, 10); // Hash the new password
-    
+
                 // Update the user's password in the database
                 await User.findOneAndUpdate(client, { password: hashedNewPass });
-    
+
                 // res.status(200).json({ message: 'Password updated successfully' });
                 // return res.redirect('/tickets');
                 return res.redirect('/tickets?errorMessage=Password updated successfully');

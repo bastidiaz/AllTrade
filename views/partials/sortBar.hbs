@@ -5,20 +5,16 @@
                     <div class="search-box-container">
                         <input id="search-box" type="text" placeholder="Search..">
                     </div>
-        
-                    {{!-- <div class="dropdown" id="dropdown-container2">
-                        <select id="order-by">
-                            <option value="date"> sort by date </option>
-                            <option value="orderNum"> sort by order number </option>
-                        </select>
-                    </div> --}}
-
                     <div class="dropdown" id="dropdown-container1">
                         <select id="sort-by">
-                            <option value="all"> All </option>
-                            <option value="accepted"> Accepted </option>
-                            <option value="rejected"> Rejected </option>
-                            <option value="pending"> Pending </option>
+                            <option value="all">ALL</option>
+                            <option value="PENDING">PENDING</option>
+                            <option value="ACCEPTED">ACCEPTED</option>
+                            <option value="REJECTED">REJECTED</option>
+                            <option value="CANCELLED">CANCELLED</option>
+                            <option value="IN PROGRESS">IN PROGRESS</option>
+                            <option value="ON THE WAY">ON THE WAY</option>
+                            <option value="COMPLETED">COMPLETED</option>
                         </select>
                     </div>
                 </div>
@@ -30,3 +26,37 @@
                     </div>
             {{/if}}            
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchBox = document.getElementById('search-box');
+                const sortBy = document.getElementById('sort-by');
+
+                function filterTickets() {
+                    const searchText = searchBox.value.toLowerCase();
+                    const selectedStatus = sortBy.value.toUpperCase(); // Assuming the option values are like 'PENDING', 'ACCEPTED', etc.
+
+                    const tickets = document.querySelectorAll('.ticket-outer-container');
+                    tickets.forEach(ticket => {
+                        // Find the .order-status div within this ticket and get its text content
+                        const ticketStatusText = ticket.querySelector('.hidden-status').textContent.trim().toUpperCase();
+                        const ticketText = ticket.textContent.toLowerCase();
+
+                        // Check if the ticket matches the search text
+                        const matchesSearch = ticketText.includes(searchText);
+
+                        // Check if the ticket's status matches the selected status (or if 'ALL' is selected)
+                        const matchesStatus = selectedStatus === 'ALL' || ticketStatusText === selectedStatus;
+
+                        if (matchesSearch && matchesStatus) {
+                            ticket.style.display = '';
+                        } else {
+                            ticket.style.display = 'none';
+                        }
+                    });
+                }
+
+                searchBox.addEventListener('input', filterTickets);
+                sortBy.addEventListener('change', filterTickets);
+            });
+        </script>

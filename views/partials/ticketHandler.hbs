@@ -80,7 +80,8 @@
             </div>
         </div>
     </form>
-  {{!-- {{#each tickets}} --}}
+
+{{#each tickets}}
     <div class="ticket-outer-container">
         <div class="ticket-inner-container">
             <div class="ticket-container1">
@@ -88,8 +89,9 @@
                     <div class="order-details">
                         <a href="/tickets/{{this.orderNum}}"><p id="order-number">Order No. {{this.orderNum}}</p></a>
                         <p id="creation-date">Created on: {{this.creationDate}}</p>
-                        <p id="ticket-handler">Ticket Handled by: {{this.handlerUsername}}</p>
+                        <p id="ticket-handler">Ticket handled by: {{this.handlerUsername}}</p>
                     </div>
+                    <div class="hidden-status" style="display: none;">{{this.orderStatus}}</div>
                 </div>
             </div>
           <div class="ticket-container2">
@@ -113,133 +115,133 @@
           </div>
         </div>
     </div>
-  {{!-- {{/each}} --}}
+  {{/each}}
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const searchBox = document.getElementById("search-box");
-        const sortBySelect = document.getElementById("sort-by-client");
-        const ticketContainer = document.querySelector(".ticket-outer-container");
+<!--<script>-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--        const searchBox = document.getElementById("search-box");-->
+<!--        const sortBySelect = document.getElementById("sort-by-client");-->
+<!--        const ticketContainer = document.querySelector(".ticket-outer-container");-->
 
-        let tickets = [
-            {{#each tickets}}
-                {
-                    orderNum: "{{this.orderNum}}",
-                    creationDate: "{{this.creationDate}}",
-                    handlerUsername: "{{this.handlerUsername}}",
-                    orderStatus: "{{this.orderStatus}}"
-                    //description: "{{this.description}}"
-                    //specs: "{{this.specs}}"
-                    //quantity: "{{this.quantity}}"
-                },
-            {{/each}}
-        ];
+<!--        let tickets = [-->
+<!--            {{#each tickets}}-->
+<!--                {-->
+<!--                    orderNum: "{{this.orderNum}}",-->
+<!--                    creationDate: "{{this.creationDate}}",-->
+<!--                    handlerUsername: "{{this.handlerUsername}}",-->
+<!--                    orderStatus: "{{this.orderStatus}}"-->
+<!--                    //description: "{{this.description}}"-->
+<!--                    //specs: "{{this.specs}}"-->
+<!--                    //quantity: "{{this.quantity}}"-->
+<!--                },-->
+<!--            {{/each}}-->
+<!--        ];-->
 
-        // Function to render tickets based on the provided array
-        function renderTickets(ticketsArray) {
-            ticketContainer.innerHTML = ""; // Clear existing list
+<!--        // Function to render tickets based on the provided array-->
+<!--        function renderTickets(ticketsArray) {-->
+<!--            ticketContainer.innerHTML = ""; // Clear existing list-->
 
-            ticketsArray.forEach(ticket => {
-                const ticketElement = document.createElement("div");
-                ticketElement.classList.add("ticket-outer-container");
-                ticketElement.innerHTML = `
-                <div class="ticket-inner-container">
-                    <div class="ticket-container1">
-                        <div class="order-container">
-                            <div class="order-details">
-                                <a href="/tickets/${ticket.orderNum}"><p id="order-number">Order No. ${ticket.orderNum}</p></a>
-                                <p id="creation-date">Created on: ${ticket.creationDate}</p>
-                                <p id="ticket-handler">Ticket Handled by: ${ticket.handlerUsername}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ticket-container2">
-                        <div class="status-container">
-                            <div class="order-status">
-                                <p>${ticket.orderStatus}</p>
-                            </div>
-                        </div>
-                        <div class="status-container">
-                            <div class="order-status">
-                                <button class="manageBtn" data-order-number="${ticket.orderNum}"
-                                        data-order-status="${ticket.orderStatus}"
-                                        data-handler="${ticket.handlerUsername}"
-                                        data-description="${ticket.description}"
-                                        data-specs="${ticket.specs}"
-                                        data-quantity="${ticket.quantity}">
-                                    MANAGE
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                `;
-                ticketContainer.appendChild(ticketElement);
-            });
+<!--            ticketsArray.forEach(ticket => {-->
+<!--                const ticketElement = document.createElement("div");-->
+<!--                ticketElement.classList.add("ticket-outer-container");-->
+<!--                ticketElement.innerHTML = `-->
+<!--                <div class="ticket-inner-container">-->
+<!--                    <div class="ticket-container1">-->
+<!--                        <div class="order-container">-->
+<!--                            <div class="order-details">-->
+<!--                                <a href="/tickets/${ticket.orderNum}"><p id="order-number">Order No. ${ticket.orderNum}</p></a>-->
+<!--                                <p id="creation-date">Created on: ${ticket.creationDate}</p>-->
+<!--                                <p id="ticket-handler">Ticket handled by: ${ticket.handlerUsername}</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="ticket-container2">-->
+<!--                        <div class="status-container">-->
+<!--                            <div class="order-status">-->
+<!--                                <p>${ticket.orderStatus}</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="status-container">-->
+<!--                            <div class="order-status">-->
+<!--                                <button class="manageBtn" data-order-number="${ticket.orderNum}"-->
+<!--                                        data-order-status="${ticket.orderStatus}"-->
+<!--                                        data-handler="${ticket.handlerUsername}"-->
+<!--                                        data-description="${ticket.description}"-->
+<!--                                        data-specs="${ticket.specs}"-->
+<!--                                        data-quantity="${ticket.quantity}">-->
+<!--                                    MANAGE-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                `;-->
+<!--                ticketContainer.appendChild(ticketElement);-->
+<!--            });-->
 
-            // Event listener for manage button after rendering
-            const manageBtns = document.querySelectorAll('.manageBtn');
-            manageBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const number = btn.getAttribute('data-order-number');
-                    const status = btn.getAttribute('data-order-status');
-                    const handler = btn.getAttribute('data-handler');
-                    const description = btn.getAttribute('data-description');
-                    const specs = btn.getAttribute('data-specs');
-                    const quantity = btn.getAttribute('data-quantity');
-                    $('#modalOrderNum').val(number);
-                    $('#modalOrderStatus').val(status);
-                    $('#modalHandlerUsername').val(handler);
-                    $('#modalDescription').val(description);
-                    $('#modalSpecs').val(specs);
-                    $('#modalQuantity').val(quantity);
-                    $('#ticketModal').show();
-                });
-                 $('.close, #cancelBtn').click(function() {
-            $('#ticketModal').hide();
-        });
-        $(window).click(function(event) {
-            if ($(event.target).is('#ticketModal')) {
-                $('#ticketModal').hide();
-            }
-        });
+<!--            // Event listener for manage button after rendering-->
+<!--            const manageBtns = document.querySelectorAll('.manageBtn');-->
+<!--            manageBtns.forEach(btn => {-->
+<!--                btn.addEventListener('click', function() {-->
+<!--                    const number = btn.getAttribute('data-order-number');-->
+<!--                    const status = btn.getAttribute('data-order-status');-->
+<!--                    const handler = btn.getAttribute('data-handler');-->
+<!--                    const description = btn.getAttribute('data-description');-->
+<!--                    const specs = btn.getAttribute('data-specs');-->
+<!--                    const quantity = btn.getAttribute('data-quantity');-->
+<!--                    $('#modalOrderNum').val(number);-->
+<!--                    $('#modalOrderStatus').val(status);-->
+<!--                    $('#modalHandlerUsername').val(handler);-->
+<!--                    $('#modalDescription').val(description);-->
+<!--                    $('#modalSpecs').val(specs);-->
+<!--                    $('#modalQuantity').val(quantity);-->
+<!--                    $('#ticketModal').show();-->
+<!--                });-->
+<!--                 $('.close, #cancelBtn').click(function() {-->
+<!--            $('#ticketModal').hide();-->
+<!--        });-->
+<!--        $(window).click(function(event) {-->
+<!--            if ($(event.target).is('#ticketModal')) {-->
+<!--                $('#ticketModal').hide();-->
+<!--            }-->
+<!--        });-->
 
-            });
-        }
+<!--            });-->
+<!--        }-->
 
-        // Initial rendering of tickets
-        renderTickets(tickets);
+<!--        // Initial rendering of tickets-->
+<!--        renderTickets(tickets);-->
 
-        // Event listener for search input
-        searchBox.addEventListener("input", function () {
-            const searchTerm = searchBox.value.trim().toLowerCase();
+<!--        // Event listener for search input-->
+<!--        searchBox.addEventListener("input", function () {-->
+<!--            const searchTerm = searchBox.value.trim().toLowerCase();-->
 
-            if (searchTerm === "") {
-                renderTickets(tickets); // If search input is empty, render all tickets
-                return;
-            }
+<!--            if (searchTerm === "") {-->
+<!--                renderTickets(tickets); // If search input is empty, render all tickets-->
+<!--                return;-->
+<!--            }-->
 
-            const filteredTickets = tickets.filter(ticket =>
-                ticket.orderNum.toString().includes(searchTerm) ||
-                ticket.creationDate.toLowerCase().includes(searchTerm) ||
-                ticket.handlerUsername.toLowerCase().includes(searchTerm) ||
-                ticket.orderStatus.toLowerCase().includes(searchTerm)
-            );
+<!--            const filteredTickets = tickets.filter(ticket =>-->
+<!--                ticket.orderNum.toString().includes(searchTerm) ||-->
+<!--                ticket.creationDate.toLowerCase().includes(searchTerm) ||-->
+<!--                ticket.handlerUsername.toLowerCase().includes(searchTerm) ||-->
+<!--                ticket.orderStatus.toLowerCase().includes(searchTerm)-->
+<!--            );-->
 
-            renderTickets(filteredTickets); // Render filtered tickets based on search term
-        });
+<!--            renderTickets(filteredTickets); // Render filtered tickets based on search term-->
+<!--        });-->
 
-        // Event listener for sorting by status
-         sortBySelect.addEventListener("change", function () {
-            const sortBy = sortBySelect.value;
+<!--        // Event listener for sorting by status-->
+<!--         sortBySelect.addEventListener("change", function () {-->
+<!--            const sortBy = sortBySelect.value;-->
 
-            if (sortBy === "all") {
-                renderTickets(tickets);
-            } else {
-                const sortedTickets = tickets.filter(ticket => ticket.orderStatus === sortBy);
-                renderTickets(sortedTickets);
-            }
-        });
-    });
-</script>
+<!--            if (sortBy === "all") {-->
+<!--                renderTickets(tickets);-->
+<!--            } else {-->
+<!--                const sortedTickets = tickets.filter(ticket => ticket.orderStatus === sortBy);-->
+<!--                renderTickets(sortedTickets);-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->

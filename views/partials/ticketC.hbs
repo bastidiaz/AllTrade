@@ -8,8 +8,9 @@
             <div class="order-details">
                 <a href="/tickets/{{this.orderNum}}"><p id="order-number">Order No. {{this.orderNum}}</p></a>
               <p id="creation-date">Created on: {{this.creationDate}}</p>
-              <p id="ticket-handler">Ticket Handled by: {{this.handlerUsername}}</p>
+              <p id="ticket-handler">Ticket handled by: {{this.handlerUsername}}</p>
             </div>
+              <div class="hidden-status" style="display: none;">{{this.orderStatus}}</div>
           </div>
         </div>
 
@@ -24,85 +25,3 @@
     </div>
   {{/each}}
 </div>
-
-<script>
-   document.addEventListener("DOMContentLoaded", function () {
-        const searchBox = document.getElementById("search-box-client");
-        const sortBySelect = document.getElementById("sort-by");
-        const ticketList = document.getElementById("ticket-list");
-
-        let tickets = [
-            {{#each tickets}}
-                    {
-                        orderNum: "{{this.orderNum}}",
-                        creationDate: "{{this.creationDate}}",
-                        handlerUsername: "{{this.handlerUsername}}",
-                        orderStatus: "{{this.orderStatus}}"
-                    },
-                {{/each}}
-
-        ];
-
-        function renderTickets(ticketsArray) {
-            ticketList.innerHTML = ""; // Clear existing list
-
-            ticketsArray.forEach(ticket => {
-                const ticketElement = document.createElement("div");
-                ticketElement.classList.add("ticket-outer-container");
-                ticketElement.innerHTML = `
-                    <div class="ticket-inner-container">
-                        <div class="ticket-container1">
-                            <div class="order-container">
-                                <div class="order-details">
-                                    <a href="/tickets/${ticket.orderNum}"><p id="order-number">Order No. ${ticket.orderNum}</p></a>
-                                    <p id="creation-date">Created on: ${ticket.creationDate}</p>
-                                    <p id="ticket-handler">Ticket Handled by: ${ticket.handlerUsername}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="ticket-container2">
-                            <div class="status-container">
-                                <div class="order-status">
-                                    <p>${ticket.orderStatus}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                ticketList.appendChild(ticketElement);
-            });
-        }
-
-        // Initial rendering of tickets
-        renderTickets(tickets);
-
-        searchBox.addEventListener("input", function () {
-            const searchTerm = searchBox.value.trim().toLowerCase();
-
-            if (searchTerm === "") {
-                renderTickets(tickets); // If search input is empty, render all tickets
-                return;
-            }
-
-            const filteredTickets = tickets.filter(ticket =>
-                ticket.orderNum.toString().includes(searchTerm) ||
-                ticket.creationDate.toLowerCase().toString().includes(searchTerm) ||
-                ticket.handlerUsername.toLowerCase().includes(searchTerm) ||
-                ticket.orderStatus.toLowerCase().includes(searchTerm)
-            );
-
-            renderTickets(filteredTickets); // Render filtered tickets based on search term
-        });
-
-         sortBySelect.addEventListener("change", function () {
-            const sortBy = sortBySelect.value;
-
-            if (sortBy === "all") {
-                renderTickets(tickets);
-            } else {
-                const sortedTickets = tickets.filter(ticket => ticket.orderStatus === sortBy);
-                renderTickets(sortedTickets);
-            }
-        });
-    });
-</script>

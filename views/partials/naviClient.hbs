@@ -1,43 +1,43 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="main-header">
-            <a class="navbar-brand" href="../"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
+    <a class="navbar-brand" href="../"> <img id="logo-img" src="/public/img/alltrade-logo.png"> </a>
 
-            <div class="user-info-container"> 
-                <div class="username-container">
-                    <div class="username">
-                        <p>{{this.username}}</p>
-                    </div>
-
-                    <div class="change-password-container">
-                        <a id="changePassLink" data-toggle="modal" data-target="#changePassModal">Change Password</a>
-                    </div>
-            
-                    <div class="logout-container">
-                        <a id="logout-btn" href="/logout"> Log Out </a>
-                    </div>
+    <div class="user-info-container">
+        <div class="username-container">
+            <div class="username">
+                <p>{{this.username}}</p>
             </div>
-        </nav>
 
-        <div id="changePassModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <p>Change Password</p>
-                <form id="changePassForm" action="/changePass" method="post">
-                 <label for="oldPassword">Old Password:</label>
-                 <div class="password-input"> 
-                    <input type="password" id="oldPassword" name="oldPassword" required>
-                    <input type="checkbox" id="showOldPass"> Show
-                 </div>
-                <label for="newPassword">New Password:</label>
-                <div class="password-input">
-                    <input type="password" id="newPassword" name="newPassword" required>
-                    <input type="checkbox" id="showNewPass"> Show
-                </div>
-                <button type="submit"  id="changeBtn">Change</button>
-                </form>
+            <div class="change-password-container">
+                <a id="changePassLink" data-toggle="modal" data-target="#changePassModal">Change Password</a>
+            </div>
+
+            <div class="logout-container">
+                <a id="logout-btn" href="/logout"> Log Out </a>
             </div>
         </div>
+</nav>
+
+<div id="changePassModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <p>Change Password</p>
+        <form id="changePassForm" action="/changePass" method="post">
+            <label for="oldPassword">Old Password:</label>
+            <div class="password-input">
+                <input type="password" id="oldPassword" name="oldPassword" required>
+                <input type="checkbox" id="showOldPass"> Show
+            </div>
+            <label for="newPassword">New Password:</label>
+            <div class="password-input">
+                <input type="password" id="newPassword" name="newPassword" required>
+                <input type="checkbox" id="showNewPass"> Show
+            </div>
+            <button type="submit"  id="changeBtn">Change</button>
+        </form>
+    </div>
+</div>
 </div>
 
 <script>

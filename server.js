@@ -9,7 +9,7 @@ const connectMongo = require('connect-mongo');
 // const uri = 'mongodb+srv://blabdue:iawynikd@blabdue.m4zqcqu.mongodb.net/?retryWrites=true&w=majority&appName=blabdue'
 const uri = 'mongodb+srv://franceeee09:_apdev2223@fairyfloss.lucgr7f.mongodb.net/?retryWrites=true&w=majority&appName=fairyfloss';
 
-const Ticket = require("./models/Ticket.js");
+const Ticket = require("./models/clientTickets.js");
 const User = require("./models/User.js");
 const Reply = require("./models/Reply.js");
 const Inquiry = require("./models/inquiryForm.js");
@@ -93,12 +93,9 @@ app.post("/register", registerControl.submitRegistration);
 app.get("/logout", loginControl.endSession);
 // tickets
 
-//app.post('/tickets/:username', /** ensureAuthenticated,**/ ticketControl.showTickets);
 app.get('/tickets', ticketControl.showTickets);
 app.post('/tickets/create', ticketControl.createTicket);
 app.post('/tickets/accept', ticketControl.acceptTicket);
-// app.post('/tickets/delete', ticketControl.deleteTicket);
-// app.post('/tickets/cancel', ticketControl.cancelTicket);
 
 // replies
 app.get('/tickets/:orderNum', (req, res) => {
@@ -125,6 +122,7 @@ app.post('/updateClient/:username', ensureAuthenticated, adminControl.updateClie
 app.post('/deleteClient/:username', ensureAuthenticated, adminControl.deleteClient);
 // app.get('/view-client/:username', ensureAuthenticated, adminControl.viewClient);
 app.post('/changePass', ensureAuthenticated, ticketControl.changePass);
+
 connect();
 
 app.listen(8000, () => {
