@@ -4,9 +4,11 @@
         <div id="ticketModal" class="modal" style="display:none;">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <p>Edit Ticket Details</p>
+                <h3>Edit Ticket Details</h3>
+
                 <input type="hidden" id="modalOrderNum" name="orderNum">
                 <label for="modalOrderStatus">Order Status:</label>
+
                 <select id="modalOrderStatus" name="orderStatus">
                     <option value="PENDING">PENDING</option>
                     <option value="ACCEPTED">ACCEPTED</option>
@@ -16,51 +18,58 @@
                     <option value="ON THE WAY">ON THE WAY</option>
                     <option value="COMPLETED">COMPLETED</option>
                 </select>
+                
                 <label for="modalHandlerUsername">Handler:</label>
                 <input type="text" id="modalHandlerUsername" name="handlerUsername" placeholder="Handler Username">
+                
                 <label for="modalDescription">Description:</label>
                 <textarea id="modalDescription" name="description" rows="4" cols="10"></textarea>
+                
                 <label for="modalSpecs">Specs:</label>
                 <textarea id="modalSpecs" name="specs" rows="4" cols="10"></textarea>
+                
                 <label for="modalQuantity">Quantity:</label>
                 <input type="number" id="modalQuantity" name="quantity" placeholder="Quantity">
+                
                 <button id="updateBtn" type="submit">Update</button>
+
                 <button id="cancelBtn" type="button">Cancel</button>
             </div>
         </div>
     </form>
+
   {{#each tickets}}
     <div class="ticket-outer-container">
-      {{!-- <div class="ticket-inner-container"> --}}
-          {{!-- <div class="ticket-container1">
-              <div class="order-container">
-                <div class="order-details">
-                    <a href="/tickets/{{this.orderNum}}"><p id="order-number">Order No. {{this.orderNum}}</p></a>
-                  <p id="creation-date">Created on: {{this.creationDate}}</p>
-                  <p id="ticket-handler">Ticket Handled by: {{this.handlerUsername}}</p>
+        <div class="ticket-inner-container">
+            <div class="ticket-container1">
+                <div class="order-container">
+                    <div class="order-details">
+                        <a href="/tickets/{{this.orderNum}}"><p id="order-number">Order No. {{this.orderNum}}</p></a>
+                        <p id="creation-date">Created on: {{this.creationDate}}</p>
+                        <p id="ticket-handler">Ticket Handled by: {{this.handlerUsername}}</p>
+                    </div>
                 </div>
-              </div>
-          </div>
+            </div>
           <div class="ticket-container2">
-              <div class="status-container">
-                  <div class="order-status">
-                      <p>{{this.orderStatus}}</p>
-                  </div>
-              </div>
-              <div class="status-container">
-                  <div class="order-status">
-                      <button class="manageBtn" data-order-number="{{this.orderNum}}"
-                                                data-order-status="{{this.orderStatus}}"
-                                                data-handler="{{this.handlerUsername}}"
-                                                data-description="{{this.description}}"
-                                                data-specs="{{this.specs}}"
-                                                data-quantity="{{this.quantity}}">
-                          MANAGE
-                      </button>
-                  </div>
-              </div>
-          </div> --}}
-      {{!-- </div> --}}
+                <div class="status-container">
+                    <div class="order-status">
+                        <p>{{this.orderStatus}}</p>
+                    </div>
+                </div>
+                <div class="status-container">
+                    <div class="order-status">
+                        <button class="manageBtn" data-order-number="{{this.orderNum}}"
+                                                    data-order-status="{{this.orderStatus}}"
+                                                    data-handler="{{this.handlerUsername}}"
+                                                    data-description="{{this.description}}"
+                                                    data-specs="{{this.specs}}"
+                                                    data-quantity="{{this.quantity}}">
+                        MANAGE
+                        </button>
+                    </div>
+                </div>
+          </div>
+        </div>
     </div>
   {{/each}}
 </div>

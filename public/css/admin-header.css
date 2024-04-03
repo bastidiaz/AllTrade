@@ -15,10 +15,6 @@ body{
 }
 
 /* Search Box */
-.search-box-container {
-    width: 100%;
-}
-
 #search-box {
     margin-top: 2rem;
     margin-right: 1rem;

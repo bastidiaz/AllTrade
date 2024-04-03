@@ -3,26 +3,6 @@
 <title> AllTrade Manufacturing - Client Ticket </title>
 {{> naviclient}}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ticketing System Dashboard</title>
-    <!-- Link to your CSS file -->
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-<header>
-    <!-- User's name and logout button -->
-    <div class="brand">
-        [LOGO HERE]
-    </div>
-    <div class="user-info">
-        <span id="user-name">Hi, {{this.username}}!</span>
-        <a href="/logout"><button id="logout-btn">Logout</button></a>
-    </div>
-</header>
 <main>
     <!-- Search bar, sort by option, and create new ticket button -->
     <div class="dashboard-controls">
@@ -33,6 +13,7 @@
         </select>
         <button id="create-ticket-btn" onclick="openForm()">Create New Ticket</button>
     </div>
+
     <div class="ticketPopup">
         <div class="formPopup" id="popupForm">
             <h2>Create New Ticket</h2>
@@ -101,5 +82,3 @@
         document.getElementById("popupForm").style.display = "none";
     }
 </script>
-</body>
-</html>
