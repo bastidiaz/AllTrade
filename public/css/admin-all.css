@@ -233,3 +233,114 @@ body{
 }
 
 /* Manage Modal */
+.modal-manage-header {
+    display: flex;
+}
+
+.edit-ticket-title {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    width: 100%;
+    margin-left: 1rem;
+    padding-top: 0.5rem;
+}
+
+.close-ticket-details {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    margin-right: 2rem;
+}
+
+.order-status-modal-container {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: left;
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+#modalOrderStatus {
+    margin-left: 1rem;
+}
+
+#order-status-title-modal {
+    margin-top: 0.5rem;
+}
+
+.handler-modal-container {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+}
+
+#handler-label-id,
+#description-label-id {
+    font-family: "Montserrat", sans-serif;
+}
+
+.modalHandlerUsername-container1,
+.modalDescription-container1,
+.modalSpecs-container1,
+.modalQuantity-container1 {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.modalHandlerUsername-container2 input[type=text] {
+    width: 80rem;
+    height: 2.5rem;
+    margin-left: 2rem;
+}
+
+.modalDescription-container2 textarea,
+.modalSpecs-container2 textarea {
+    width: 80rem;
+    height: 5rem;
+    margin-left: 2rem;
+}
+
+.modalQuantity-container2 input {
+    margin-left: 2rem;
+}
+
+.manage-modal-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+#updateBtn {
+    margin-right: 2rem;
+
+    background-color: #4367c0;
+    border: 2px solid #4367c0;
+    box-shadow: 0 0 2px gray;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#updateBtn:hover {
+    background-color: #879fdd;
+    border: 2px solid #879fdd;
+    box-shadow: 0 0 2px gray;
+}
+
+#cancelBtn {
+    margin-right: 2rem;
+    background-color: #6c717c;
+    border: 2px solid #6c717c;
+    box-shadow: 0 0 2px gray;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cancelBtn:hover {
+    background-color: #0d1f4b;
+    border: 2px solid #0d1f4b;
+    box-shadow: 0 0 2px gray;
+}

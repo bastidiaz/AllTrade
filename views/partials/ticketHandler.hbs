@@ -1,39 +1,82 @@
 <!-- Ticket container -->
 <div id="ticket-list">
     <form id="ticket-form" method="post" action="/tickets-handled/update">
-        <div id="ticketModal" class="modal" style="display:none;">
+        <div id="ticketModal" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3>Edit Ticket Details</h3>
+                <div class="modal-manage-header">
+                    <div class="edit-ticket-title">
+                        <h4> EDIT TICKET DETAILS </h4>
+                    </div>
 
-                <input type="hidden" id="modalOrderNum" name="orderNum">
-                <label for="modalOrderStatus">Order Status:</label>
+                    <div class="close-ticket-details">
+                        <span class="close">&times;</span>
+                    </div>
+                </div>
 
-                <select id="modalOrderStatus" name="orderStatus">
-                    <option value="PENDING">PENDING</option>
-                    <option value="ACCEPTED">ACCEPTED</option>
-                    <option value="REJECTED">REJECTED</option>
-                    <option value="CANCELLED">CANCELLED</option>
-                    <option value="IN PROGRESS">IN PROGRESS</option>
-                    <option value="ON THE WAY">ON THE WAY</option>
-                    <option value="COMPLETED">COMPLETED</option>
-                </select>
-                
-                <label for="modalHandlerUsername">Handler:</label>
-                <input type="text" id="modalHandlerUsername" name="handlerUsername" placeholder="Handler Username">
-                
-                <label for="modalDescription">Description:</label>
-                <textarea id="modalDescription" name="description" rows="4" cols="10"></textarea>
-                
-                <label for="modalSpecs">Specs:</label>
-                <textarea id="modalSpecs" name="specs" rows="4" cols="10"></textarea>
-                
-                <label for="modalQuantity">Quantity:</label>
-                <input type="number" id="modalQuantity" name="quantity" placeholder="Quantity">
-                
-                <button id="updateBtn" type="submit">Update</button>
+                <div class="order-status-modal-container">
+                    <input type="hidden" id="modalOrderNum" name="orderNum">
+                    <label for="modalOrderStatus" id="order-status-title-modal"> Order Status:</label>
 
-                <button id="cancelBtn" type="button">Cancel</button>
+                    <select id="modalOrderStatus" name="orderStatus">
+                        <option value="PENDING">PENDING</option>
+                        <option value="ACCEPTED">ACCEPTED</option>
+                        <option value="REJECTED">REJECTED</option>
+                        <option value="CANCELLED">CANCELLED</option>
+                        <option value="IN PROGRESS">IN PROGRESS</option>
+                        <option value="ON THE WAY">ON THE WAY</option>
+                        <option value="COMPLETED">COMPLETED</option>
+                    </select>
+                </div>
+
+                <div class="handler-modal-container">
+                    <div class="modalHandlerUsername-container1">
+                        <label for="modalHandlerUsername" id="handler-label-id">Handler:</label>
+                    </div>
+
+                    <div class="modalHandlerUsername-container2">
+                        <input type="text" id="modalHandlerUsername" name="handlerUsername" placeholder="Handler Username">
+                    </div>
+                </div>
+
+                <div class="description-modal-container">
+                    <div class="modalDescription-container1">
+                        <label for="modalDescription" id="description-label-id">Description:</label>
+                    </div>
+                    
+                    <div class="modalDescription-container2">
+                        <textarea id="modalDescription" name="description" rows="4" cols="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="specs-modal-container">
+                    <div class="modalSpecs-container1">
+                        <label for="modalSpecs">Specs:</label>
+                    </div>
+
+                    <div class="modalSpecs-container2">
+                        <textarea id="modalSpecs" name="specs" rows="4" cols="10"></textarea>
+                    </div>
+                </div>
+
+                <div class="quantity-modal-container">
+                    <div class="modalQuantity-container1">
+                        <label for="modalQuantity">Quantity:</label>        
+                    </div>
+
+                    <div class="modalQuantity-container2">
+                        <input type="number" id="modalQuantity" name="quantity" placeholder="Quantity">
+                    </div>
+                </div>
+                
+                <div class="manage-modal-buttons-container">
+                    <div class="update-manage-btn">
+                        <button id="updateBtn" type="submit">Update</button>
+                    </div>
+
+                    <div class="cancel-manage-btn">
+                        <button id="cancelBtn" type="button">Cancel</button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
