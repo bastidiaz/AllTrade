@@ -246,9 +246,8 @@ const ticketControl = {
                 // Update the user's password in the database
                 await User.findOneAndUpdate(client, { password: hashedNewPass });
 
-                // res.status(200).json({ message: 'Password updated successfully' });
                 // return res.redirect('/tickets');
-                return res.redirect('/tickets?errorMessage=Password updated successfully');
+                return res.redirect('/tickets?message=Password updated successfully');
             } else {
                 //res.status(400).json({ error: 'Old password is incorrect' });
                 return res.redirect('/tickets?errorMessage=Old password is incorrect');

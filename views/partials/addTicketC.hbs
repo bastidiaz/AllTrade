@@ -30,6 +30,12 @@
                     </div>
             {{/if}}
 
+            {{#if message}}
+                <div class="alert alert-success" role="alert">
+                    {{message}}
+                </div>
+            {{/if}}
+
 
             <!-- Ticket Modal Form -->
             <div id="ticketModal" class="modal" tabindex="-1" role="dialog">
@@ -91,5 +97,19 @@
 
                     searchBox.addEventListener('input', filterTickets);
                     sortBy.addEventListener('change', filterTickets);
+
+                    const errorMessage = document.querySelector('.alert-danger');
+                    setTimeout(function() {
+                        if (errorMessage) {
+                            errorMessage.style.display = 'none';
+                        }
+                    }, 5000); //5sec
+
+                    const message = document.querySelector('.alert-danger');
+                    setTimeout(function() {
+                        if (message) {
+                            message.style.display = 'none';
+                        }
+                    }, 5000); //5sec
                 });
         </script>
